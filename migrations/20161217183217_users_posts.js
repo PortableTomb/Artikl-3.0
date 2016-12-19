@@ -8,6 +8,7 @@ exports.up = function(knex, Promise) {
      .inTable('users')
      .onDelete('CASCADE')
      .index();
+   table.integer('topic_id');
    table.string('post_title').notNullable().defaultTo('');
    table.string('post_content').notNullable().defaultTo('');
    table.timestamps(true, true);
