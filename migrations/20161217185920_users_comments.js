@@ -8,10 +8,9 @@ exports.up = function(knex, Promise) {
      .inTable('users')
      .onDelete('CASCADE')
      .index();
-   table.integer('post_id')
+   table.integer('id')
      .notNullable()
-     .references('id')
-     .inTable('users_comments')
+     .references('user_posts')
      .onDelete('CASCADE')
      .index();
    table.string('comment_content').notNullable().defaultTo('');
@@ -22,3 +21,19 @@ exports.up = function(knex, Promise) {
 exports.down = function(knex, Promise) {
   return knex.schema.dropTable('users_comments');
 };
+
+// table.increments();
+// table.integer('user_id')
+//   .notNullable()
+//   .references('id')
+//   .inTable('users')
+//   .onDelete('CASCADE')
+//   .index();
+// table.integer('post_id')
+//   .notNullable()
+//   .references('id')
+//   .inTable('users_comments')
+//   .onDelete('CASCADE')
+//   .index();
+// table.string('comment_content').notNullable().defaultTo('');
+// table.timestamps(true, true);

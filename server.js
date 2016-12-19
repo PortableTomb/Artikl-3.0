@@ -1,13 +1,17 @@
 'use strict';
 
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
 const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
-
 const port = process.env.PORT || 8000;
 const app = express();
 
 app.disable('x-powered-by');
+app.use(morgan('dev'));
+app.use(bodyParser.json());
+app.use(cookieParser());
 
 switch (app.get('env')) {
   case 'development':
@@ -20,6 +24,12 @@ switch (app.get('env')) {
 
   default:
 }
+
+const posts = require('./routes/posts');
+const comments = require('./routes/comments');
+app.use(posts);
+app.use(comments);
+
 
 // Expose public directory to client
 app.use(express.static(path.join(__dirname, 'public')));
