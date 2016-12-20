@@ -6,6 +6,16 @@ const { decamelizeKeys } = require('humps');
 // eslint-disable-next-line new-cap
 const router = express.Router();
 
+const authorize = function(req, res, next) {
+  jwt.verify(req.cookies.token, process.env.JWT_SECRET, (err, decoded) => {
+    if (err) {
+      return next(boom.create(401, 'Unauthorized'));
+    }
+
+    req.token = decoded;
+    next();
+  });
+};
 
 router.get('/posts', (_req, res, next) => {
   knex('users_posts')
@@ -29,6 +39,23 @@ router.get('/posts/:id', (req, res, next) => {
       const posts = camelizeKeys(rows);
 
       res.send(posts);
+    })
+    .catch((err) => {
+      next(err);
+    });
+});
+
+router.get('/posts/:id/comments', (req, res, next) => {
+  const Id = req.params.id;
+
+  knex('users_posts')
+    .where('users_posts.id', Id)
+    .innerJoin('users_comments', 'users_posts.id', 'users_comments.post_id')
+    .select('users_comments.comment_content')
+    .then((rows) => {
+      const post_comments = camelizeKeys(rows);
+
+      res.send(post_comments);
     })
     .catch((err) => {
       next(err);

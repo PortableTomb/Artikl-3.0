@@ -9,6 +9,17 @@ const validations = require('../validations/users');
 
 const router = express.Router();
 
+const authorize = function(req, res, next) {
+  jwt.verify(req.cookies.token, process.env.JWT_SECRET, (err, decoded) => {
+    if (err) {
+      return next(boom.create(401, 'Unauthorized'));
+    }
+
+    req.token = decoded;
+    next();
+  });
+};
+
 router.post('/users', (req, res, next) => {
   const { username, email, hashed_password } = req.body;
 

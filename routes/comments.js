@@ -4,8 +4,19 @@ const knex = require('../knex');
 const { camelizeKeys } = require('humps');
 const { decamelizeKeys } = require('humps');
 
-// eslint-disable-next-line new-cap
 const router = express.Router();
+
+const authorize = function(req, res, next) {
+  jwt.verify(req.cookies.token, process.env.JWT_SECRET, (err, decoded) => {
+    if (err) {
+      return next(boom.create(401, 'Unauthorized'));
+    }
+
+    req.token = decoded;
+    next();
+  });
+};
+
 
 
 router.get('/comments', (_req, res, next) => {
@@ -52,14 +63,12 @@ router.delete('/comments/:id', (req, res, next) => {
       }
 
       comment = camelizeKeys(row);
-
       return knex('users_comments')
         .del()
         .where('id', req.params.id);
     })
     .then(() => {
       delete comment.id;
-
       res.send(comment);
     })
     .catch((err) => {
