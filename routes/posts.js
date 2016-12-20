@@ -37,7 +37,7 @@ router.get('/posts/:id', (req, res, next) => {
 
 
 router.post('/posts', function(req, res, next){
-  const { user_id, topic_id, post_title, post_content  } = req.body;
+  const { user_id, topic_id, post_title, post_content } = req.body;
   const insertPost = { user_id, topic_id, post_title, post_content };
     knex('users_posts')
 
