@@ -55,4 +55,32 @@ router.post('/posts', function(req, res, next){
 
 });
 
+
+router.delete('/posts/:id', (req, res, next) => {
+  let post;
+
+  knex('users_posts')
+  .where('id', req.params.id)
+    .first()
+    .then((row) => {
+      if (!row) {
+        throw boom.create(404, 'Not Found');
+      }
+
+      post = camelizeKeys(row);
+
+      return knex('users_posts')
+        .del()
+        .where('id', req.params.id);
+    })
+    .then(() => {
+      delete post.id;
+
+      res.send(post);
+    })
+    .catch((err) => {
+      next(err);
+    });
+});
+
 module.exports = router;
