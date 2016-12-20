@@ -5,12 +5,12 @@ const knex = require('../knex');
 const { camelizeKeys, decamelizeKeys } = require('humps');
 const ev = require('express-validation');
 const jwt = require('jsonwebtoken');
-const validations = require('../validations/users');
+// const validations = require('../validations/users');
 
 const router = express.Router();
 
 router.post('/users', (req, res, next) => {
-  const { username, email, password } = req.body;
+  const { username, email, hashed_password } = req.body;
 
   knex('users')
     .where('email', email)
@@ -20,7 +20,7 @@ router.post('/users', (req, res, next) => {
       }
     });
 
-  bcrypt.hash(password, 12)
+  bcrypt.hash(hashed_password, 12)
     .then((hashedPassword) => {
       const insertUser = { username, email, hashedPassword };
 

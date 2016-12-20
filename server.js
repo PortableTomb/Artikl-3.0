@@ -27,8 +27,10 @@ switch (app.get('env')) {
 
 const posts = require('./routes/posts');
 const comments = require('./routes/comments');
+const users = require('./routes/users');
 app.use(posts);
 app.use(comments);
+app.use(users);
 
 
 // Expose public directory to client
