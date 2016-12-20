@@ -1,3 +1,4 @@
+const boom = require('boom');
 const express = require('express');
 const knex = require('../knex');
 const { camelizeKeys } = require('humps');
@@ -38,5 +39,33 @@ router.post('/comments', function(req, res, next){
     });
 
 });
+
+router.delete('/comments/:id', (req, res, next) => {
+  let post;
+
+  knex('users_comments')
+  .where('id', req.params.id)
+    .first()
+    .then((row) => {
+      if (!row) {
+        throw boom.create(404, 'Not Found');
+      }
+
+      comment = camelizeKeys(row);
+
+      return knex('users_comments')
+        .del()
+        .where('id', req.params.id);
+    })
+    .then(() => {
+      delete comment.id;
+
+      res.send(comment);
+    })
+    .catch((err) => {
+      next(err);
+    });
+});
+
 
 module.exports = router;
