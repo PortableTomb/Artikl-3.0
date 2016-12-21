@@ -20,8 +20,29 @@ const authorize = function(req, res, next) {
   });
 };
 
-router.post('/users', (req, res, next) => {
-  const { username, email, hashed_password } = req.body;
+router.post('/username', authorize, (req, res, next) => {
+  const { userId } = req.token;
+  const username = req.body.username.searchText;
+
+  knex('users')
+    .where({username: username})
+    .then((row) => {
+
+      const camelRow = camelizeKeys(row[0]);
+      const user = {
+        username: camelRow.username,
+        userId: camelRow.id
+      }
+
+      res.send(user);
+    })
+    .catch((err) => {
+      next(err);
+    });
+});
+
+router.post('/users', ev(validations.post), (req, res, next) => {
+  const { username, email, password } = req.body;
 
   knex('users')
     .where('email', email)
@@ -31,7 +52,7 @@ router.post('/users', (req, res, next) => {
       }
     });
 
-  bcrypt.hash(hashed_password, 12)
+  bcrypt.hash(password, 12)
     .then((hashedPassword) => {
       const insertUser = { username, email, hashedPassword };
 

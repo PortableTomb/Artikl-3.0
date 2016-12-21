@@ -3,7 +3,7 @@ const express = require('express');
 const knex = require('../knex');
 const { camelizeKeys } = require('humps');
 const { decamelizeKeys } = require('humps');
-
+const jwt = require('jsonwebtoken');
 const router = express.Router();
 
 const authorize = function(req, res, next) {
@@ -19,7 +19,7 @@ const authorize = function(req, res, next) {
 
 
 
-router.get('/comments', (_req, res, next) => {
+router.get('/comments', authorize, (_req, res, next) => {
   knex('users_comments')
     .orderBy('id')
     .then((rows) => {
@@ -32,7 +32,7 @@ router.get('/comments', (_req, res, next) => {
     });
 });
 
-router.post('/comments', function(req, res, next){
+router.post('/comments', authorize, (req, res, next) => {
   const { user_id, post_id, comment_content  } = req.body;
   const insertComment = { user_id, post_id, comment_content };
     knex('users_comments')
@@ -51,7 +51,7 @@ router.post('/comments', function(req, res, next){
 
 });
 
-router.delete('/comments/:id', (req, res, next) => {
+router.delete('/comments/:id', authorize, (req, res, next) => {
   let post;
 
   knex('users_comments')

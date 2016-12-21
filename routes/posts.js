@@ -1,8 +1,9 @@
 const express = require('express');
+const boom = require('boom');
 const knex = require('../knex');
 const { camelizeKeys } = require('humps');
 const { decamelizeKeys } = require('humps');
-
+const jwt = require('jsonwebtoken');
 // eslint-disable-next-line new-cap
 const router = express.Router();
 
@@ -17,7 +18,7 @@ const authorize = function(req, res, next) {
   });
 };
 
-router.get('/posts', (_req, res, next) => {
+router.get('/posts', authorize, (_req, res, next) => {
   knex('users_posts')
     .orderBy('id')
     .then((rows) => {
@@ -30,7 +31,7 @@ router.get('/posts', (_req, res, next) => {
     });
 });
 
-router.get('/posts/:id', (req, res, next) => {
+router.get('/posts/:id', authorize, (req, res, next) => {
   const Id = req.params.id;
 
   knex('users_posts')
@@ -45,7 +46,7 @@ router.get('/posts/:id', (req, res, next) => {
     });
 });
 
-router.get('/posts/:id/comments', (req, res, next) => {
+router.get('/posts/:id/comments', authorize, (req, res, next) => {
   const Id = req.params.id;
 
   knex('users_posts')
@@ -63,7 +64,7 @@ router.get('/posts/:id/comments', (req, res, next) => {
 });
 
 
-router.post('/posts', function(req, res, next){
+router.post('/posts', authorize, (req, res, next) => {
   const { user_id, topic_id, post_title, post_content } = req.body;
   const insertPost = { user_id, topic_id, post_title, post_content };
     knex('users_posts')
@@ -83,7 +84,7 @@ router.post('/posts', function(req, res, next){
 });
 
 
-router.delete('/posts/:id', (req, res, next) => {
+router.delete('/posts/:id', authorize, (req, res, next) => {
   let post;
 
   knex('users_posts')

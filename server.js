@@ -1,5 +1,9 @@
 'use strict';
 
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
+
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const express = require('express');
@@ -45,7 +49,7 @@ app.use((_req, res) => {
 });
 
 app.listen(port, () => {
-  console.log('Listening on port', port); 
+  console.log('Listening on port', port);
 });
 
 module.exports = app;

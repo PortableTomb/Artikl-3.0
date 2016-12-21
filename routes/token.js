@@ -20,22 +20,21 @@ router.post('/token', ev(validations.post), (req, res, next) => {
     .first()
     .then((row) => {
       if (!row) {
-        return boom.create(400, 'Bad email or password');
+        throw boom.create(400, 'Bad email or password');
       }
 
       user = camelizeKeys(row);
-
+      console.log(user);
       return bcrypt.compare(password, user.hashedPassword);
     })
     .then(() => {
+      console.log(user);
       delete user.hashedPassword;
 
       const expiry = new Date(Date.now() + 1000 * 60 * 60 * 24 * 14);
-      const token = jwt.sign(
-        { userId: user.id },
-        process.env.JWT_SECRET,
-        { expiresIn: '14 days' },
-        { email: email });
+      const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET, {
+       expiresIn: '3h'
+     });
 
       res.cookie('token', token, {
         httpOnly: true,
@@ -43,10 +42,11 @@ router.post('/token', ev(validations.post), (req, res, next) => {
         secure: router.get('env') === 'production'
       });
 
+
       res.send(user);
     })
     .catch(bcrypt.MISMATCH_ERROR, () => {
-      return boom.create(400, 'Bad email or password');
+      throw boom.create(400, 'Bad email or password');
     })
     .catch((err) => {
       next(err);
