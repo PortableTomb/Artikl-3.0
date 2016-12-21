@@ -31,10 +31,12 @@ switch (app.get('env')) {
 
 const users = require('./routes/users');
 const posts = require('./routes/posts');
+const follows = require('./routes/follows');
 const comments = require('./routes/comments');
 const token = require('./routes/token');
 app.use(users);
 app.use(posts);
+app.use(follows);
 app.use(comments);
 app.use(token);
 
