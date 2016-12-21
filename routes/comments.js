@@ -18,7 +18,6 @@ const authorize = function(req, res, next) {
 };
 
 
-
 router.get('/comments', authorize, (_req, res, next) => {
   knex('users_comments')
     .orderBy('id')
