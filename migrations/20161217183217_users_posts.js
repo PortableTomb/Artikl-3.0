@@ -9,8 +9,10 @@ exports.up = function(knex, Promise) {
      .onDelete('CASCADE')
      .index();
    table.integer('topic_id');
-   table.string('post_title').notNullable().defaultTo('');
-   table.string('post_content').notNullable().defaultTo('');
+   table.string('post_title').defaultTo('');
+   table.string('post_url').defaultTo('');
+   table.string('post_image').defaultTo('');
+   table.string('post_text').defaultTo('');
    table.timestamps(true, true);
  });
 };
