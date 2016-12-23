@@ -12,11 +12,77 @@
 </head>
 
 <body>
+    <!-- <a ui-sref="auth">LOGIN</a> -->
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="nav-wrapper grey darken-4">
+            <a href="#" class="brand-logo center">Designeddit</a>
+            <a href="#" class="button-collapse" data-activates="nav-mobile" data-sidenav="left" data-menuwith="300px" data-closeonclick="false"><i class="material-icons md-24">menu</i></a>
+            <ul class="left hide-on-med-and-down">
+                <li><a class="dropdown-button" data-activates="dropdown1" href="#!">Login<i class="material-icons right">arrow_drop_down</i></a></li>
+                <ul id="dropdown1" class="dropdown-content">
+                    <li><a class="modal-trigger" href="#modal1" modal>LOGIN</a></li>
+                    <li><a class="modal-trigger" href="#modal2" modal>SIGN-UP</a></li>
+                </ul>
+                <li><a class="modal-trigger" href="#new-post-modal" modal>New Post</a></li>
+            </ul>
+            <!-- Mobile Nav -->
+            <ul class="side-nav" id="nav-mobile">
+                <li><a ui-sref="create-post"><i class="material-icons md-24">add</i>New Post</a></li>
+                <ul id="dropdown2" class="dropdown-content">
+                    <li><a class="modal-trigger" href="#modal1" modal>LOGIN</a></li>
+                    <li><a class="modal-trigger" href="#modal2" modal>SIGN-UP</a></li>
+                </ul>
+                <li><a class="dropdown-button" data-activates="dropdown2" href="#!">Designeddit<i class="material-icons right">arrow_drop_down</i></a></li>
+            </ul>
+            <!-- Nav Cart -->
+            <ul class="right" ng-controller="AuthCtrl as authCtrl">
+                <li><a class="active" ui-sref="index" ng-show="authCtrl.isSignedIn()" ng-click="authCtrl.signOut()">Logout</a></li>
+                <li><a class="active" ui-sref="orders" ng-show="authCtrl.isSignedIn()">Order</a></li>
+                <button class="blue-grey darken-4 button-collapse btn" data-activates="sidebar" data-sidenav="right" data-menuwidth="350" data-closeonclick="true"><i class="material-icons md-24">shopping_cart</i></button>
+            </ul>
+        </div>
+    </nav>
+    <!-- End Navigation -->
 
-    <main ui-view>
-        <div ng-controller="PostCtrl as postCtrl">
-            <div ng-repeat="post in postCtrl.getAllPosts()">
-                <div class="allPosts">
+    <!-- Modal Structure -->
+    <div id="new-post-modal" class="modal top-sheet">
+        <div class="modal-content">
+            <h4>Modal Header</h4>
+            <p>A bunch of text</p>
+        </div>
+        <div class="modal-footer">
+            <a class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+        </div>
+    </div>
+
+    <!-- POSTS -->
+    <main ui-view class="all-post-feed">
+        <section class="container">
+            <div ng-controller="PostCtrl as postCtrl">
+                <div ng-repeat="post in postCtrl.getAllPosts()">
+                    <div class="row">
+                        <div class="col s12 m12">
+                            <h6 class="header">{{post.postTitle}}</h6>
+                            <div class="card horizontal">
+                                <div class="card-image">
+                                    <div class="allPosts postimage">
+                                        <img ng-src="{{post.postUrl}}">
+                                    </div>
+                                </div>
+                                <div class="card-stacked">
+                                    <div class="card-content">
+                                        <p>{{post.postText}}</p>
+                                    </div>
+                                    <div class="card-action">
+                                        <a href="#">Comments</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- <div class="allPosts">
                     {{post.postTitle}}
                 </div>
                 <div class="allPosts postimage">
@@ -24,11 +90,17 @@
                 </div>
                 <div class="allPosts">
                     {{post.postText}}
+                </div> -->
                 </div>
+
+
+
+
+
             </div>
-        </div>
+        </section>
     </main>
-    <a ui-sref="auth">LOGIN</a>
+
 
 
 

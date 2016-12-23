@@ -1,0 +1,12 @@
+<div class="container" ng-controller="PostCtrl as postCtrl">
+    <div ng-repeat="post in postCtrl.getSinglePost()">
+        <div class="allPosts">{{post.postTitle}} hgjfkjglkhljk;ljkhuythgc
+        </div>
+        <div class="allPosts postimage">
+            <img ng-src="{{post.postUrl}}">
+        </div>
+        <div class="allPosts">
+            {{post.postText}}
+        </div>
+    </div>
+</div>

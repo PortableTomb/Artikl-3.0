@@ -1,25 +1,55 @@
+
 class PostService {
+
   constructor($http, $state) {
-    this.posts =[];
-    this.$http = $http;
+    // singlepost
+    this.post = [];
+
+    // allposts
+    this.posts = [];
+
+    // this.$http = $http;
+    this.allposts = $http;
+    this.singlepost = $http;
     this.$state = $state;
     this.signedIn = false;
 
-    this.$http.get('/posts')
+    this.allposts.get('/posts')
       .then((res) => {
         this.posts = res.data;
-        console.log(this.posts);
-
       })
-      .catch(() => {
-        throw new Error('Could not retrieve posts.');
+      .catch((err) => {
+        return err;
+      });
+
+    // function getSinglePost(id) {
+    // this.singlepost.get('/posts/:'+ id)
+    //
+    //   .then((res) => {
+    //     this.post = res.data;
+    //   })
+    //   .catch((err) => {
+    //     return err;
+    //   });
+    // }
+    
+    this.singlepost.get('/posts/1')
+      .then((res) => {
+        this.post = res.data;
+      })
+      .catch((err) => {
+        return err;
       });
   }
 
+  getSinglePost() {
+    return this.post;
+  }
+
   getAllPosts() {
-    console.log('tiny ass step');
     return this.posts;
   }
+
 }
 
 PostService.$inject = ['$http', '$state'];

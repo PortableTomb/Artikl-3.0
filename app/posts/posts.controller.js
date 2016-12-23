@@ -4,7 +4,7 @@ class PostCtrl {
   }
 
   getSinglePost() {
-    return this.postService;
+    return this.postService.getSinglePost();
   }
 
   getAllPosts() {

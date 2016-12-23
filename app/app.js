@@ -19,11 +19,17 @@ angular.module('my-app', [angularMaterialize, uiRouter])
 .service('authService', AuthService)
 .service('PostService', PostService)
 .config(['$stateProvider', ($stateProvider) => {
-    $stateProvider
+  $stateProvider
       .state('auth', {
         url: '/auth',
         templateUrl: 'views/auth.html',
         controller: 'AuthCtrl',
         controllerAs: 'authCtrl'
+      })
+      .state('singlepost', {
+        url: '/singlepost',
+        templateUrl: 'views/singlepost.html',
+        controller: 'PostCtrl',
+        controllerAs: 'postCtrl'
       });
-  }]);
+}]);

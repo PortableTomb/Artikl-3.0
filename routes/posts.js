@@ -34,7 +34,7 @@ router.get('/posts', authorize, (_req, res, next) => {
 });
 
 router.get('/posts/:id', authorize, (req, res, next) => {
-  const Id = req.params.id;
+  const Id = Number(req.params.id);
 
   knex('users_posts')
     .where('id', Id)
