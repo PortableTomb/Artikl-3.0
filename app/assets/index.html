@@ -5,15 +5,38 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Designeddit</title>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+    <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="/vendor.css">
     <link rel="stylesheet" href="/app.css">
 </head>
 
 <body>
-    <h1>Designeddit</h1>
 
-    <script src="/vendor.js"></script>
-    <script src="/app.js"></script>
+    <main ui-view>
+        <div ng-controller="PostCtrl as postCtrl">
+            <div ng-repeat="post in postCtrl.getAllPosts()">
+                <div class="allPosts">
+                    {{post.postTitle}}
+                </div>
+                <div class="allPosts postimage">
+                    <img ng-src="{{post.postUrl}}">
+                </div>
+                <div class="allPosts">
+                    {{post.postText}}
+                </div>
+            </div>
+        </div>
+    </main>
+    <a ui-sref="auth">LOGIN</a>
+
+
+
+    <!-- SCRIPTS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.js "></script>
+    <script src="/vendor.js "></script>
+    <script src="/app.js "></script>
     <script>
         require('app');
     </script>

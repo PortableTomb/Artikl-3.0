@@ -67,8 +67,8 @@ router.get('/posts/:id/comments', authorize, (req, res, next) => {
 
 
 router.post('/posts', authorize, (req, res, next) => {
-  const { user_id, topic_id, post_title, post_content } = req.body;
-  const insertPost = { user_id, topic_id, post_title, post_content };
+  const { user_id, topic_id, post_title, post_url, post_image, post_text} = req.body;
+  const insertPost = { user_id, topic_id, post_title, post_url, post_image, post_text};
     knex('users_posts')
 
     .insert(decamelizeKeys(insertPost), '*')

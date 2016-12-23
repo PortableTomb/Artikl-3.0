@@ -4,7 +4,7 @@ class AuthService {
     this.$state = $state;
     this.signedIn = false;
 
-    this.$http.get('/api/token')
+    this.$http.get('/token')
       .then((res) => {
         this.signedIn = res.data;
       })
@@ -18,11 +18,11 @@ class AuthService {
   }
 
   signIn(email, password) {
-    return this.$http.post('/api/token', { email, password })
+    return this.$http.post('/token', { email, password })
       .then(() => {
         // User is signed in
         this.signedIn = true;
-        this.$state.go('catalog');
+        this.$state.go('/');
       })
       .catch(() => {
         // User could not sign in
@@ -30,7 +30,7 @@ class AuthService {
   }
 
   signOut() {
-    return this.$http.delete('/api/token')
+    return this.$http.delete('/token')
       .then(() => {
         // User is signed out
         this.signedIn = false;
