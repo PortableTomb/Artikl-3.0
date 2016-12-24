@@ -18,6 +18,9 @@ class PostCtrl {
   getPostsAndComments() {
     return this.postService;
   }
+  createPost() {
+    return this.postService;
+  }
   removePost() {
     return this.postService;
   }

@@ -7,6 +7,7 @@
     <title>Designeddit</title>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
     <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
     <link rel="stylesheet" href="/vendor.css">
     <link rel="stylesheet" href="/app.css">
 </head>
@@ -15,20 +16,20 @@
     <!-- <a ui-sref="auth">LOGIN</a> -->
     <!-- NAVIGATION -->
     <nav>
-        <div class="nav-wrapper grey darken-4">
-            <a href="#" class="brand-logo center">Designeddit</a>
-            <a href="#" class="button-collapse" data-activates="nav-mobile" data-sidenav="left" data-menuwith="300px" data-closeonclick="false"><i class="material-icons md-24">menu</i></a>
-            <ul class="left hide-on-med-and-down">
-                <li><a class="dropdown-button" data-activates="dropdown1" href="#!">Login<i class="material-icons right">arrow_drop_down</i></a></li>
+        <div class="nav-wrapper grey lighten-4">
+            <a href="#" class="brand-logo black-text  center">Designeddit</a>
+            <a href="#" class="button-collapse black-text" data-activates="nav-mobile" data-sidenav="left" data-menuwith="300px" data-closeonclick="false"><i class="material-icons md-24">menu</i></a>
+            <ul class="left hide-on-med-and-down black-text">
+                <li><a class="dropdown-button black-text" data-activates="dropdown1" href="#!">Login<i class="material-icons right">arrow_drop_down</i></a></li>
                 <ul id="dropdown1" class="dropdown-content">
                     <li><a class="modal-trigger" href="#modal1" modal>LOGIN</a></li>
                     <li><a class="modal-trigger" href="#modal2" modal>SIGN-UP</a></li>
                 </ul>
-                <li><a class="modal-trigger" href="#new-post-modal" modal>New Post</a></li>
+                <li><a class="modal-trigger black-text black-text" href="#new-post-modal" modal><i class="material-icons md-24">add</i></a></li>
             </ul>
             <!-- Mobile Nav -->
             <ul class="side-nav" id="nav-mobile">
-                <li><a ui-sref="create-post"><i class="material-icons md-24">add</i>New Post</a></li>
+                <li><a class="modal-trigger" href="#new-post-modal" modal><i class="material-icons md-24">add</i>Post</a></li>
                 <ul id="dropdown2" class="dropdown-content">
                     <li><a class="modal-trigger" href="#modal1" modal>LOGIN</a></li>
                     <li><a class="modal-trigger" href="#modal2" modal>SIGN-UP</a></li>
@@ -39,67 +40,166 @@
             <ul class="right" ng-controller="AuthCtrl as authCtrl">
                 <li><a class="active" ui-sref="index" ng-show="authCtrl.isSignedIn()" ng-click="authCtrl.signOut()">Logout</a></li>
                 <li><a class="active" ui-sref="orders" ng-show="authCtrl.isSignedIn()">Order</a></li>
-                <button class="blue-grey darken-4 button-collapse btn" data-activates="sidebar" data-sidenav="right" data-menuwidth="350" data-closeonclick="true"><i class="material-icons md-24">shopping_cart</i></button>
+                <button class=" grey lighten-4 button-collapse btn" data-activates="sidebar" data-sidenav="right" data-menuwidth="350" data-closeonclick="true"><i class="material-icons md-24 black-text">account_circle</i></button>
             </ul>
         </div>
     </nav>
     <!-- End Navigation -->
 
-    <!-- Modal Structure -->
+    <!-- CREATE POST MODAL -->
     <div id="new-post-modal" class="modal top-sheet">
-        <div class="modal-content">
-            <h4>Modal Header</h4>
-            <p>A bunch of text</p>
+        <div class="modal-content container">
+
+            <div ng-controller="PostCtrl as postCtrl">
+                <!-- <div ng-repeat="post in postCtrl.createPosts()"> -->
+
+                <div class="row">
+                    <form class="col s12 m12">
+
+                        <div class="row center">
+                            <div class="input-field col s12 m12">
+                                <input id="post_title" type="text" ng-model="postTitle">
+                                <label for="post_title">Post Title</label>
+                            </div>
+                            <div class="input-field col s12 m12">
+                                <input id="post_image" type="text" ng-model="postImage">
+                                <label for="post_image">Image URL</label>
+                            </div>
+                            <div class="input-field col s12 m12">
+                                <input id="post_url" type="text" ng-model="postUrl">
+                                <label for="post_url">Link URL</label>
+                            </div>
+
+                            <div class="input-field col s12 m12">
+                                <textarea id="post_text" class="materialize-textarea" ng-model="postText"></textarea>
+                                <label for="post_text">Post Blurb</label>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="#" class="modal-action modal-close btn-flat center" ng-click="postCtrl.createPost()">Create Post</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
-        <div class="modal-footer">
-            <a class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-        </div>
+        <!-- </div> -->
     </div>
 
-    <!-- POSTS -->
+    <!-- POSTS FEED -->
     <main ui-view class="all-post-feed">
         <section class="container">
             <div ng-controller="PostCtrl as postCtrl">
                 <div ng-repeat="post in postCtrl.getAllPosts()">
                     <div class="row">
+                        <!-- <div class="col s1 m1"><a ui-sref="#"><i class="material-icons md-48">arrow_drop_up</i></a><a ui-sref="#"><i class="material-icons md-48">arrow_drop_down</i></a>
+                        </div> -->
                         <div class="col s12 m12">
-                            <h6 class="header">{{post.postTitle}}</h6>
+
                             <div class="card horizontal">
                                 <div class="card-image">
-                                    <div class="allPosts postimage">
+                                    <div class="post-image">
                                         <img ng-src="{{post.postUrl}}">
                                     </div>
                                 </div>
                                 <div class="card-stacked">
                                     <div class="card-content">
+                                        <h6 class="header">{{post.postTitle}} </h6>
+                                        <p><a href="{{post.postImage}}" target="_blank">{{post.postImage}}</a></p>
                                         <p>{{post.postText}}</p>
                                     </div>
-                                    <div class="card-action">
-                                        <a href="#">Comments</a>
+                                    <div class="card-action text-black right">
+                                        <!-- <a ui-sref="/singlepost"><i class="material-icons chat">chat_bubble</i></a>
+                                        <a ui-sref="#"><i class="material-icons favorite">favorite</i></a> -->
+                                        <a ui-sref="#"><i class="material-icons arrow right">arrow_drop_up</i></a>
+                                        <a ui-sref="#"><i class="material-icons arrow right">arrow_drop_down</i></a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <!-- <div class="allPosts">
-                    {{post.postTitle}}
                 </div>
-                <div class="allPosts postimage">
-                    <img ng-src="{{post.postUrl}}">
-                </div>
-                <div class="allPosts">
-                    {{post.postText}}
-                </div> -->
-                </div>
-
-
-
-
-
             </div>
         </section>
     </main>
+
+    <!-- LOGIN / SIGNUP MODALS -->
+    <!-- LOGIN Modal -->
+    <div id="modal1" class="modal modal-fixed-footer">
+        <div class="modal-content">
+            <div id="login" class="log container" ng-controller="AuthCtrl as authCtrl">
+                <div class="log-box">
+                    <br><br>
+                    <div class="auth-title">Welcome back to Designeddit!</div>
+                    <br><br>
+                    <form ng-submit="authCtrl.login()" name="loginForm">
+                        <div class="row">
+                            <div class="input col lg12 m12 s12">
+                                <label for="email">Email</label>
+                                <input class="validate" type="text" name="email" id="loginemail" placeholder="Enter your email." ng-model="authCtrl.email">
+                                <span class="spin"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input col lg12 m12 s12">
+                                <label for="password">Password</label>
+                                <input class="validate" type="password" name="password" id="password" placeholder="Enter your password." ng-model="authCtrl.password">
+                                <span class="spin"></span>
+                            </div>
+                        </div>
+                        <div class="button login input">
+                            <button type="submit" class="modal-action modal-close blue-grey lighten-2 left" ng-click="authCtrl.signIn(authCtrl.email, authCtrl.password)"><span class="regform">Login</span></button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- SIGNUP Modal -->
+    <div id="modal2" class="modal modal-fixed-footer">
+        <div class="modal-content" ng-controller="SignUpCtrl as signUpCtrl">
+            <div id="register" class=" reg container">
+                <div class="reg-box">
+                    <br>
+                    <div class="signup-title">Sign Me Up!</div>
+                    <br>
+                    <form ng-submit="signUpCtrl.signUp()" name="signupForm" novalidate>
+
+                        <div class="input">
+                            <label for="username">Username</label>
+                            <input type="text" name="username" id="username" placeholder=" Enter a username." ng-model="signUpCtrl.username" required>
+                            <span class="register"></span>
+                        </div>
+
+                        <div class="input">
+                            <label for="email">Email</label>
+                            <input type="text" name="email" id="email" placeholder=" Enter your email." ng-model="signUpCtrl.email" required>
+                            <span class="register"></span>
+                        </div>
+
+                        <div class="input">
+                            <label for="regpass">Password</label>
+                            <input type="text" name="regpass" id="regpass" placeholder=" Enter your password." ng-model="signUpCtrl.password">
+                            <span class="register"></span>
+                        </div>
+
+                        <div class="button">
+                            <button class="modal-action modal-close blue-grey lighten-2" ng-click="users"><span class="regform">REGISTER</span></button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
 
 
 

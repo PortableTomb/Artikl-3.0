@@ -1,18 +1,36 @@
 
 class PostService {
 
-  constructor($http, $state) {
+  constructor($http, $state, authService) {
+    this.authService = authService;
     // singlepost
     this.post = [];
 
     // allposts
     this.posts = [];
 
-    // this.$http = $http;
+    // createpost
+    this.postTitle = '';
+    this.postUrl = '';
+    this.postImage = '';
+    this.postText = '';
+    this.userId;
+    this.signedIn = true;
+
+    this.$http = $http;
     this.allposts = $http;
     this.singlepost = $http;
+    this.createpost = $http;
     this.$state = $state;
-    this.signedIn = false;
+    this.signedIn = true;
+
+    this.$http.get('/token')
+      .then((res) => {
+        this.signedIn = res.data;
+      })
+      .catch((err) => {
+        return err;
+      });
 
     this.allposts.get('/posts')
       .then((res) => {
@@ -32,7 +50,7 @@ class PostService {
     //     return err;
     //   });
     // }
-    
+
     this.singlepost.get('/posts/1')
       .then((res) => {
         this.post = res.data;
@@ -40,6 +58,14 @@ class PostService {
       .catch((err) => {
         return err;
       });
+
+    this.createpost.post('/posts', { userId: this.user_id, postTitle: this.post_title, postUrl: this.post_url, postImage: this.post_image, postText: this.post_text })
+    .then((res) => {
+      this.post = res.data;
+    })
+    .catch((err) => {
+      return err;
+    });
   }
 
   getSinglePost() {
@@ -50,8 +76,12 @@ class PostService {
     return this.posts;
   }
 
+  createPost() {
+    return this.post;
+  }
+
 }
 
-PostService.$inject = ['$http', '$state'];
+PostService.$inject = ['$http', '$state', 'authService'];
 
 export default PostService;

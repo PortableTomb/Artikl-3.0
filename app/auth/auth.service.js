@@ -8,8 +8,8 @@ class AuthService {
       .then((res) => {
         this.signedIn = res.data;
       })
-      .catch(() => {
-        // There was some error
+      .catch((err) => {
+        return err;
       });
   }
 
@@ -24,8 +24,8 @@ class AuthService {
         this.signedIn = true;
         this.$state.go('/');
       })
-      .catch(() => {
-        // User could not sign in
+      .catch((err) => {
+        return err;
       });
   }
 
@@ -36,7 +36,7 @@ class AuthService {
         this.signedIn = false;
       })
       .catch((err) => {
-        // Server failed
+        return err;
       });
   }
 }
