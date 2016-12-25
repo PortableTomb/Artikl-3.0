@@ -49,13 +49,9 @@
     <!-- CREATE POST MODAL -->
     <div id="new-post-modal" class="modal top-sheet">
         <div class="modal-content container">
-
             <div ng-controller="PostCtrl as postCtrl">
-                <!-- <div ng-repeat="post in postCtrl.createPosts()"> -->
-
                 <div class="row">
                     <form class="col s12 m12">
-
                         <div class="row center">
                             <div class="input-field col s12 m12">
                                 <input id="post_title" type="text" ng-model="postTitle">
@@ -91,10 +87,7 @@
             <div ng-controller="PostCtrl as postCtrl">
                 <div ng-repeat="post in postCtrl.getAllPosts()">
                     <div class="row">
-                        <!-- <div class="col s1 m1"><a ui-sref="#"><i class="material-icons md-48">arrow_drop_up</i></a><a ui-sref="#"><i class="material-icons md-48">arrow_drop_down</i></a>
-                        </div> -->
                         <div class="col s12 m12">
-
                             <div class="card horizontal">
                                 <div class="card-image">
                                     <div class="post-image">
@@ -108,10 +101,10 @@
                                         <p>{{post.postText}}</p>
                                     </div>
                                     <div class="card-action text-black right">
-                                        <!-- <a ui-sref="/singlepost"><i class="material-icons chat">chat_bubble</i></a>
-                                        <a ui-sref="#"><i class="material-icons favorite">favorite</i></a> -->
-                                        <a ui-sref="#"><i class="material-icons arrow right">arrow_drop_up</i></a>
-                                        <a ui-sref="#"><i class="material-icons arrow right">arrow_drop_down</i></a>
+                                        <a href="singlepost.html"><i class="material-icons chat">chat_bubble</i></a>
+                                        <a href="#"><i class="material-icons favorite">favorite</i></a>
+                                        <a href="#"><i class="material-icons arrow right">arrow_drop_up</i></a>
+                                        <a href="#"><i class="material-icons arrow right">arrow_drop_down</i></a>
                                     </div>
                                 </div>
                             </div>
