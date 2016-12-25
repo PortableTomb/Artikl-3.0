@@ -25,7 +25,7 @@
                     <li><a class="modal-trigger" href="#modal1" modal>LOGIN</a></li>
                     <li><a class="modal-trigger" href="#modal2" modal>SIGN-UP</a></li>
                 </ul>
-                <li><a class="modal-trigger black-text black-text" href="#new-post-modal" modal><i class="material-icons md-24">add</i></a></li>
+                <li><a class="modal-trigger black-text" href="#new-post-modal" modal><i class="material-icons md-24">add</i></a></li>
             </ul>
             <!-- Mobile Nav -->
             <ul class="side-nav" id="nav-mobile">
@@ -34,12 +34,12 @@
                     <li><a class="modal-trigger" href="#modal1" modal>LOGIN</a></li>
                     <li><a class="modal-trigger" href="#modal2" modal>SIGN-UP</a></li>
                 </ul>
-                <li><a class="dropdown-button" data-activates="dropdown2" href="#!">Designeddit<i class="material-icons right">arrow_drop_down</i></a></li>
+                <li><a class="dropdown-button" data-activates="dropdown2" href="#!">Designereddit<i class="material-icons right">arrow_drop_down</i></a></li>
             </ul>
             <!-- Nav Cart -->
             <ul class="right" ng-controller="AuthCtrl as authCtrl">
-                <li><a class="active" ui-sref="index" ng-show="authCtrl.isSignedIn()" ng-click="authCtrl.signOut()">Logout</a></li>
-                <li><a class="active" ui-sref="orders" ng-show="authCtrl.isSignedIn()">Order</a></li>
+                <li><a class="active black-text" ui-sref="index" ng-show="authCtrl.isSignedIn()" ng-click="authCtrl.signOut()">Logout</a></li>
+                <li><a class="active black-text" ui-sref="orders" ng-show="authCtrl.isSignedIn()">Order</a></li>
                 <button class=" grey lighten-4 button-collapse btn" data-activates="sidebar" data-sidenav="right" data-menuwidth="350" data-closeonclick="true"><i class="material-icons md-24 black-text">account_circle</i></button>
             </ul>
         </div>

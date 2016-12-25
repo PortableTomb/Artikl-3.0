@@ -17,14 +17,14 @@ class PostService {
     this.userId;
     this.signedIn = true;
 
-    this.$http = $http;
+    this.token = $http;
     this.allposts = $http;
     this.singlepost = $http;
     this.createpost = $http;
     this.$state = $state;
-    this.signedIn = true;
+    this.signedIn = false;
 
-    this.$http.get('/token')
+    this.token.get('/token')
       .then((res) => {
         this.signedIn = res.data;
       })
@@ -40,32 +40,21 @@ class PostService {
         return err;
       });
 
-    // function getSinglePost(id) {
-    // this.singlepost.get('/posts/:'+ id)
-    //
+    // this.singlepost.get('/posts')
     //   .then((res) => {
     //     this.post = res.data;
     //   })
     //   .catch((err) => {
     //     return err;
     //   });
-    // }
 
-    this.singlepost.get('/posts/1')
-      .then((res) => {
-        this.post = res.data;
-      })
-      .catch((err) => {
-        return err;
-      });
-
-    this.createpost.post('/posts', { userId: this.user_id, postTitle: this.post_title, postUrl: this.post_url, postImage: this.post_image, postText: this.post_text })
-    .then((res) => {
-      this.post = res.data;
-    })
-    .catch((err) => {
-      return err;
-    });
+    // this.createpost.post('/posts', JSON.stringify({ userId: this.user_id, postTitle: this.post_title, postUrl: this.post_url, postImage: this.post_image, postText: this.post_text }))
+    // .then((res) => {
+    //   this.post = res.data;
+    // })
+    // .catch((err) => {
+    //   return err;
+    // });
   }
 
   getSinglePost() {
@@ -76,12 +65,23 @@ class PostService {
     return this.posts;
   }
 
-  createPost() {
-    return this.post;
-  }
+  // createPost(userId, postTitle, postUrl, postImage, postText) {
+  //   return this.post;
+  // }
 
 }
 
 PostService.$inject = ['$http', '$state', 'authService'];
 
 export default PostService;
+
+// function getSinglePost(id) {
+// this.singlepost.get('/posts/:'+ id)
+//
+//   .then((res) => {
+//     this.post = res.data;
+//   })
+//   .catch((err) => {
+//     return err;
+//   });
+// }

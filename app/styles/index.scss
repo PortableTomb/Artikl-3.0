@@ -1,10 +1,12 @@
 
 body {
-
+background-color: #eee;
 }
-
 nav, .nav-wrapper{
   font-family: 'Space Mono', monospace;
+}
+main.all-post-feed.ng-scope {
+    margin-top: 50px;
 }
 div.post-image{
   width: 100%;
