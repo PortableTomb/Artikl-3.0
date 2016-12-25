@@ -48,7 +48,7 @@ class PostService {
     //     return err;
     //   });
 
-    // this.createpost.post('/posts', JSON.stringify({ userId: this.user_id, postTitle: this.post_title, postUrl: this.post_url, postImage: this.post_image, postText: this.post_text }))
+    // this.createpost.post('/posts', JSON.stringify({ userId: users_posts.user_id, postTitle: this.post_title, postUrl: this.post_url, postImage: this.post_image, postText: this.post_text }))
     // .then((res) => {
     //   this.post = res.data;
     // })
