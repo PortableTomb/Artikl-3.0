@@ -1,9 +1,27 @@
-
+*, *:before, *:after {
+    box-sizing: inherit;
+}
 body {
 background-color: #eee;
 }
 nav, .nav-wrapper{
   font-family: 'Space Mono', monospace;
+}
+div.logo-above-nav{
+  width: 100vw;
+  height: 60px;
+  padding-top: 15px;
+  padding-bottom: 30px;
+  padding-left: 20px;
+  text-align: left;
+  background-color: #ccc;
+  z-index: 9000;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+}
+a.brand-logo.center{
+  font-size: 1.5em;
+  font-family: 'Space Mono', monospace;
+  color: #fff;
 }
 main.all-post-feed.ng-scope {
     margin-top: 50px;
@@ -45,8 +63,10 @@ i.material-icons.favorite {
 i.material-icons.chat {
   margin: 0;
   padding: 0;
+  padding-top: 15px;
+  padding-bottom: 10px;
+  font-size: 3rem;
   margin-left: 6%;
-  vertical-align: middle;
   color: #ddd;
 }
 div.card-image {

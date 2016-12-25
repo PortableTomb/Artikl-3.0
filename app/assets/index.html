@@ -15,9 +15,10 @@
 <body>
     <!-- <a ui-sref="auth">LOGIN</a> -->
     <!-- NAVIGATION -->
+    <div class="logo-above-nav"><a href="#" class="brand-logo center">Designeddit</a></div>
     <nav>
         <div class="nav-wrapper grey lighten-4">
-            <a href="#" class="brand-logo black-text  center">Designeddit</a>
+            <!-- <a href="#" class="brand-logo black-text  center">Designeddit</a> -->
             <a href="#" class="button-collapse black-text" data-activates="nav-mobile" data-sidenav="left" data-menuwith="300px" data-closeonclick="false"><i class="material-icons md-24">menu</i></a>
             <ul class="left hide-on-med-and-down black-text">
                 <li><a class="dropdown-button black-text" data-activates="dropdown1" href="#!">Login<i class="material-icons right">arrow_drop_down</i></a></li>
@@ -43,6 +44,7 @@
                 <button class=" grey lighten-4 button-collapse btn" data-activates="sidebar" data-sidenav="right" data-menuwidth="350" data-closeonclick="true"><i class="material-icons md-24 black-text">account_circle</i></button>
             </ul>
         </div>
+
     </nav>
     <!-- End Navigation -->
 
@@ -96,18 +98,26 @@
                                 </div>
                                 <div class="card-stacked">
                                     <div class="card-content">
-                                        <h6 class="header">{{post.postTitle}} </h6>
+                                        <h6 class="header">{{post.postTitle}}</h6>
                                         <p><a href="{{post.postImage}}" target="_blank">{{post.postImage}}</a></p>
                                         <p>{{post.postText}}</p>
                                     </div>
                                     <div class="card-action text-black right">
-                                        <a href="singlepost.html"><i class="material-icons chat">chat_bubble</i></a>
-                                        <a href="#"><i class="material-icons favorite">favorite</i></a>
+                                        <a href="singlepost.html"><i class="material-icons chat" ng-click="showComment = !showComment">comment</i></a>
                                         <a href="#"><i class="material-icons arrow right">arrow_drop_up</i></a>
                                         <a href="#"><i class="material-icons arrow right">arrow_drop_down</i></a>
                                     </div>
                                 </div>
                             </div>
+                            <ul ng-show="showComment" class="comments collapsible" data-collapsible="accordion">
+                                <li>
+                                    <div class="collapsible-header">Comments</div>
+                                    <div class="collapsible-body">
+                                        <p>Comments
+                                            <</p>
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -158,7 +168,7 @@
                     <br>
                     <div class="signup-title">Sign Me Up!</div>
                     <br>
-                    <form ng-submit="signUpCtrl.signUp()" name="signupForm" novalidate>
+                    <form ng-submit="signUpCtrl.signUp()" name="signupForm" role="form" novalidate>
 
                         <div class="input">
                             <label for="username">Username</label>
