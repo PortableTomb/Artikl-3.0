@@ -27,6 +27,7 @@ i.material-icons.arrow {
   margin: 0;
   padding: 0;
   font-size: 5em;
+  vertical-align: middle;
   color: #666;
 }
 div.card-action.text-black {
@@ -34,17 +35,19 @@ div.card-action.text-black {
    padding: 0;
 }
 i.material-icons.favorite {
-  margin-left: 5%;
+  margin-left: 6%;
   margin: 0;
   padding: 0;
   font-size: 1.75em;
-  line-height: 2;
+  vertical-align: middle;
   color: #ddd;
 }
 i.material-icons.chat {
-    margin-left: 5%;
-    margin-top: 5.5%;
-     color: #ddd;
+  margin: 0;
+  padding: 0;
+  margin-left: 6%;
+  vertical-align: middle;
+  color: #ddd;
 }
 div.card-image {
   top: 30px;

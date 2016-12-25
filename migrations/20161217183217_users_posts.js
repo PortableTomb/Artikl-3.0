@@ -9,6 +9,7 @@ exports.up = function(knex, Promise) {
      .onDelete('CASCADE')
      .index();
    table.integer('topic_id');
+   table.integer('votes').defaultTo(0);
    table.string('post_title').defaultTo('');
    table.string('post_url').defaultTo('');
    table.string('post_image').defaultTo('');
