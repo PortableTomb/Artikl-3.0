@@ -42,15 +42,18 @@ div.post-make-comment {
   display: inline;
 }
 i.material-icons.arrow {
+  text-align: center;
+  display: block;
   margin: 0;
   padding: 0;
-  font-size: 5em;
+  font-size: 4em;
   vertical-align: middle;
   color: #666;
 }
-div.card-action.text-black {
-   margin: 0;
-   padding: 0;
+.card, .card-action {
+    position: relative;
+    border-top: 1px solid rgba(160,160,160,0.2);
+    padding: 12px !important;
 }
 i.material-icons.favorite {
   margin-left: 6%;
@@ -60,12 +63,13 @@ i.material-icons.favorite {
   vertical-align: middle;
   color: #ddd;
 }
-i.material-icons.chat {
+i.material-icons.comment.right {
+  display: inline;
   margin: 0;
   padding: 0;
-  padding-top: 15px;
-  padding-bottom: 10px;
-  font-size: 3rem;
+  // padding-top: 15px;
+  // padding-bottom: 10px;
+  font-size: 2rem;
   margin-left: 6%;
   color: #ddd;
 }
@@ -81,4 +85,35 @@ div.card-image img{
 div.card.horizontal{
   margin: 0;
   padding: 0;
+}
+div#new-post-modal {
+  overflow: hidden;
+}
+div.col.s2.m2.l1 {
+  width: 50px;
+  height: 200px;
+  margin: 0;
+  padding: 0;
+}
+p.post-votes {
+  text-align: center;
+  font-family: 'Space Mono', monospace;
+  font-weight: 900;
+  font-size: 1.75rem;
+  margin: 0;
+  padding: 0;
+}
+div#post-feed.row {
+  height: 200px;
+  max-height: 200px;
+}
+div.col.s10.m10.l11 {
+  margin: 0;
+  padding: 0;
+}
+h6 {
+  font-weight: 900;
+  font-size: 1rem;
+  line-height: 110%;
+  margin: 0.5rem 0 0.4rem 0;
 }

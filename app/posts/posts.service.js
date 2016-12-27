@@ -23,6 +23,7 @@ class PostService {
     this.createpost = $http;
     this.$state = $state;
     this.signedIn = false;
+    this.votes = 0;
 
     this.token.get('/token')
       .then((res) => {
@@ -63,6 +64,20 @@ class PostService {
 
   getAllPosts() {
     return this.posts;
+  }
+
+  upvotePost() {
+    // console.log(this.votes++);
+    return this.votes++;
+  }
+
+  downvotePost() {
+    // console.log(this.votes--);
+    if (this.votes < 0) {
+      return 0;
+    }
+    this.votes--;
+    return this.votes;
   }
 
   // createPost(userId, postTitle, postUrl, postImage, postText) {

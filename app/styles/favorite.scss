@@ -1,0 +1,43 @@
+/* FAVORITE HEART DIRECTIVE */
+.presentation {
+  text-align: right;
+}
+.presentation i {
+  font-size: 2em;
+  margin: 0 0.5em;
+}
+
+button.notbtn {
+  padding: 0;
+  background-color: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+button.notbtn:active, button.notbtn:focus {
+  border-color: transparent;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+button.notbtn:active {
+  scale: 0.5;
+}
+
+button.notbtn:focus {
+  outline: 0 none !important;
+}
+
+i.material-icons {
+  color: #ddd;
+}
+
+i.material-icons:hover {
+  transition: all ease-in 1s;
+   transform: scale(0.9);
+}
+
+i.material-icons.active {
+  color: #ffab40 ;
+}
