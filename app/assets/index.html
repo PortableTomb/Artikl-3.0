@@ -87,30 +87,30 @@
     <main ui-view class="all-post-feed">
         <section class="container">
             <div ng-controller="PostCtrl as postCtrl">
-                <div ng-repeat="post in postCtrl.getAllPosts()" ng-cloak>
+                <div ng-repeat="post in postCtrl.getAllPosts()">
                     <div id="post-feed" class="row">
                         <div class="col s2 m2 l1">
                             <a href="#"><i ng-click="post.votes = post.votes + 1" class="material-icons arrow right">arrow_drop_up</i></a>
-                            <p class="post-votes">{{post.votes}}</p>
+                            <p class="post-votes" ng-cloak>{{post.votes}}</p>
                             <a href="#"><i ng-click="post.votes = post.votes - 1" class="material-icons arrow right">arrow_drop_down</i></a>
                         </div>
                         <div class="col s10 m10 l11">
                             <div class="card horizontal">
                                 <div class="card-image">
                                     <div class="post-image">
-                                        <img ng-src="{{post.postUrl}}">
+                                        <img ng-src="{{post.postUrl}}" ng-cloak>
                                     </div>
                                 </div>
                                 <div class="card-stacked">
                                     <div class="card-content">
-                                        <h6 class="header">{{post.postTitle}}</h6>
-                                        <p><a href="{{post.postImage}}" target="_blank">{{post.postImage}}</a></p>
-                                        <p>{{post.postText}}</p>
+                                        <h6 class="header" ng-cloak>{{post.postTitle}}</h6>
+                                        <p><a href="{{post.postImage}}" target="_blank" ng-cloak>{{post.postImage}}</a></p>
+                                        <p ng-cloak>{{post.postText}}</p>
                                     </div>
                                     <div class="card-action">
                                         <div class="presentation">
                                             <gs-favorite></gs-favorite>
-
+                                            <a href="/singlepost"><i class="material-icons open-new right">open_in_new</i></a></a>
                                             <a href="#"><i class="material-icons comment right" ng-click="showComment = !showComment">comment</i></a>
                                         </div>
                                     </div>
@@ -118,19 +118,15 @@
                             </div>
                             <ul ng-show="showComment" class="comments collapsible" data-collapsible="accordion">
                                 <li>
-                                    <div class="collapsible-header">
-                                        <div class="row">
-                                            <div class="input">
-                                                <!-- <label for="comment">Comment</label> -->
-                                                <input type="text" name="comment" id="comment" placeholder="Enter a comment.">
-                                                <span class="spin"></span>
-                                            </div>
-                                        </div>
+
+                                    <div class="collapsible-header"><input type="text" name="comment" id="comment" class="col s11 m11 l11" placeholder="Enter a comment.">
+                                        <a href="" type="submit" class="col s1 m1 l1 black-text comment" ng-click="commentCtrl.commentContent()"><i class="material-icons">check_circle</i></a></div>
+
+                                    <div class="collapsible-body active">
+
+                                        <p>Comments</p>
                                     </div>
-                                    <div class="collapsible-body">
-                                        <p>Comments
-                                        </p>
-                                    </div>
+
                                 </li>
                             </ul>
                         </div>

@@ -104,8 +104,7 @@ p.post-votes {
   padding: 0;
 }
 div#post-feed.row {
-  height: 200px;
-  max-height: 200px;
+  max-height: 1000px;
 }
 div.col.s10.m10.l11 {
   margin: 0;
@@ -116,4 +115,14 @@ h6 {
   font-size: 1rem;
   line-height: 110%;
   margin: 0.5rem 0 0.4rem 0;
+}
+.collapsible-header i{
+  line-height: 0.5rem !important;
+}
+a.col.s1.m1.l1.black-text.comment {
+  margin-top: 3%;
+}
+.row .col .s1{
+    padding: 0;
+    -webkit-appearance: initial !important;
 }

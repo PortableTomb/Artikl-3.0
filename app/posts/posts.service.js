@@ -17,6 +17,7 @@ class PostService {
     this.userId;
     this.signedIn = true;
 
+    this.comments = $http;
     this.token = $http;
     this.allposts = $http;
     this.singlepost = $http;
@@ -24,6 +25,8 @@ class PostService {
     this.$state = $state;
     this.signedIn = false;
     this.votes = 0;
+
+
 
     this.token.get('/token')
       .then((res) => {
@@ -41,7 +44,7 @@ class PostService {
         return err;
       });
 
-    // this.singlepost.get('/posts')
+    // this.singlepost.get('/posts/:' + id)
     //   .then((res) => {
     //     this.post = res.data;
     //   })
@@ -49,13 +52,13 @@ class PostService {
     //     return err;
     //   });
 
-    // this.createpost.post('/posts', JSON.stringify({ userId: users_posts.user_id, postTitle: this.post_title, postUrl: this.post_url, postImage: this.post_image, postText: this.post_text }))
-    // .then((res) => {
-    //   this.post = res.data;
-    // })
-    // .catch((err) => {
-    //   return err;
-    // });
+  //   this.createpost.post('/posts', JSON.stringify({ userId: this.user_id, postTitle: this.post_title, postUrl: this.post_url, postImage: this.post_image, postText: this.post_text }))
+  //   .then((res) => {
+  //     this.post = res.data;
+  //   })
+  //   .catch((err) => {
+  //     return err;
+  //   });
   }
 
   getSinglePost() {
