@@ -4,6 +4,7 @@
 body {
 background-color: #eee;
 }
+// NAV
 nav, .nav-wrapper{
   font-family: 'Space Mono', monospace;
 }
@@ -23,6 +24,29 @@ a.brand-logo.center{
   font-family: 'Space Mono', monospace;
   color: #fff;
 }
+/* SEARCH / SORT*/
+div.input-field.sort.container{
+  margin: 20px;
+  height: 50px;
+}
+select.sorter.right {
+  padding: 5px;
+  text-align: left;
+  width: 33%;
+  float: right;
+  display:inline-block;
+}
+input.search-bar.left {
+  background-color: #ecf0f2;
+  text-align: right;
+  width: 66%;
+  float: left;
+  display:inline-block;
+}
+label#searchbarlabel {
+  left: 0;
+}
+// POSTS
 main.all-post-feed.ng-scope {
     margin-top: 50px;
 }
@@ -56,21 +80,21 @@ i.material-icons.arrow {
     padding: 12px !important;
 }
 i.material-icons.favorite {
-  margin-left: 6%;
-  margin: 0;
+  // margin-left: 6%;
+  // margin: 0;
   padding: 0;
   font-size: 1.75em;
   vertical-align: middle;
   color: #ddd;
 }
-i.material-icons.comment.right {
+i.material-icons.comment {
   display: inline;
-  margin: 0;
+  // margin: 0;
   padding: 0;
   // padding-top: 15px;
   // padding-bottom: 10px;
   font-size: 2rem;
-  margin-left: 6%;
+  // margin-left: 6%;
   color: #ddd;
 }
 div.card-image {
@@ -104,7 +128,7 @@ p.post-votes {
   padding: 0;
 }
 div#post-feed.row {
-  max-height: 1000px;
+  max-height: 100vh;
 }
 div.col.s10.m10.l11 {
   margin: 0;
@@ -118,6 +142,18 @@ h6 {
 }
 .collapsible-header i{
   line-height: 0.5rem !important;
+}
+.collapsible-header {
+    height: 4rem;
+    cursor: pointer;
+    min-height: 3rem;
+    line-height: 3rem;
+    margin-top: 1%;
+    padding: 0 1rem;
+    background-color: #fff;
+}
+.row {
+  margin: 0;
 }
 a.col.s1.m1.l1.black-text.comment {
   margin-top: 3%;

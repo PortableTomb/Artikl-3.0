@@ -26,8 +26,6 @@ class PostService {
     this.signedIn = false;
     this.votes = 0;
 
-
-
     this.token.get('/token')
       .then((res) => {
         this.signedIn = res.data;
@@ -59,11 +57,12 @@ class PostService {
   //   .catch((err) => {
   //     return err;
   //   });
+
   }
 
-  getSinglePost() {
-    return this.post;
-  }
+  // getSinglePost() {
+  //   return this.post;
+  // }
 
   getAllPosts() {
     return this.posts;
@@ -92,14 +91,3 @@ class PostService {
 PostService.$inject = ['$http', '$state', 'authService'];
 
 export default PostService;
-
-// function getSinglePost(id) {
-// this.singlepost.get('/posts/:'+ id)
-//
-//   .then((res) => {
-//     this.post = res.data;
-//   })
-//   .catch((err) => {
-//     return err;
-//   });
-// }

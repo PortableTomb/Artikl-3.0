@@ -2,6 +2,7 @@ class PostCtrl {
   constructor(postService) {
     this.postService = postService;
     this.votes = 0;
+    this.searchText = '';
   }
 
   getSinglePost() {
@@ -22,7 +23,9 @@ class PostCtrl {
   removePost() {
     return this.postService;
   }
-
+  getPost() {
+    return this.postService.getPost();
+  }
   upvotePost() {
     return this.postService.upvotePost();
   }

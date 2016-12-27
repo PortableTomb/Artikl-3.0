@@ -11,7 +11,7 @@
     </div>
 </div> -->
 <div class="container" ng-controller="PostCtrl as postCtrl">
-    <div ng-repeat="post in postCtrl.getSinglePost()">
+    <div ng-repeat="post in postCtrl.getPost()">
         <div class="card">
             <div class="card-image waves-effect waves-block waves-light">
                 <img ng-src="{{post.postUrl}}">

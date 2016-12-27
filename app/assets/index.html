@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="/app.css">
 </head>
 
-<body>
+<body class="ng-cloak" ng-cloak>
     <!-- <a ui-sref="auth">LOGIN</a> -->
     <!-- NAVIGATION -->
     <div class="logo-above-nav"><a href="#" class="brand-logo center">Designeddit</a></div>
@@ -40,8 +40,8 @@
             <!-- Nav Cart -->
             <ul class="right" ng-controller="AuthCtrl as authCtrl">
                 <li><a class="active black-text" ui-sref="index" ng-show="authCtrl.isSignedIn()" ng-click="authCtrl.signOut()">Logout</a></li>
-                <li><a class="active black-text" ui-sref="orders" ng-show="authCtrl.isSignedIn()">Order</a></li>
-                <button class=" grey lighten-4 button-collapse btn" data-activates="sidebar" data-sidenav="right" data-menuwidth="350" data-closeonclick="true"><i class="material-icons md-24 black-text">account_circle</i></button>
+                <!-- <li><a class="active black-text" ui-sref="orders" ng-show="authCtrl.isSignedIn()">Followers</a></li> -->
+                <button ui-sref="orders" ng-show="authCtrl.isSignedIn()" class=" grey lighten-4 button-collapse btn" data-activates="sidebar" data-sidenav="right" data-menuwidth="350" data-closeonclick="true"><i class="material-icons md-24 black-text">account_circle</i></button>
             </ul>
         </div>
 
@@ -84,57 +84,77 @@
     </div>
 
     <!-- POSTS FEED -->
-    <main ui-view class="all-post-feed">
-        <section class="container">
-            <div ng-controller="PostCtrl as postCtrl">
-                <div ng-repeat="post in postCtrl.getAllPosts()">
-                    <div id="post-feed" class="row">
-                        <div class="col s2 m2 l1">
-                            <a href="#"><i ng-click="post.votes = post.votes + 1" class="material-icons arrow right">arrow_drop_up</i></a>
-                            <p class="post-votes" ng-cloak>{{post.votes}}</p>
-                            <a href="#"><i ng-click="post.votes = post.votes - 1" class="material-icons arrow right">arrow_drop_down</i></a>
-                        </div>
-                        <div class="col s10 m10 l11">
-                            <div class="card horizontal">
-                                <div class="card-image">
-                                    <div class="post-image">
-                                        <img ng-src="{{post.postUrl}}" ng-cloak>
-                                    </div>
+    <main ui-view class="all-post-feed"></main>
+    <section class="container">
+        <div ng-controller="PostCtrl as postCtrl">
+            <div ng-repeat="post in postCtrl.getAllPosts()">
+
+                <!-- VOTES -->
+                <div id="post-feed" class="row">
+                    <div class="col s2 m2 l1">
+                        <a href="#"><i ng-click="post.votes = post.votes + 1" class="material-icons arrow right">arrow_drop_up</i></a>
+                        <p class="post-votes" ng-cloak>{{post.votes}}</p>
+                        <a href="#"><i ng-click="post.votes = post.votes - 1" class="material-icons arrow right">arrow_drop_down</i></a>
+                    </div>
+                    <!-- CARD -->
+                    <div class="col s10 m10 l11">
+                        <div class="card horizontal">
+                            <div class="card-image">
+                                <div class="post-image">
+                                    <img ng-src="{{post.postUrl}}" ng-cloak>
                                 </div>
-                                <div class="card-stacked">
-                                    <div class="card-content">
-                                        <h6 class="header" ng-cloak>{{post.postTitle}}</h6>
-                                        <p><a href="{{post.postImage}}" target="_blank" ng-cloak>{{post.postImage}}</a></p>
-                                        <p ng-cloak>{{post.postText}}</p>
-                                    </div>
-                                    <div class="card-action">
-                                        <div class="presentation">
-                                            <gs-favorite></gs-favorite>
-                                            <a href="/singlepost"><i class="material-icons open-new right">open_in_new</i></a></a>
-                                            <a href="#"><i class="material-icons comment right" ng-click="showComment = !showComment">comment</i></a>
-                                        </div>
+                            </div>
+                            <div class="card-stacked">
+                                <div class="card-content">
+                                    <h6 class="header" ng-cloak>{{post.postTitle}}</h6>
+                                    <p><a href="{{post.postImage}}" target="_blank" ng-cloak>{{post.postImage}}</a></p>
+                                    <p ng-cloak>{{post.postText}}</p>
+                                </div>
+                                <div class="card-action">
+                                    <div class="presentation">
+                                        <gs-favorite></gs-favorite>
+                                        <a href="/singlepost.html"><i class="material-icons open-new right">open_in_new</i></a></a>
+                                        <a href="#"><i class="material-icons view-comment" ng-click="showComments = !showComments">remove_red_eye</i></a></a>
+                                        <a href="#"><i class="material-icons comment" ng-click="makeComment = !makeComment">mode_edit</i></a>
                                     </div>
                                 </div>
                             </div>
-                            <ul ng-show="showComment" class="comments collapsible" data-collapsible="accordion">
-                                <li>
-
-                                    <div class="collapsible-header"><input type="text" name="comment" id="comment" class="col s11 m11 l11" placeholder="Enter a comment.">
-                                        <a href="" type="submit" class="col s1 m1 l1 black-text comment" ng-click="commentCtrl.commentContent()"><i class="material-icons">check_circle</i></a></div>
-
-                                    <div class="collapsible-body active">
-
-                                        <p>Comments</p>
-                                    </div>
-
-                                </li>
-                            </ul>
                         </div>
+                        <!-- Make Comment INPUT -->
+
+                        <div ng-show="makeComment" class="collapsible-header">
+                            <input type="text" name="comment" id="comment" class="col s11 m11 l11" placeholder="Make a comment. Click the arrow to enter.">
+                            <a href="" type="submit" class="col s1 m1 l1 black-text comment" ng-click=""><i class="material-icons">check_circle</i></a>
+                        </div>
+
+                        <!-- Show Comments -->
+                        <div class="row">
+                            <div class="col s11 m11 l11">
+                                <div ng-show="showComments">
+                                    <!-- <div ng-controller="CommentCtrl as commentCtrl">
+                                        <div ng-repeat="comment in commentCtrl.getAllComments()"> -->
+                                    <div>{{comment.commentContent}}</div>
+                                    <div>comment</div>
+                                    <div>comment</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- </div>
+                        </div> -->
+
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+
+
+
+
+    </section>
+
+
+
 
     <!-- LOGIN / SIGNUP MODALS -->
     <!-- LOGIN Modal -->
