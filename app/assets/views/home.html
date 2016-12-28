@@ -1,0 +1,65 @@
+<section class="container">
+    <div>
+        <div ng-repeat="post in postCtrl.getAllPosts()">
+
+            <!-- VOTES -->
+            <div id="post-feed" class="row">
+                <div class="col s2 m2 l1">
+                    <!-- <a href="#"><i ng-click="post.votes = post.votes + 1" class="material-icons arrow right">arrow_drop_up</i></a> -->
+                    <a href="#"><i ng-click="postCtrl.upvotePost(post)" class="material-icons arrow right">arrow_drop_up</i></a>
+                    <p class="post-votes" ng-cloak>{{post.votes}}</p>
+                    <!-- <a href="#"><i ng-click="post.votes = post.votes - 1" class="material-icons arrow right">arrow_drop_down</i></a> -->
+                    <a href="#"><i ng-click="postCtrl.downvotePost(post)" class="material-icons arrow right">arrow_drop_down</i></a>
+                </div>
+                <!-- CARD -->
+                <div class="col s10 m10 l11">
+                    <div class="card horizontal">
+                        <div class="card-image">
+                            <div class="post-image">
+                                <img ng-src="{{post.postUrl}}" ng-cloak>
+                            </div>
+                        </div>
+                        <div class="card-stacked">
+                            <div class="card-content">
+                                <h6 class="header" ng-cloak>{{post.postTitle}}</h6>
+                                <p><a href="{{post.postImage}}" target="_blank" ng-cloak>{{post.postImage}}</a></p>
+                                <p ng-cloak>{{post.postText}}</p>
+                            </div>
+                            <div class="card-action">
+                                <div class="presentation">
+                                    <gs-favorite></gs-favorite>
+                                    <a ui-sref="singlepost" ng-click="postCtrl.loadPost(post)"><i class="material-icons open-new right">open_in_new</i></a></a>
+                                    <a href="#"><i class="material-icons view-comment" ng-click="showComments = !showComments">remove_red_eye</i></a></a>
+                                    <a href="#"><i class="material-icons comment" ng-click="makeComment = !makeComment">mode_edit</i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Make Comment INPUT -->
+
+                    <div ng-show="makeComment" class="collapsible-header">
+                        <input type="text" name="comment" id="comment" class="col s11 m11 l11" placeholder="Make a comment.">
+                        <a href="" type="submit" class="col s1 m1 l1 black-text comment" ng-click=""><i class="material-icons">check_circle</i></a>
+                    </div>
+
+                    <!-- Show Comments -->
+                    <div class="row">
+                        <div class="col s11 m11 l11">
+                            <div ng-show="showComments">
+                                <div ng-controller="CommentsCtrl as commentsCtrl">
+                                    <div ng-repeat="comment in commentsCtrl.getAllComments()">
+                                        <div>{{comment.commentContent}}</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- </div>
+                    </div> -->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+</section>

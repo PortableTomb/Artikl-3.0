@@ -1,4 +1,4 @@
-class CommentService {
+class CommentsService {
 
   constructor($http, $state, authService) {
     this.authService = authService;
@@ -52,6 +52,6 @@ class CommentService {
 
 }
 
-CommentService.$inject = ['$http', '$state', 'authService'];
+CommentsService.$inject = ['$http', '$state', 'authService'];
 
-export default CommentService;
+export default CommentsService;

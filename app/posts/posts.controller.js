@@ -18,19 +18,19 @@ class PostCtrl {
     return this.postService;
   }
   createPost() {
-    return this.postService;
+    return this.postService.createPost();
   }
   removePost() {
     return this.postService;
   }
-  getPost() {
-    return this.postService.getPost();
+  loadPost(post) {
+    return this.postService.loadPost(post);
   }
-  upvotePost() {
-    return this.postService.upvotePost();
+  upvotePost(post) {
+    return this.postService.upvotePost(post);
   }
-  downvotePost() {
-    return this.postService.downvotePost();
+  downvotePost(post) {
+    return this.postService.downvotePost(post);
   }
 }
 

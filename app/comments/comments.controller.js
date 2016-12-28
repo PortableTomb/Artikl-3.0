@@ -1,13 +1,13 @@
-class CommentCtrl {
-  constructor(commentService) {
-    this.commentService = commentService;
+class CommentsCtrl {
+  constructor(commentsService) {
+    this.commentsService = commentsService;
   }
 
   getAllComments() {
-    return this.commentService.getAllPosts();
+    return this.commentsService.getAllComments();
   }
 }
 
-CommentCtrl.$inject = ['CommentService'];
+CommentsCtrl.$inject = ['commentsService'];
 
-export default CommentCtrl;
+export default CommentsCtrl;

@@ -42,49 +42,50 @@ class PostService {
         return err;
       });
 
-    // this.singlepost.get('/posts/:' + id)
-    //   .then((res) => {
-    //     this.post = res.data;
-    //   })
-    //   .catch((err) => {
-    //     return err;
-    //   });
 
-  //   this.createpost.post('/posts', JSON.stringify({ userId: this.user_id, postTitle: this.post_title, postUrl: this.post_url, postImage: this.post_image, postText: this.post_text }))
-  //   .then((res) => {
-  //     this.post = res.data;
-  //   })
-  //   .catch((err) => {
-  //     return err;
-  //   });
 
   }
 
-  // getSinglePost() {
-  //   return this.post;
-  // }
+  getSinglePost() {
+    return this.post;
+  }
 
+loadPost(post){
+  this.singlepost.get('/posts/' + post.id)
+    .then((res) => {
+      this.post = res.data;
+    })
+    .catch((err) => {
+      return err;
+    });
+}
   getAllPosts() {
     return this.posts;
   }
 
-  upvotePost() {
-    // console.log(this.votes++);
-    return this.votes++;
+  upvotePost(post) {
+    post.votes++;
   }
 
-  downvotePost() {
-    // console.log(this.votes--);
-    if (this.votes < 0) {
+  downvotePost(post) {
+    if (post.votes <= 0) {
       return 0;
     }
-    this.votes--;
-    return this.votes;
+   post.votes--;
   }
 
-  // createPost(userId, postTitle, postUrl, postImage, postText) {
-  //   return this.post;
-  // }
+  createPost(userId, postTitle, postUrl, postImage, postText) {
+
+    this.createpost.post('/posts', JSON.stringify({ userId, postTitle, postUrl, postImage, postText }))
+    .then((res) => {
+      this.post = res.data;
+    })
+    .catch((err) => {
+      return err;
+    });
+
+
+  }
 
 }
 

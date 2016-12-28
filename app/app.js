@@ -5,14 +5,14 @@ import uiRouter from 'angular-ui-router';
 
 // controllers
 import AuthCtrl from './auth/auth.controller';
-import CommentCtrl from './comments/comments.controller';
+import CommentsCtrl from './comments/comments.controller';
 import FavoriteCtrl from './favorites/favorite.controller';
 import PostCtrl from './posts/posts.controller';
 import SignUpCtrl from './signup/signup.controller';
 
 // services
 import AuthService from './auth/auth.service';
-import CommentService from './comments/comments.service';
+import CommentsService from './comments/comments.service';
 import PostService from './posts/posts.service';
 import SignUpService from './signup/signup.service';
 
@@ -21,12 +21,12 @@ import favorite from './favorites/favorite.directive';
 
 angular.module('my-app', [angularMaterialize, uiRouter])
 .controller('AuthCtrl', AuthCtrl)
-.controller('CommentCtrl', CommentCtrl)
+.controller('CommentsCtrl', CommentsCtrl)
 .controller('FavoriteCtrl', FavoriteCtrl)
 .controller('PostCtrl', PostCtrl)
 .controller('SignUpCtrl', SignUpCtrl)
 .service('authService', AuthService)
-.service('commentService', CommentService)
+.service('commentsService', CommentsService)
 .service('PostService', PostService)
 .service('SignUpService', SignUpService)
 .directive('gsFavorite', favorite)
@@ -37,6 +37,12 @@ angular.module('my-app', [angularMaterialize, uiRouter])
         templateUrl: 'views/auth.html',
         controller: 'AuthCtrl',
         controllerAs: 'authCtrl'
+      })
+      .state('home', {
+        url: '',
+        templateUrl: 'views/home.html',
+        controller: 'PostCtrl',
+        controllerAs: 'postCtrl'
       })
       .state('singlepost', {
         url: '/singlepost',
