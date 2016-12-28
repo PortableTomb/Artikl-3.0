@@ -41,24 +41,21 @@ class PostService {
       .catch((err) => {
         return err;
       });
-
-
-
   }
 
   getSinglePost() {
     return this.post;
   }
 
-loadPost(post){
-  this.singlepost.get('/posts/' + post.id)
+  loadPost(post) {
+    this.singlepost.get('/posts/' + post.id)
     .then((res) => {
       this.post = res.data;
     })
     .catch((err) => {
       return err;
     });
-}
+  }
   getAllPosts() {
     return this.posts;
   }
@@ -71,7 +68,7 @@ loadPost(post){
     if (post.votes <= 0) {
       return 0;
     }
-   post.votes--;
+    post.votes--;
   }
 
   createPost(userId, postTitle, postUrl, postImage, postText) {
@@ -83,8 +80,6 @@ loadPost(post){
     .catch((err) => {
       return err;
     });
-
-
   }
 
 }

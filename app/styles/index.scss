@@ -2,7 +2,7 @@
     box-sizing: inherit;
 }
 body {
-background-color: #eee;
+background-color: #fff;
 }
 // NAV
 nav, .nav-wrapper{
@@ -148,7 +148,7 @@ h6 {
     cursor: pointer;
     min-height: 3rem;
     line-height: 3rem;
-    margin-top: 1%;
+    margin-top: 2.5%;
     padding: 0 1rem;
     background-color: #fff;
     box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
@@ -162,4 +162,12 @@ a.col.s1.m1.l1.black-text.comment {
 .row .col .s1{
     padding: 0;
     -webkit-appearance: initial !important;
+}
+
+// singlepost
+div.card.singlepost{
+   text-align: center;
+}
+div.card-image.singlepost{
+    margin: auto;
 }

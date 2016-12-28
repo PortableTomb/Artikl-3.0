@@ -5,10 +5,8 @@
             <!-- VOTES -->
             <div id="post-feed" class="row">
                 <div class="col s2 m2 l1">
-                    <!-- <a href="#"><i ng-click="post.votes = post.votes + 1" class="material-icons arrow right">arrow_drop_up</i></a> -->
                     <a href="#"><i ng-click="postCtrl.upvotePost(post)" class="material-icons arrow right">arrow_drop_up</i></a>
                     <p class="post-votes" ng-cloak>{{post.votes}}</p>
-                    <!-- <a href="#"><i ng-click="post.votes = post.votes - 1" class="material-icons arrow right">arrow_drop_down</i></a> -->
                     <a href="#"><i ng-click="postCtrl.downvotePost(post)" class="material-icons arrow right">arrow_drop_down</i></a>
                 </div>
                 <!-- CARD -->
@@ -23,7 +21,7 @@
                             <div class="card-content">
                                 <h6 class="header" ng-cloak>{{post.postTitle}}</h6>
                                 <p><a href="{{post.postImage}}" target="_blank" ng-cloak>{{post.postImage}}</a></p>
-                                <p ng-cloak>{{post.postText + "..."| limitTo: 200}}</p>
+                                <p ng-cloak>{{post.postText + "..."| limitTo: 255}}</p>
                             </div>
                             <div class="card-action">
                                 <div class="presentation">
@@ -36,19 +34,22 @@
                         </div>
                     </div>
                     <!-- Make Comment INPUT -->
+                    <div ng-controller="CommentsCtrl as commentsCtrl">
+                        <div ng-show="makeComment" class="collapsible-header">
+                            <input ng-model="comment.commentContent" type="text" name="comment_content" id="comment_content" class="col s11 m11 l11" placeholder="Make a comment.">
+                            <a href="" type="submit" class="col s1 m1 l1 black-text comment" ng-click="commentsCtrl.createComment(comment)"><i class="material-icons">check_circle</i></a>
+                        </div>
 
-                    <div ng-show="makeComment" class="collapsible-header">
-                        <input type="text" name="comment" id="comment" class="col s11 m11 l11" placeholder="Make a comment.">
-                        <a href="" type="submit" class="col s1 m1 l1 black-text comment" ng-click=""><i class="material-icons">check_circle</i></a>
-                    </div>
-
-                    <!-- Show Comments -->
-                    <div class="row">
-                        <div class="col s11 m11 l11">
-                            <div ng-show="showComments">
-                                <div ng-controller="CommentsCtrl as commentsCtrl">
+                        <!-- Show Comments -->
+                        <div class="row">
+                            <div class="col s11 m11 l11">
+                                <div ng-show="showComments">
                                     <div ng-repeat="comment in commentsCtrl.getAllComments()">
-                                        <div>{{comment.commentContent}}</div>
+                                        <div class="comment-list-box">
+                                            <ul class="comment-list">
+                                                <li class="comment-list-item">{{comment.commentContent}}</li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

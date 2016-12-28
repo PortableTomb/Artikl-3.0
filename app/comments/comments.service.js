@@ -36,20 +36,21 @@ class CommentsService {
       .catch((err) => {
         return err;
       });
+  }
 
-  //   this.createcomment.post('/comments', JSON.stringify({ userId: this.user_id, postId: this.post_id, this.commentContent = comment_content }))
-  //   .then((res) => {
-  //     this.post = res.data;
-  //   })
-  //   .catch((err) => {
-  //     return err;
-  //   });
+  createComment(commentContent, userId, postId) {
+    this.createcomment.post('/comments', JSON.stringify({ commentContent, userId, postId }))
+    .then((res) => {
+      this.comment = res.data;
+    })
+    .catch((err) => {
+      return err;
+    });
   }
 
   getAllComments() {
     return this.comments;
   }
-
 }
 
 CommentsService.$inject = ['$http', '$state', 'authService'];

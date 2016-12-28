@@ -12,15 +12,15 @@
 </div> -->
 <div class="container">
     <div ng-repeat="post in postCtrl.getSinglePost()">
-        <div class="card">
-            <div class="card-image waves-effect waves-block waves-light">
+        <div class="card singlepost">
+            <div class="card-image singlepost waves-effect waves-block waves-light">
                 <img ng-src="{{post.postUrl}}">
             </div>
-            <div class="card-content">
+            <div class="card-content singlepost">
                 <span class="card-title activator grey-text text-darken-4">{{post.postTitle}}<i class="material-icons right">more_vert</i></span>
-                <p><a href="#">This is a link</a></p>
+                <!-- <p><a href="#">{{post.postUrl}}</a></p> -->
             </div>
-            <div class="card-reveal">
+            <div class="card-reveal singlepost ">
                 <span class="card-title grey-text text-darken-4">{{post.postTitle}}<i class="material-icons right">close</i></span>
                 <p>{{post.postText}}</p>
             </div>
