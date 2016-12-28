@@ -23,7 +23,7 @@
                             <div class="card-content">
                                 <h6 class="header" ng-cloak>{{post.postTitle}}</h6>
                                 <p><a href="{{post.postImage}}" target="_blank" ng-cloak>{{post.postImage}}</a></p>
-                                <p ng-cloak>{{post.postText}}</p>
+                                <p ng-cloak>{{post.postText + "..."| limitTo: 200}}</p>
                             </div>
                             <div class="card-action">
                                 <div class="presentation">
