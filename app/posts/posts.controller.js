@@ -3,6 +3,7 @@ class PostCtrl {
     this.postService = postService;
     this.votes = 0;
     this.searchText = '';
+
   }
 
   getSinglePost() {
@@ -17,8 +18,9 @@ class PostCtrl {
   getPostsAndComments() {
     return this.postService;
   }
-  createPost() {
-    return this.postService.createPost();
+  createPost(postTitle, postImage, postUrl,postText) {
+    console.log(postTitle, postImage, postUrl,postText);
+    return this.postService.createPost(postTitle, postImage, postUrl, postText);
   }
   removePost() {
     return this.postService;

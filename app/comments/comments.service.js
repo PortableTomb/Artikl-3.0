@@ -11,12 +11,10 @@ class CommentsService {
     this.comments = [];
 
     // createpost
-    this.commentContent = '';
-    this.postId;
-    this.userId;
+    const postId = this.post_id;
+    const userId = this.user_id;
 
     this.token = $http;
-
     this.allcomments = $http;
     this.singlecomment = $http;
     this.createcomment = $http;
@@ -38,8 +36,13 @@ class CommentsService {
       });
   }
 
-  createComment(commentContent, userId, postId) {
-    this.createcomment.post('/comments', JSON.stringify({ commentContent, userId, postId }))
+  setComments(currentComment) {
+    this.current = currentComment;
+  }
+
+  createComment(comment, userId, postId) {
+    console.log(comment, userId, postId);
+    this.createcomment.post('/comments', { comment, userId, postId })
     .then((res) => {
       this.comment = res.data;
     })

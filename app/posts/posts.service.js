@@ -72,7 +72,7 @@ class PostService {
   }
 
   createPost(userId, postTitle, postUrl, postImage, postText) {
-
+    console.log(userId, postTitle, postUrl, postImage, postText);
     this.createpost.post('/posts', JSON.stringify({ userId, postTitle, postUrl, postImage, postText }))
     .then((res) => {
       this.post = res.data;

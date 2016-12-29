@@ -45,7 +45,7 @@ angular.module('my-app', [angularMaterialize, uiRouter])
         controllerAs: 'postCtrl'
       })
       .state('singlepost', {
-        url: 'singlepost',
+        url: '/singlepost',
         templateUrl: 'views/singlepost.html',
         controller: 'PostCtrl',
         controllerAs: 'postCtrl'
