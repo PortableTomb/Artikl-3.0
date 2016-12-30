@@ -14,41 +14,7 @@
 
 <body class="ng-cloak" ng-cloak>
     <!-- <a ui-sref="auth">LOGIN</a> -->
-
-    <!-- NAVIGATION -->
-    <div class="logo-above-nav"><a href="#" class="brand-logo center">Designeddit</a></div>
-    <nav>
-        <div class="nav-wrapper grey lighten-4">
-            <!-- <a href="#" class="brand-logo black-text  center">Designeddit</a> -->
-            <a href="#" class="button-collapse black-text" data-activates="nav-mobile" data-sidenav="left" data-menuwith="300px" data-closeonclick="false"><i class="material-icons md-24">menu</i></a>
-            <ul class="left hide-on-med-and-down black-text">
-                <li><a class="dropdown-button black-text" data-activates="dropdown1" href="#!">Login<i class="material-icons right">arrow_drop_down</i></a></li>
-                <ul id="dropdown1" class="dropdown-content">
-                    <li><a class="modal-trigger" href="#modal1" modal>LOGIN</a></li>
-                    <li><a class="modal-trigger" href="#modal2" modal>SIGN-UP</a></li>
-                </ul>
-                <li><a class="modal-trigger black-text" href="#new-post-modal" modal><i class="material-icons md-24">add</i></a></li>
-            </ul>
-            <!-- Mobile Nav -->
-            <ul class="side-nav" id="nav-mobile">
-                <li><a class="modal-trigger" href="#new-post-modal" modal><i class="material-icons md-24">add</i>Post</a></li>
-                <ul id="dropdown2" class="dropdown-content">
-                    <li><a class="modal-trigger" href="#modal1" modal>LOGIN</a></li>
-                    <li><a class="modal-trigger" href="#modal2" modal>SIGN-UP</a></li>
-                </ul>
-                <li><a class="dropdown-button" data-activates="dropdown2" href="#!">Designereddit<i class="material-icons right">arrow_drop_down</i></a></li>
-            </ul>
-
-            <!-- Nav Button Sidebar -->
-            <ul class="right" ng-controller="AuthCtrl as authCtrl">
-
-                <a ng-show="authCtrl.isSignedIn()" ui-sref="home" class="grey button-collapse btn" data-activates="sidebar" data-sidenav="right" data-menuwidth="350" data-closeonclick="true"><i class="material-icons md-24 black-text">account_circle</i></a>
-                <li><a class="active black-text" ui-sref="index" ng-show="authCtrl.isSignedIn()" ng-click="authCtrl.signOut()">Logout</a></li>
-                <!-- <li><a class="active black-text" ui-sref="orders" ng-show="authCtrl.isSignedIn()">Followers</a></li> -->
-            </ul>
-        </div>
-    </nav>
-    <!-- End Navigation -->
+    <header ng-include=" 'views/nav.html' "></header>
 
     <!-- CREATE POST MODAL -->
     <div id="new-post-modal" class="modal top-sheet">
@@ -92,7 +58,6 @@
         <ul id="sidebar" class="right side-nav">
             <div class="user-list-box" ng-controller="UserCtrl as userCtrl">
                 <li><a id="follow-button" class="btn btn-flat">Follow</a>
-
                     <!-- SEARCH -->
                     <form>
                         <div class="searchbar-wrap">
@@ -102,7 +67,7 @@
                     </form>
                     <div ng-repeat="users in userCtrl.getAllUsers()">
                         <ul id="users-followers-list">
-                            <li>{{users.username}}</li>
+                            <li class="users-followers-list-item">{{users.username}}</li>
                         </ul>
                     </div>
                 </li>
@@ -111,8 +76,8 @@
     </section>
     <!-- End Side Nav -->
 
-
     <!-- LOGIN / SIGNUP MODALS -->
+
     <!-- LOGIN Modal -->
     <div id="modal1" class="modal modal-fixed-footer">
         <div class="modal-content">
@@ -140,10 +105,8 @@
                             <button type="submit" class="modal-action modal-close blue-grey lighten-2 left" ng-click="authCtrl.signIn(authCtrl.email, authCtrl.password)"><span class="regform">Login</span></button>
                         </div>
                     </form>
-
                 </div>
             </div>
-
         </div>
     </div>
 
@@ -180,14 +143,9 @@
                         </div>
                     </form>
                 </div>
-
             </div>
         </div>
     </div>
-
-
-
-
 
 
 
@@ -203,7 +161,5 @@
         require('app');
     </script>
 </body>
-
-</html>
 
 </html>

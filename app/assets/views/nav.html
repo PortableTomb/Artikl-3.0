@@ -1,0 +1,34 @@
+<!-- NAVIGATION -->
+<div class="logo-above-nav"><a href="#" class="brand-logo center">Designeddit</a></div>
+<nav>
+    <div class="nav-wrapper grey lighten-4">
+        <!-- <a href="#" class="brand-logo black-text  center">Designeddit</a> -->
+        <a href="#" class="button-collapse black-text" data-activates="nav-mobile" data-sidenav="left" data-menuwith="300px" data-closeonclick="false"><i class="material-icons md-24">menu</i></a>
+        <ul class="left hide-on-med-and-down black-text">
+            <li><a class="dropdown-button black-text" data-activates="dropdown1" href="#!">Login<i class="material-icons right">arrow_drop_down</i></a></li>
+            <ul id="dropdown1" class="dropdown-content">
+                <li><a class="modal-trigger" href="#modal1" modal>LOGIN</a></li>
+                <li><a class="modal-trigger" href="#modal2" modal>SIGN-UP</a></li>
+            </ul>
+            <li><a class="modal-trigger black-text" href="#new-post-modal" modal><i class="material-icons md-24">add</i></a></li>
+        </ul>
+        <!-- Mobile Nav -->
+        <ul class="side-nav" id="nav-mobile">
+            <li><a class="modal-trigger" href="#new-post-modal" modal><i class="material-icons md-24">add</i>Post</a></li>
+            <ul id="dropdown2" class="dropdown-content">
+                <li><a class="modal-trigger" href="#modal1" modal>LOGIN</a></li>
+                <li><a class="modal-trigger" href="#modal2" modal>SIGN-UP</a></li>
+            </ul>
+            <li><a class="dropdown-button" data-activates="dropdown2" href="#!">Designereddit<i class="material-icons right">arrow_drop_down</i></a></li>
+        </ul>
+
+        <!-- Nav Button Sidebar -->
+        <ul class="right" ng-controller="AuthCtrl as authCtrl">
+
+            <a ng-show="authCtrl.isSignedIn()" ui-sref="home" class="grey button-collapse btn" data-activates="sidebar" data-sidenav="right" data-menuwidth="350" data-closeonclick="true"><i class="material-icons md-24 black-text">account_circle</i></a>
+            <li><a class="active black-text" ui-sref="index" ng-show="authCtrl.isSignedIn()" ng-click="authCtrl.signOut()">Logout</a></li>
+            <!-- <li><a class="active black-text" ui-sref="orders" ng-show="authCtrl.isSignedIn()">Followers</a></li> -->
+        </ul>
+    </div>
+</nav>
+<!-- End Navigation -->
