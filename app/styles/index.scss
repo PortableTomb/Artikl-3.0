@@ -29,6 +29,10 @@ button.button-collapse.btn.ng-isolate-scope {
     margin-right: 20px;
     margin-top: 3.25px;
 }
+i.material-icons.settings {
+  color: #ccc;
+  width: 85px;
+}
 /* SEARCH / SORT*/
 div.input-field.sort.container{
   margin: 20px;
@@ -175,6 +179,13 @@ div.card.singlepost{
 }
 div.card-image.singlepost{
     margin: auto;
+}
+.card-content.singlepost {
+    text-align: left;
+}
+p.card-title.singlepost {
+    font-weight: 900;
+    padding-top: 4%;
 }
 
 // sidebar

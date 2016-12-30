@@ -13,8 +13,44 @@
 </head>
 
 <body class="ng-cloak" ng-cloak>
-    <!-- <a ui-sref="auth">LOGIN</a> -->
-    <header ng-include=" 'views/nav.html' "></header>
+
+    <!-- <header ng-include=" 'views/nav.html' "></header> -->
+
+    <!-- NAVIGATION -->
+    <div class="logo-above-nav"><a ui-sref="home" class="brand-logo center">Designeddit</a></div>
+    <nav>
+        <div class="nav-wrapper grey lighten-4">
+            <a href="#" class="button-collapse black-text" data-activates="nav-mobile" data-sidenav="left" data-menuwith="300px" data-closeonclick="false"><i class="material-icons md-24">menu</i></a>
+
+            <!-- Dropdown -->
+            <ul class="left hide-on-med-and-down black-text">
+                <li><a class="dropdown-button black-text" data-activates="dropdown1" href="#"><i class="material-icons settings">settings arrow_drop_down</i></a></li>
+                <ul id="dropdown1" class="dropdown-content">
+                    <li><a class="modal-trigger" href="#modal1" modal>LOGIN</a></li>
+                    <li><a class="modal-trigger" href="#modal2" modal>SIGN-UP</a></li>
+                </ul>
+                <li><a class="modal-trigger black-text" href="#new-post-modal" modal><i class="material-icons md-24">add</i></a></li>
+            </ul>
+
+            <!-- Mobile Nav -->
+            <ul class="side-nav" id="nav-mobile">
+                <li><a class="modal-trigger" href="#new-post-modal" modal><i class="material-icons md-24">add</i>Post</a></li>
+                <ul id="dropdown2" class="dropdown-content">
+                    <li><a class="modal-trigger" href="#modal1" modal>LOGIN</a></li>
+                    <li><a class="modal-trigger" href="#modal2" modal>SIGN-UP</a></li>
+                </ul>
+                <li><a class="dropdown-button" data-activates="dropdown2" href="#!">Designereddit<i class="material-icons right">arrow_drop_down</i></a></li>
+            </ul>
+
+            <!-- Sidebar Button -->
+            <ul class="right" ng-controller="AuthCtrl as authCtrl">
+                <li><a ui-sref="home" ng-show="authCtrl.isSignedIn()" class="grey button-collapse btn" data-activates="sidebar" data-sidenav="right" data-menuwidth="350" data-closeonclick="true"><i class="material-icons md-24 black-text">account_circle</i></a></li>
+                <li><a class="active black-text" ui-sref="home" ng-show="authCtrl.isSignedIn()" ng-click="authCtrl.signOut()">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- End Navigation -->
+
 
     <!-- CREATE POST MODAL -->
     <div id="new-post-modal" class="modal top-sheet">
@@ -24,30 +60,34 @@
                     <form class="col s12 m12">
                         <div class="row center">
                             <div class="input-field col s12 m12">
-                                <input id="post_title" type="text" ng-model="postTitle">
+                                <input id="post_title" type="text" ng-model="postCtrl.postTitle">
                                 <label for="post_title">Post Title</label>
                             </div>
                             <div class="input-field col s12 m12">
-                                <input id="post_image" type="text" ng-model="postImage">
+                                <input id="post_image" type="text" ng-model="postCtrl.postImage">
                                 <label for="post_image">Image URL</label>
                             </div>
                             <div class="input-field col s12 m12">
-                                <input id="post_url" type="text" ng-model="postUrl">
+                                <input id="post_url" type="text" ng-model="postCtrl.postUrl">
                                 <label for="post_url">Link URL</label>
                             </div>
                             <div class="input-field col s12 m12">
-                                <textarea id="post_text" class="materialize-textarea" ng-model="postText"></textarea>
+                                <textarea id="post_text" class="materialize-textarea" ng-model="postCtrl.postText"></textarea>
                                 <label for="post_text">Post Blurb</label>
                             </div>
                             <div class="modal-footer">
-                                <a href="#" class="modal-action modal-close btn-flat center" ng-click="postCtrl.createPost( postTitle, postImage, postUrl, postText)">Create Post</a>
+                                <a href="#" class="modal-action modal-close btn-flat center" ng-click="postCtrl.createPost()">Create Post</a>
                             </div>
                         </div>
+                        <!-- <select class="sorter center" name="sorting-options" ng-model="postCtrl.options">
+                            <option value="1">Inspiration</option>
+                            <option value="2">Admiration</option>
+                            <option value="3">Resources</option>
+                        </select> -->
                     </form>
                 </div>
             </div>
         </div>
-        <!-- </div> -->
     </div>
 
     <!-- POSTS FEED -->
@@ -74,7 +114,7 @@
             </div>
         </ul>
     </section>
-    <!-- End Side Nav -->
+    <!-- End Sidebar -->
 
     <!-- LOGIN / SIGNUP MODALS -->
 

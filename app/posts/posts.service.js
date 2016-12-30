@@ -22,6 +22,8 @@ class PostService {
     this.allposts = $http;
     this.singlepost = $http;
     this.createpost = $http;
+    this.downvote = $http;
+    this.upvote = $http;
     this.$state = $state;
     this.signedIn = false;
     this.votes = 0;
@@ -62,18 +64,36 @@ class PostService {
 
   upvotePost(post) {
     post.votes++;
+
+    this.upvote.patch('/posts/' + post.id, { votes: post.votes })
+    .then((res) => {
+      this.post = res.data;
+    })
+    .catch((err) => {
+      return err;
+    });
   }
 
   downvotePost(post) {
     if (post.votes <= 0) {
       return 0;
     }
+
     post.votes--;
+
+    this.downvote.patch('/posts/' + post.id, { votes: post.votes })
+    .then((res) => {
+      this.post = res.data;
+    })
+    .catch((err) => {
+      return err;
+    });
+
   }
 
   createPost(postTitle, postUrl, postImage, postText ) {
-    console.log(postTitle, postUrl, postImage, postText);
-    this.createpost.post('/posts', { postTitle, postUrl, postImage, postText })
+    // console.log(postTitle, postUrl, postImage, postText);
+    this.createpost.post('/posts', { postTitle: postTitle, postUrl: postUrl, postImage: postImage, postText: postText })
     .then((res) => {
       this.post = res.data;
     })

@@ -1,8 +1,11 @@
 class PostCtrl {
   constructor(postService) {
     this.postService = postService;
-    this.votes = 0;
     this.searchText = '';
+    this.postTitle = '';
+    this.postImage = '';
+    this.postUrl = '';
+    this.postText = '';
   }
 
   getSinglePost() {
@@ -20,9 +23,9 @@ class PostCtrl {
   downvotePost(post) {
     return this.postService.downvotePost(post);
   }
-  createPost(postTitle, postImage, postUrl, postText) {
+  createPost() {
     // console.log(postTitle, postImage, postUrl, postText);
-    return this.postService.createPost(postTitle, postImage, postUrl, postText);
+    return this.postService.createPost(this.postTitle, this.postImage, this.postUrl, this.postText);
   }
 
   // getPostComments() {

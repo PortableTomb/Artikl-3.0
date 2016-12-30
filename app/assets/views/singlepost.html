@@ -4,14 +4,12 @@
             <div class="card-image singlepost waves-effect waves-block waves-light">
                 <img ng-src="{{post.postUrl}}">
             </div>
-            <div class="card-content singlepost">
-                <span class="card-title activator grey-text text-darken-4">{{post.postTitle}}<i class="material-icons right">more_vert</i></span>
-                <!-- <p><a href="#">{{post.postUrl}}</a></p> -->
-            </div>
-            <div class="card-reveal singlepost ">
-                <span class="card-title grey-text text-darken-4">{{post.postTitle}}<i class="material-icons right">close</i></span>
-                <p>{{post.postText}}</p>
+            <div class="card-title-content singlepost">
+                <p class="card-title singlepost">{{post.postTitle}}</p>
+                <div class="card-content singlepost">
+                    <p>{{post.postText}}</p>
+                    <p><a href="#">{{post.postUrl}}</a></p>
+                </div>
             </div>
         </div>
     </div>
-</div>

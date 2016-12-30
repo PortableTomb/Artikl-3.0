@@ -35,8 +35,9 @@ router.get('/comments', authorize, (_req, res, next) => {
 });
 
 router.post('/comments', authorize, (req, res, next) => {
-  const { user_id, post_id, comment_content  } = req.body;
-  const insertComment = { user_id, post_id, comment_content };
+  const { postId, comment } = req.body;
+  const userId = req.token.userId;
+  const insertComment = { userId, postId, commentContent: comment };
     knex('users_comments')
     .orderBy('id')
     .insert(decamelizeKeys(insertComment), '*')

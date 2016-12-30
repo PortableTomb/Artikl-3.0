@@ -36,12 +36,6 @@ angular.module('my-app', [angularMaterialize, uiRouter])
 .directive('gsFavorite', favorite)
 .config(['$stateProvider', ($stateProvider) => {
   $stateProvider
-      .state('auth', {
-        url: '/auth',
-        templateUrl: 'views/auth.html',
-        controller: 'AuthCtrl',
-        controllerAs: 'authCtrl'
-      })
       .state('home', {
         url: '',
         templateUrl: 'views/home.html',

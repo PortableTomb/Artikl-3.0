@@ -18,9 +18,9 @@ class CommentsCtrl {
     return this.commentsService.getAllComments();
   }
 
-  createComment(comment, userId, postId) {
-    console.log(comment, userId, postId);
-    return this.commentsService.createComment(comment, userId, postId);
+  createComment(postId) {
+    console.log(postId);
+    return this.commentsService.createComment(postId, this.comment);
   }
 }
 

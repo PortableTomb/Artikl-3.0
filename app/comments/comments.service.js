@@ -39,10 +39,9 @@ class CommentsService {
     this.current = currentComment;
   }
 
-
-  createComment(comment, userId, postId) {
+  createComment(postId, comment) {
     // console.log(comment, userId, postId);
-    this.createcomment.post('/comments', { comment: this.commentContent, userId: this.userId, postId: this.postId })
+    this.createcomment.post('/comments', { comment: comment, postId: postId })
     .then((res) => {
       this.comment = res.data;
     })

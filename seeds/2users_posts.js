@@ -7,23 +7,56 @@ exports.seed = function(knex, Promise) {
         user_id: 1,
         topic_id: 2,
         votes: 0,
-        post_title:"Moonage Daydream",
-        post_url:"https://s-media-cache-ak0.pinimg.com/736x/76/95/37/769537bbe2649011c507da365fd9df78.jpg",
-        post_image:"",
-        post_text:"I'm an alligator, I'm a mama-papa coming for you, I'm the space invader, I'll be a rock 'n' rollin' bitch for you...",
+        post_title:"Dancing Meets Creative Coders",
+        post_url:"https://thecreatorsproject-images.vice.com/content-images/contentimage/no-slug/096244e93b19b4b6ac3908a74c208cab.jpg",
+        post_image:"http://thecreatorsproject.vice.com/blog/dancehackday-mix-coding-dancing",
+        post_text:"What do you get when 70 dancers and creative coders meet for a hackathon? Here's What Happens When Dancing Meets Creative Coders.",
         created_at: new Date('2016-06-29 14:26:16 UTC'),
         updated_at: new Date('2016-06-29 14:26:16 UTC')
       }, {
-        id: 2,
-        user_id: 2,
-        topic_id: 3,
-        votes: 0,
-        post_title:"Search and Destroy",
-        post_url:"http://peteralanlloyd.com/wp-content/uploads/2013/05/Iggy-Pop-tumblr.jpg",
-        post_image:"",
-        post_text:"I'm a street walking cheetah with a heart full of napalm, I'm a runaway son of the nuclear A-bomb...",
-        created_at: new Date('2016-06-29 14:26:16 UTC'),
-        updated_at: new Date('2016-06-29 14:26:16 UTC')
+      id: 2,
+      user_id: 2,
+      topic_id: 3,
+      votes: 0,
+      post_url:"https://t1.daumcdn.net/thumb/R1280x0/?fname=http://t1.daumcdn.net/brunch/service/user/Hgv/image/mcnMwsRaNP33TeYC_n4wNbFYSgw.png",
+      post_title:"Giving Back to the Design Community",
+      post_image:"https://medium.com/facebook-design/giving-back-to-the-design-community-2c0b4cbb091f#.7ztxmbt1ba",
+      post_text:"sample a few popular design tools to compare where they are at with their adaptive layout features",
+      created_at: new Date('2016-06-29 14:26:16 UTC'),
+      updated_at: new Date('2016-06-29 14:26:16 UTC')
+      }, {
+      id: 3,
+      user_id: 3,
+      topic_id: 1,
+      votes: 0,
+      post_title:"Design Disruptors",
+      post_url:"https://phreshideasanddesigns.files.wordpress.com/2015/10/design-disruptors-wp.png",
+      post_image:"https://www.designdisruptors.com/",
+      post_text:"Our film is designed to be a series of snapshots that demystify how design choices made by few can affect billions of people around the world.",
+      created_at: new Date('2016-06-29 14:26:16 UTC'),
+      updated_at: new Date('2016-06-29 14:26:16 UTC')
+      }, {
+      id: 4,
+      user_id: 2,
+      topic_id: 3,
+      votes: 0,
+      post_title:"Dribble Meetups",
+      post_url:"https://d13yacurqjgara.cloudfront.net/users/6019/screenshots/1723912/seattle_dribbble_meetup-_091214.png",
+      post_image:"https://dribbble.com/meetups",
+      post_text:"Dribbble Meetups are fun! Getting designers together is a guaranteed good time. You’ll be able to mingle and meet other designers.",
+      created_at: new Date('2016-06-29 14:26:16 UTC'),
+      updated_at: new Date('2016-06-29 14:26:16 UTC')
+      }, {
+      id: 5,
+      user_id: 1,
+      topic_id: 1,
+      votes: 0,
+      post_title:"British Fashion",
+      post_url:"https://i.ytimg.com/vi/zegkHODNVvY/hqdefault.jpg",
+      post_image:"https://www.google.com/culturalinstitute/beta/u/0/project/british-fashion",
+      post_text:"Mathematical formulas are used to place the artworks in a 3D environment, where you can choose to visualise what a cultural big bang might look like, or travel through the sea of artworks decade by decade.",
+      created_at: new Date('2016-06-29 14:26:16 UTC'),
+      updated_at: new Date('2016-06-29 14:26:16 UTC')
       }]);
     })
     .then(() => {

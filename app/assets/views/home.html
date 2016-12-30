@@ -37,8 +37,8 @@
                     <!-- Make Comment INPUT -->
                     <div ng-controller="CommentsCtrl as commentsCtrl">
                         <div ng-show="makeComment" class="collapsible-header">
-                            <input ng-model="comment" type="text" name="comment" id="comment_content" class="col s11 m11 l11" placeholder="Make a comment.">
-                            <a href="" type="submit" class="col s1 m1 l1 black-text comment" ng-click="commentsCtrl.createComment(comment, userId, postId)"><i class="material-icons">check_circle</i></a>
+                            <input ng-model="commentsCtrl.comment" type="text" name="comment" id="comment_content" class="col s11 m11 l11" placeholder="Make a comment.">
+                            <a href="" type="submit" class="col s1 m1 l1 black-text comment" ng-click="commentsCtrl.createComment(post.id)"><i class="material-icons">check_circle</i></a>
                         </div>
 
                         <!-- Show Comments -->

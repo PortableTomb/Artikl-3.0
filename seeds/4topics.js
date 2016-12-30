@@ -9,7 +9,7 @@ exports.seed = function(knex, Promise) {
       }, {
         id: 2,
         topic_id: 2,
-        topic:"portfolio"
+        topic:"admiration"
       }, {
         id: 3,
         topic_id: 3,

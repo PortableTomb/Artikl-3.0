@@ -67,8 +67,9 @@ router.get('/posts/:id/comments', authorize, (req, res, next) => {
 
 
 router.post('/posts', authorize, (req, res, next) => {
-  const { user_id, topic_id, post_title, post_url, post_image, post_text} = req.body;
-  const insertPost = { user_id, topic_id, post_title, post_url, post_image, post_text};
+  const {topicId, postTitle, postUrl, postImage, postText} = req.body;
+  const userId = req.token.userId;
+  const insertPost = { userId, topicId, postTitle, postUrl, postImage, postText };
     knex('users_posts')
 
     .insert(decamelizeKeys(insertPost), '*')
@@ -85,6 +86,36 @@ router.post('/posts', authorize, (req, res, next) => {
 
 });
 
+router.patch('/posts/:id', authorize, (req, res, next) => {
+  knex('users_posts')
+    .where('id', req.params.id)
+    .first()
+    .then((post) => {
+      if (!post) {
+        throw boom.create(404, 'Not Found');
+      }
+
+      const {topicId, votes, postTitle, postUrl, postImage, postText} = req.body;
+      const userId = req.token.userId;
+      const updatePost = {};
+
+      if (votes) {
+        updatePost.votes = req.body.votes;
+      }
+
+      return knex('users_posts')
+        .update(decamelizeKeys(updatePost), '*')
+        .where('id', req.params.id);
+    })
+    .then((rows) => {
+      const votes = camelizeKeys(rows[0]);
+
+      res.send(votes);
+    })
+    .catch((err) => {
+      next(err);
+    });
+});
 
 router.delete('/posts/:id', authorize, (req, res, next) => {
   let post;
