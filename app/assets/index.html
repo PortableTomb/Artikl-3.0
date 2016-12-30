@@ -14,6 +14,7 @@
 
 <body class="ng-cloak" ng-cloak>
     <!-- <a ui-sref="auth">LOGIN</a> -->
+
     <!-- NAVIGATION -->
     <div class="logo-above-nav"><a href="#" class="brand-logo center">Designeddit</a></div>
     <nav>
@@ -37,14 +38,15 @@
                 </ul>
                 <li><a class="dropdown-button" data-activates="dropdown2" href="#!">Designereddit<i class="material-icons right">arrow_drop_down</i></a></li>
             </ul>
-            <!-- Nav Cart -->
+
+            <!-- Nav Button Sidebar -->
             <ul class="right" ng-controller="AuthCtrl as authCtrl">
+
+                <a ng-show="authCtrl.isSignedIn()" ui-sref="home" class="grey button-collapse btn" data-activates="sidebar" data-sidenav="right" data-menuwidth="350" data-closeonclick="true"><i class="material-icons md-24 black-text">account_circle</i></a>
                 <li><a class="active black-text" ui-sref="index" ng-show="authCtrl.isSignedIn()" ng-click="authCtrl.signOut()">Logout</a></li>
                 <!-- <li><a class="active black-text" ui-sref="orders" ng-show="authCtrl.isSignedIn()">Followers</a></li> -->
-                <button ui-sref="orders" ng-show="authCtrl.isSignedIn()" class=" grey lighten-4 button-collapse btn" data-activates="sidebar" data-sidenav="right" data-menuwidth="350" data-closeonclick="true"><i class="material-icons md-24 black-text">account_circle</i></button>
             </ul>
         </div>
-
     </nav>
     <!-- End Navigation -->
 
@@ -67,13 +69,12 @@
                                 <input id="post_url" type="text" ng-model="postUrl">
                                 <label for="post_url">Link URL</label>
                             </div>
-
                             <div class="input-field col s12 m12">
                                 <textarea id="post_text" class="materialize-textarea" ng-model="postText"></textarea>
                                 <label for="post_text">Post Blurb</label>
                             </div>
                             <div class="modal-footer">
-                                <a href="#" class="modal-action modal-close btn-flat center" ng-click="postCtrl.createPost(postTitle, postImage, postUrl,postText)">Create Post</a>
+                                <a href="#" class="modal-action modal-close btn-flat center" ng-click="postCtrl.createPost( postTitle, postImage, postUrl, postText)">Create Post</a>
                             </div>
                         </div>
                     </form>
@@ -86,7 +87,29 @@
     <!-- POSTS FEED -->
     <main ui-view class="all-post-feed"></main>
 
+    <!-- SIDEBAR -->
+    <section>
+        <ul id="sidebar" class="right side-nav">
+            <div class="user-list-box" ng-controller="UserCtrl as userCtrl">
+                <li><a id="follow-button" class="btn btn-flat">Follow</a>
 
+                    <!-- SEARCH -->
+                    <form>
+                        <div class="searchbar-wrap">
+                            <input id="user-searchinput" class="search-bar left" placeholder="Search by Username" type="text" ng-model="userCtrl.searchText">
+                            <button type="submit" name="button" class="grey waves-effect waves-light btn-flat">Search</button>
+                        </div>
+                    </form>
+                    <div ng-repeat="users in userCtrl.getAllUsers()">
+                        <ul id="users-followers-list">
+                            <li>{{users.username}}</li>
+                        </ul>
+                    </div>
+                </li>
+            </div>
+        </ul>
+    </section>
+    <!-- End Side Nav -->
 
 
     <!-- LOGIN / SIGNUP MODALS -->
@@ -180,5 +203,7 @@
         require('app');
     </script>
 </body>
+
+</html>
 
 </html>

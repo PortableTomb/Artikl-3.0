@@ -20,6 +20,19 @@ const authorize = function(req, res, next) {
   });
 };
 
+router.get('/users', authorize, (_req, res, next) => {
+  knex('users')
+    .orderBy('id')
+    .then((rows) => {
+      const comments = camelizeKeys(rows);
+
+      res.send(comments);
+    })
+    .catch((err) => {
+      next(err);
+    });
+});
+
 router.post('/username', authorize, (req, res, next) => {
   const { userId } = req.token;
   const username = req.body.username.searchText;

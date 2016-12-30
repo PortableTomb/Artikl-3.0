@@ -24,6 +24,11 @@ a.brand-logo.center{
   font-family: 'Space Mono', monospace;
   color: #fff;
 }
+button.button-collapse.btn.ng-isolate-scope {
+    background-color: #eee;
+    margin-right: 20px;
+    margin-top: 3.25px;
+}
 /* SEARCH / SORT*/
 div.input-field.sort.container{
   margin: 20px;
@@ -170,4 +175,22 @@ div.card.singlepost{
 }
 div.card-image.singlepost{
     margin: auto;
+}
+
+// sidebar
+button.grey.waves-effect.waves-light.btn-flat {
+    height: 42px;
+    margin-bottom: 7px;
+    padding: 0.3rem;
+}
+.searchbar-wrap {
+    margin-left: 12%;
+}
+input#user-searchinput {
+    text-align: left;
+}
+a#follow-button {
+  background-color: #ccc;
+  margin-bottom: 20%;
+  display: block;
 }

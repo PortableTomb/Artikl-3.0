@@ -14,7 +14,7 @@ class PostService {
     this.postUrl = '';
     this.postImage = '';
     this.postText = '';
-    this.userId;
+    this.userId = '';
     this.signedIn = true;
 
     this.comments = $http;
@@ -71,9 +71,9 @@ class PostService {
     post.votes--;
   }
 
-  createPost(userId, postTitle, postUrl, postImage, postText) {
-    console.log(userId, postTitle, postUrl, postImage, postText);
-    this.createpost.post('/posts', JSON.stringify({ userId, postTitle, postUrl, postImage, postText }))
+  createPost(postTitle, postUrl, postImage, postText ) {
+    console.log(postTitle, postUrl, postImage, postText);
+    this.createpost.post('/posts', { postTitle, postUrl, postImage, postText })
     .then((res) => {
       this.post = res.data;
     })
@@ -85,5 +85,4 @@ class PostService {
 }
 
 PostService.$inject = ['$http', '$state', 'authService'];
-
 export default PostService;

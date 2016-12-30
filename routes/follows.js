@@ -22,7 +22,6 @@ const authorize = function(req, res, next) {
 
 router.get('/follows', authorize, (req,res,next) => {
   const { userId } = req.token;
-  console.log('This worky?')
   knex('users_follows')
     .innerJoin('users', 'users.id', 'users_follows.follow_id')
     .where('users_follows.user_id', userId)

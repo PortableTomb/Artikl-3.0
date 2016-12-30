@@ -5,9 +5,8 @@ class CommentsService {
     this.signedIn = true;
 
     // singlecomment
-    this.comment = '';
-
     // allcomments
+    this.comment = '';
     this.comments = [];
 
     // createpost
@@ -40,9 +39,10 @@ class CommentsService {
     this.current = currentComment;
   }
 
+
   createComment(comment, userId, postId) {
-    console.log(comment, userId, postId);
-    this.createcomment.post('/comments', { comment, userId, postId })
+    // console.log(comment, userId, postId);
+    this.createcomment.post('/comments', { comment: this.commentContent, userId: this.userId, postId: this.postId })
     .then((res) => {
       this.comment = res.data;
     })
@@ -59,3 +59,5 @@ class CommentsService {
 CommentsService.$inject = ['$http', '$state', 'authService'];
 
 export default CommentsService;
+
+// comment: this.commentContent, userId: this.userId, postId: this.postId

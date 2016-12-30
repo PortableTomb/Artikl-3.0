@@ -3,7 +3,6 @@ class PostCtrl {
     this.postService = postService;
     this.votes = 0;
     this.searchText = '';
-
   }
 
   getSinglePost() {
@@ -11,19 +10,6 @@ class PostCtrl {
   }
   getAllPosts() {
     return this.postService.getAllPosts();
-  }
-  getPostComments() {
-    return this.postService;
-  }
-  getPostsAndComments() {
-    return this.postService;
-  }
-  createPost(postTitle, postImage, postUrl,postText) {
-    console.log(postTitle, postImage, postUrl,postText);
-    return this.postService.createPost(postTitle, postImage, postUrl, postText);
-  }
-  removePost() {
-    return this.postService;
   }
   loadPost(post) {
     return this.postService.loadPost(post);
@@ -34,6 +20,20 @@ class PostCtrl {
   downvotePost(post) {
     return this.postService.downvotePost(post);
   }
+  createPost(postTitle, postImage, postUrl, postText) {
+    // console.log(postTitle, postImage, postUrl, postText);
+    return this.postService.createPost(postTitle, postImage, postUrl, postText);
+  }
+
+  // getPostComments() {
+  //   return this.postService;
+  // }
+  // getPostsAndComments() {
+  //   return this.postService;
+  // }
+  // removePost() {
+  //   return this.postService;
+  // }
 }
 
 PostCtrl.$inject = ['PostService'];

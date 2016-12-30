@@ -12,7 +12,6 @@ isSignedIn() {
 
   signUp() {
     if ( !this.username || !this.email || !this.password) {
-      console.log("Houston we have a problem.");
     }
     this.signUpSvc.SignUp(this.username, this.email, this.password)
     .then(() => {
