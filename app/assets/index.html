@@ -101,16 +101,34 @@
                     <!-- SEARCH -->
                     <form>
                         <div class="searchbar-wrap">
-                            <input id="user-searchinput" class="search-bar left" placeholder="Search by Username" type="text" ng-model="userCtrl.searchText">
-                            <button type="submit" name="button" class="grey waves-effect waves-light btn-flat">Search</button>
+                            <input id="user-searchinput" class="search-bar left" type="text" ng-model="userCtrl.searchText">
+                            <button type="submit" name="button" class="grey btn-flat">Search</button>
                         </div>
-                    </form>
-                    <div ng-repeat="users in userCtrl.getAllUsers()">
-                        <ul id="users-followers-list">
-                            <li class="users-followers-list-item">{{users.username}}</li>
-                        </ul>
-                    </div>
+
+                        <label>Search:<input ng-model="userCtrl.searchText"></label>
+                        <table id="searchTextResults">
+                            <thead>
+                                <tr>
+                                    <th>Username</th>
+                                    <th>Email</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="users in userCtrl.getAllUsers() ">
+                                    <td>{{users.username}}</td>
+                                    <td>{{users.email}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <hr>
+
+                        <div ng-repeat="users in userCtrl.getAllUsers() ">
+                            <ul id="users-followers-list ">
+                                <li class="users-followers-list-item ">{{users.username}}</li>
+                            </ul>
+                        </div>
                 </li>
+                </form>
             </div>
         </ul>
     </section>
@@ -119,30 +137,30 @@
     <!-- LOGIN / SIGNUP MODALS -->
 
     <!-- LOGIN Modal -->
-    <div id="modal1" class="modal modal-fixed-footer">
-        <div class="modal-content">
-            <div id="login" class="log container" ng-controller="AuthCtrl as authCtrl">
-                <div class="log-box">
+    <div id="modal1 " class="modal modal-fixed-footer ">
+        <div class="modal-content ">
+            <div id="login " class="log container " ng-controller="AuthCtrl as authCtrl ">
+                <div class="log-box ">
                     <br><br>
-                    <div class="auth-title">Welcome back to Designeddit!</div>
+                    <div class="auth-title ">Welcome back to Designeddit!</div>
                     <br><br>
-                    <form ng-submit="authCtrl.login()" name="loginForm">
-                        <div class="row">
-                            <div class="input col lg12 m12 s12">
-                                <label for="email">Email</label>
-                                <input class="validate" type="text" name="email" id="loginemail" placeholder="Enter your email." ng-model="authCtrl.email">
-                                <span class="spin"></span>
+                    <form ng-submit="authCtrl.login() " name="loginForm ">
+                        <div class="row ">
+                            <div class="input col lg12 m12 s12 ">
+                                <label for="email ">Email</label>
+                                <input class="validate " type="text " name="email " id="loginemail " placeholder="Enter your email. " ng-model="authCtrl.email ">
+                                <span class="spin "></span>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="input col lg12 m12 s12">
-                                <label for="password">Password</label>
-                                <input class="validate" type="password" name="password" id="password" placeholder="Enter your password." ng-model="authCtrl.password">
-                                <span class="spin"></span>
+                        <div class="row ">
+                            <div class="input col lg12 m12 s12 ">
+                                <label for="password ">Password</label>
+                                <input class="validate " type="password " name="password " id="password " placeholder="Enter your password. " ng-model="authCtrl.password ">
+                                <span class="spin "></span>
                             </div>
                         </div>
-                        <div class="button login input">
-                            <button type="submit" class="modal-action modal-close blue-grey lighten-2 left" ng-click="authCtrl.signIn(authCtrl.email, authCtrl.password)"><span class="regform">Login</span></button>
+                        <div class="button login input ">
+                            <button type="submit " class="modal-action modal-close blue-grey lighten-2 left " ng-click="authCtrl.signIn(authCtrl.email, authCtrl.password) "><span class="regform ">Login</span></button>
                         </div>
                     </form>
                 </div>
@@ -151,35 +169,35 @@
     </div>
 
     <!-- SIGNUP Modal -->
-    <div id="modal2" class="modal modal-fixed-footer">
-        <div class="modal-content" ng-controller="SignUpCtrl as signUpCtrl">
-            <div id="register" class=" reg container">
-                <div class="reg-box">
+    <div id="modal2 " class="modal modal-fixed-footer ">
+        <div class="modal-content " ng-controller="SignUpCtrl as signUpCtrl ">
+            <div id="register " class=" reg container ">
+                <div class="reg-box ">
                     <br>
-                    <div class="signup-title">Sign Me Up!</div>
+                    <div class="signup-title ">Sign Me Up!</div>
                     <br>
-                    <form ng-submit="signUpCtrl.signUp()" name="signupForm" role="form" novalidate>
+                    <form ng-submit="signUpCtrl.signUp() " name="signupForm " role="form " novalidate>
 
-                        <div class="input">
-                            <label for="username">Username</label>
-                            <input type="text" name="username" id="username" placeholder=" Enter a username." ng-model="signUpCtrl.username" required>
-                            <span class="register"></span>
+                        <div class="input ">
+                            <label for="username ">Username</label>
+                            <input type="text " name="username " id="username " placeholder=" Enter a username. " ng-model="signUpCtrl.username " required>
+                            <span class="register "></span>
                         </div>
 
-                        <div class="input">
-                            <label for="email">Email</label>
-                            <input type="text" name="email" id="email" placeholder=" Enter your email." ng-model="signUpCtrl.email" required>
-                            <span class="register"></span>
+                        <div class="input ">
+                            <label for="email ">Email</label>
+                            <input type="text " name="email " id="email " placeholder=" Enter your email. " ng-model="signUpCtrl.email " required>
+                            <span class="register "></span>
                         </div>
 
-                        <div class="input">
-                            <label for="regpass">Password</label>
-                            <input type="text" name="regpass" id="regpass" placeholder=" Enter your password." ng-model="signUpCtrl.password">
-                            <span class="register"></span>
+                        <div class="input ">
+                            <label for="regpass ">Password</label>
+                            <input type="text " name="regpass " id="regpass " placeholder=" Enter your password. " ng-model="signUpCtrl.password ">
+                            <span class="register "></span>
                         </div>
 
-                        <div class="button">
-                            <button class="modal-action modal-close blue-grey lighten-2" ng-click="users"><span class="regform">REGISTER</span></button>
+                        <div class="button ">
+                            <button class="modal-action modal-close blue-grey lighten-2 " ng-click="users "><span class="regform ">REGISTER</span></button>
                         </div>
                     </form>
                 </div>

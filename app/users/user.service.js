@@ -24,16 +24,13 @@ class UserService {
       .catch((err) => {
         return err;
       });
+  }
 
-
-    }
-
-    getAllUsers() {
-      return this.users;
-    }
-
+  getAllUsers() {
+    return this.users;
+  }
 
 }
 
-  UserService.$inject = ['$http', '$state', 'authService'];
-  export default UserService;
+UserService.$inject = ['$http', '$state', 'authService'];
+export default UserService;

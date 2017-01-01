@@ -45,7 +45,7 @@
                         <div class="row">
                             <div class="col s11 m11 l11">
                                 <div ng-show="showComments">
-                                    <div ng-repeat="comment in commentsCtrl.getAllComments()">
+                                    <div ng-repeat="comment in commentsCtrl.getPostComments() | filter:comment.postId">
                                         <div class="comment-list-box">
                                             <ul class="comment-list">
                                                 <li class="comment-list-item">{{comment.commentContent}}</li>

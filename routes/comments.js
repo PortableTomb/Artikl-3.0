@@ -34,6 +34,22 @@ router.get('/comments', authorize, (_req, res, next) => {
     });
 });
 
+router.get('/comments/:post_id', authorize, (req, res, next) => {
+  const id = req.params.id;
+  // const postId = req.params.post_id;
+  knex('users_comments')
+    .select('post_id', 'comment_content')
+    .orderBy('post_id')
+    .then((rows) => {
+      const comments = camelizeKeys(rows);
+
+      res.send(comments);
+    })
+    .catch((err) => {
+      next(err);
+    });
+});
+
 router.post('/comments', authorize, (req, res, next) => {
   const { postId, comment } = req.body;
   const userId = req.token.userId;
@@ -41,7 +57,6 @@ router.post('/comments', authorize, (req, res, next) => {
     knex('users_comments')
     .orderBy('id')
     .insert(decamelizeKeys(insertComment), '*')
-
     .then((rows) => {
       const comment = camelizeKeys(rows[0]);
 

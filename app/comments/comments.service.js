@@ -12,11 +12,14 @@ class CommentsService {
     // createpost
     const postId = this.post_id;
     const userId = this.user_id;
+    const comment = this.comment;
 
+    // const comment = this.comment;
     this.token = $http;
     this.allcomments = $http;
     this.singlecomment = $http;
     this.createcomment = $http;
+    this.postcomments = $http;
 
     this.token.get('/token')
       .then((res) => {
@@ -33,6 +36,22 @@ class CommentsService {
       .catch((err) => {
         return err;
       });
+
+    this.postcomments.get('/comments/' + this.post_id)
+      .then((res) => {
+        this.comments = res.data;
+      })
+      .catch((err) => {
+        return err;
+      });
+  }
+
+  getPostComments() {
+    if (this.post_id !== this.postId) {
+      return;
+    }
+
+    return this.comments;
   }
 
   setComments(currentComment) {
@@ -40,9 +59,9 @@ class CommentsService {
   }
 
   createComment(postId, comment) {
-    // console.log(comment, userId, postId);
     this.createcomment.post('/comments', { comment: comment, postId: postId })
     .then((res) => {
+      this.comments.push(res.data);
       this.comment = res.data;
     })
     .catch((err) => {
@@ -53,6 +72,7 @@ class CommentsService {
   getAllComments() {
     return this.comments;
   }
+
 }
 
 CommentsService.$inject = ['$http', '$state', 'authService'];

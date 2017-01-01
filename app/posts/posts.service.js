@@ -3,6 +3,9 @@ class PostService {
 
   constructor($http, $state, authService) {
     this.authService = authService;
+    this.$state = $state;
+    this.signedIn = false;
+
     // singlepost
     this.post = [];
 
@@ -17,15 +20,16 @@ class PostService {
     this.userId = '';
     this.signedIn = true;
 
+    // $http
     this.comments = $http;
     this.token = $http;
     this.allposts = $http;
     this.singlepost = $http;
     this.createpost = $http;
+
+    // voting
     this.downvote = $http;
     this.upvote = $http;
-    this.$state = $state;
-    this.signedIn = false;
     this.votes = 0;
 
     this.token.get('/token')
@@ -45,6 +49,10 @@ class PostService {
       });
   }
 
+  getAllPosts() {
+    return this.posts;
+  }
+
   getSinglePost() {
     return this.post;
   }
@@ -57,9 +65,6 @@ class PostService {
     .catch((err) => {
       return err;
     });
-  }
-  getAllPosts() {
-    return this.posts;
   }
 
   upvotePost(post) {
@@ -88,7 +93,6 @@ class PostService {
     .catch((err) => {
       return err;
     });
-
   }
 
   createPost(postTitle, postUrl, postImage, postText ) {

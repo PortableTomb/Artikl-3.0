@@ -4,29 +4,29 @@ exports.seed = function(knex, Promise) {
     .then(() => {
       return knex('users').insert([{
         id: 1,
-        username: 'd.carson',
-        email: 'davidcarson@raygun.com',
+        username: 'leia',
+        email: 'rebelprincess@jedi.com',
         hashed_password: '$2a$12$C9AYYmcLVGYlGoO4vSZTPud9ArJwbGRsJ6TUsNULzR48z8fOnTXbS',//youreawizard
         created_at: new Date('2016-06-29 14:26:16 UTC'),
         updated_at: new Date('2016-06-29 14:26:16 UTC')
       }, {
         id: 2,
-        username: 'r.eames',
-        email: 'rayeames@gmail.com',
+        username: 'luke',
+        email: 'l.skywalker@jedi.com',
         hashed_password: '$2a$12$C9AYYmcLVGYlGoO4vSZTPud9ArJwbGRsJ6TUsNULzR48z8fOnTXbS',//youreawizard
         created_at: new Date('2016-06-29 14:26:16 UTC'),
         updated_at: new Date('2016-06-29 14:26:16 UTC')
       }, {
         id: 3,
-        username: '',
-        email: 'j.meada@gmail.com',
+        username: 'han',
+        email: 'h.solo@falcon.com',
         hashed_password: '$2a$12$C9AYYmcLVGYlGoO4vSZTPud9ArJwbGRsJ6TUsNULzR48z8fOnTXbS',//youreawizard
         created_at: new Date('2016-06-29 14:26:16 UTC'),
         updated_at: new Date('2016-06-29 14:26:16 UTC')
     },{
         id: 4,
-        username: 'j.zhuo@facebook.com',
-        email: 'zstardust@gmail.com',
+        username: 'wookie',
+        email: 'chewbacca@falcon.com',
         hashed_password: '$2a$12$C9AYYmcLVGYlGoO4vSZTPud9ArJwbGRsJ6TUsNULzR48z8fOnTXbS',//youreawizard
         created_at: new Date('2016-06-29 14:26:16 UTC'),
         updated_at: new Date('2016-06-29 14:26:16 UTC')

@@ -10,6 +10,10 @@ class CommentsCtrl {
     const userId = this.userId;
   }
 
+  getPostComments() {
+    return this.commentsService.getPostComments();
+  }
+
   setComments(currentComment) {
     this.commentsService.setComments(currentComment);
   }
