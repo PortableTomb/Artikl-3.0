@@ -14,21 +14,23 @@
                     <div class="card horizontal">
                         <div class="card-image">
                             <div class="post-image">
-                                <img ng-src="{{post.postUrl}}" ng-cloak>
+                                <img ng-src="{{post.postImage}}" ng-cloak>
                             </div>
                         </div>
                         <div class="card-stacked">
                             <div class="card-content">
-                                <h6 class="header" ng-cloak>{{post.postTitle}}</h6>
-                                <p><a href="{{post.postImage}}" target="_blank" ng-cloak>{{post.postImage}}</a></p>
-                                <p ng-cloak>{{post.postText + "..."}}</p>
+                                <p>
+                                    <h6 class="header" ng-cloak>{{post.postTitle}}<a ng-href="{{post.postUrl}}" target="_blank" ng-cloak><i class="material-icons open-new ">open_in_new</i></a></h6>
+
+                                </p>
+                                <p ng-cloak>{{post.postText | limitTo:140 }}</p>
                             </div>
                             <div class="card-action">
                                 <div class="presentation">
                                     <gs-favorite></gs-favorite>
-                                    <a ui-sref="singlepost" ng-click="postCtrl.loadPost(post)"><i class="material-icons open-new right">open_in_new</i></a></a>
-                                    <a href="#"><i class="material-icons view-comment" ng-click="showComments = !showComments">remove_red_eye</i></a></a>
-                                    <a href="#"><i class="material-icons comment" ng-click="makeComment = !makeComment">mode_edit</i></a>
+                                    <a ui-sref="singlepost" ng-click="postCtrl.loadPost(post)"><i class="material-icons open-new right">remove_red_eye</i></a></a>
+                                    <a href="#"><i class="material-icons view-comment" ng-click="showComments = !showComments">comments</i></a></a>
+                                    <a href="#"><i class="material-icons comment" ng-click="makeComment = !makeComment">note_add</i></a>
                                 </div>
                             </div>
                         </div>

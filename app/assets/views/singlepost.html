@@ -1,15 +1,40 @@
 <div class="container">
-    <div ng-repeat="post in postCtrl.getSinglePost()">
-        <div class="card singlepost">
-            <div class="card-image singlepost waves-effect waves-block waves-light">
-                <img ng-src="{{post.postUrl}}">
-            </div>
-            <div class="card-title-content singlepost">
-                <p class="card-title singlepost">{{post.postTitle}}</p>
-                <div class="card-content singlepost">
-                    <p>{{post.postText}}</p>
-                    <p><a href="#">{{post.postUrl}}</a></p>
+    <div class="row">
+        <div class="col s12 m12 l12">
+            <div ng-repeat="post in postCtrl.getSinglePost()">
+                <div class="card singlepost">
+                    <div class="card-image singlepost waves-effect waves-block waves-light">
+                        <img ng-src="{{post.postImage}}">
+                    </div>
+                    <div class="card-title-content singlepost">
+                        <p class="card-title singlepost">{{post.postTitle}}<a ng-href="{{post.postUrl}}" target="_blank" ng-cloak><i class="material-icons open-new ">open_in_new</i></a></p>
+                        <div class="card-content singlepost">
+                            <p>{{post.postText}}</p>
+                            <p></p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
+
+
+
+    <!-- Show Comments -->
+    <div ng-controller="CommentsCtrl as commentsCtrl">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div>
+                    <div ng-repeat="comment in commentsCtrl.getPostComments() | filter:comment.postId">
+                        <div class="comment-list-box">
+                            <ul class="comment-list">
+                                <li class="comment-list-item">{{comment.commentContent}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
     </div>
