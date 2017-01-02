@@ -75,15 +75,17 @@
                                 <textarea id="post_text" class="materialize-textarea" ng-model="postCtrl.postText"></textarea>
                                 <label for="post_text">Post Blurb</label>
                             </div>
+                            <select class="sorter center" name="sorting-options" ng-model="postCtrl.topicId">
+                                <option value="" disabled selected>Post Category</option>
+                                <option value="1">Inspiration</option>
+                                <option value="2">Show and Tell</option>
+                                <option value="3">Resources</option>
+                            </select>
                             <div class="modal-footer">
                                 <a href="#" class="modal-action modal-close btn-flat center" ng-click="postCtrl.createPost()">Create Post</a>
                             </div>
                         </div>
-                        <!-- <select class="sorter center" name="sorting-options" ng-model="postCtrl.options">
-                            <option value="1">Inspiration</option>
-                            <option value="2">Admiration</option>
-                            <option value="3">Resources</option>
-                        </select> -->
+
                     </form>
                 </div>
             </div>
@@ -95,41 +97,39 @@
 
     <!-- SIDEBAR -->
     <section>
-        <!-- <ul id="sidebar" class="right side-nav">
+        <ul id="sidebar" class="right side-nav">
             <div class="user-list-box" ng-controller="UserCtrl as userCtrl">
-                <li><a id="follow-button" class="btn btn-flat">Follow</a> -->
-        <!-- SEARCH -->
-        <!-- <form>
-                        <div class="searchbar-wrap">
+                <li><a id="follow-button" class="btn btn-flat">Follow</a></li>
+                <!-- SEARCH -->
+                <form>
+                    <!-- <div class="searchbar-wrap">
                             <input id="user-searchinput" class="search-bar left" type="text" ng-model="userCtrl.searchText">
                             <button type="submit" name="button" class="grey btn-flat">Search</button>
-                        </div>
+                        </div> -->
+                    <!-- <label>Search Username: -->
+                    <div class="searchbar-wrap">
+                        <input ng-model="searchText" id="user-searchinput" class="search-bar left" type="text" autofocus>
+                        <button type="submit" name="button" class="grey btn-flat">Search</button>
+                    </div>
+                    <!-- </label> -->
+                    <table id="searchTextResults">
+                        <thead>
+                            <tr>
+                                <th>Username</th>
+                                <th>Email</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="users in userCtrl.getAllUsers() | filter: searchText | orderBy: 'users.username'  ">
+                                <td>{{users.username}}</td>
+                                <td>{{users.email}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <hr>
 
-                        <label>Search:<input ng-model="userCtrl.searchText"></label>
-                        <table id="searchTextResults">
-                            <thead>
-                                <tr>
-                                    <th>Username</th>
-                                    <th>Email</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr ng-repeat="users in userCtrl.getAllUsers() ">
-                                    <td>{{users.username}}</td>
-                                    <td>{{users.email}}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <hr>
-
-                        <div ng-repeat="users in userCtrl.getAllUsers()">
-                            <ul id="users-followers-list ">
-                                <li class="users-followers-list-item">{{users.username}}</li>
-                            </ul>
-                        </div>
-                </li>
-                </form> -->
-        </div>
+                </form>
+            </div>
         </ul>
     </section>
     <!-- End Sidebar -->

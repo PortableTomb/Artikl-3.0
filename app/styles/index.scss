@@ -1,5 +1,5 @@
 *, *:before, *:after {
-    box-sizing: inherit;
+    // box-sizing: border-box;
 }
 body {
 background-color: #fff;
@@ -89,8 +89,6 @@ i.material-icons.arrow {
     padding: 12px !important;
 }
 i.material-icons.favorite {
-  // margin-left: 6%;
-  // margin: 0;
   padding: 0;
   font-size: 1.75em;
   vertical-align: middle;
@@ -98,12 +96,8 @@ i.material-icons.favorite {
 }
 i.material-icons.comment {
   display: inline;
-  // margin: 0;
   padding: 0;
-  // padding-top: 15px;
-  // padding-bottom: 10px;
   font-size: 2rem;
-  // margin-left: 6%;
   color: #ddd;
 }
 div.card-image {
@@ -204,4 +198,8 @@ a#follow-button {
   background-color: #ccc;
   margin-bottom: 20%;
   display: block;
+}
+select.sorter.center {
+  display: block;
+  word-wrap: break-word;
 }
