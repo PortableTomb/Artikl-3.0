@@ -30,6 +30,11 @@ class UserService {
     return this.users;
   }
 
+  // followUser() {
+  //   const follow = this.userSearch.userId;
+  //   return this.followUser(follow);
+  // }
+
 }
 
 UserService.$inject = ['$http', '$state', 'authService'];

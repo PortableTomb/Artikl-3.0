@@ -99,19 +99,14 @@
     <section>
         <ul id="sidebar" class="right side-nav">
             <div class="user-list-box" ng-controller="UserCtrl as userCtrl">
-                <li><a id="follow-button" class="btn btn-flat">Follow</a></li>
+                <!-- <li><a id="follow-button" class="btn btn-flat">Follow</a></li> -->
                 <!-- SEARCH -->
                 <form>
-                    <!-- <div class="searchbar-wrap">
-                            <input id="user-searchinput" class="search-bar left" type="text" ng-model="userCtrl.searchText">
-                            <button type="submit" name="button" class="grey btn-flat">Search</button>
-                        </div> -->
-                    <!-- <label>Search Username: -->
+                    <!-- Search Username: -->
                     <div class="searchbar-wrap">
                         <input ng-model="searchText" id="user-searchinput" class="search-bar left" type="text" autofocus>
-                        <button type="submit" name="button" class="grey btn-flat right">Search</button>
+                        <button type="submit" name="button" class="grey btn-flat">Search</button>
                     </div>
-                    <!-- </label> -->
                     <table id="searchTextResults">
                         <thead>
                             <tr>
@@ -119,7 +114,7 @@
                                 <th>Email</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody ng-show='searchText'>
                             <tr ng-repeat="users in userCtrl.getAllUsers() | filter: searchText | orderBy: 'users.username'  ">
                                 <td>{{users.username}}</td>
                                 <td>{{users.email}}</td>
@@ -127,7 +122,6 @@
                         </tbody>
                     </table>
                     <hr>
-
                 </form>
             </div>
         </ul>

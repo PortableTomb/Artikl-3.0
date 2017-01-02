@@ -183,15 +183,18 @@ p.card-title.singlepost {
 }
 
 // sidebar
-button.grey.waves-effect.waves-light.btn-flat {
-    height: 42px;
-    margin-bottom: 7px;
-    padding: 0.3rem;
+button.grey.btn-flat {
+  margin-top: 8.5%;
+  height: 42px;
+  padding: 0;
+  line-height: 0 !important;
+  padding: 20px 20px 20px 0;
 }
 .searchbar-wrap {
     margin-left: 12%;
 }
 input#user-searchinput {
+    margin-top: 8.5%;
     text-align: left;
 }
 a#follow-button {
