@@ -24,7 +24,7 @@ class PostCtrl {
     return this.postService.downvotePost(post);
   }
   createPost() {
-    // console.log(postTitle, postImage, postUrl, postText);
+    Materialize.toast('Post Successful!', 4000, 'rounded');
     return this.postService.createPost(this.postTitle, this.postImage, this.postUrl, this.postText);
   }
 

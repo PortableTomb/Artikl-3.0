@@ -20,6 +20,7 @@ class CommentsService {
     this.singlecomment = $http;
     this.createcomment = $http;
     this.postcomments = $http;
+    this.deletecomments = $http;
 
     this.token.get('/token')
       .then((res) => {
@@ -44,6 +45,7 @@ class CommentsService {
       .catch((err) => {
         return err;
       });
+
   }
 
   getPostComments() {
@@ -69,10 +71,23 @@ class CommentsService {
     });
   }
 
+  deleteComment(postId) {
+    this.deletecomments.delete('/comments/' + this.comment.postId)
+    .then((res) => {
+      this.comments = res.data;
+    })
+    .catch((err) => {
+      return err;
+    });
+  }
+
   getAllComments() {
     return this.comments;
   }
 
+  // removeComment(index) {
+  //   this.comments.splice(index, 1);
+  // }
 }
 
 CommentsService.$inject = ['$http', '$state', 'authService'];

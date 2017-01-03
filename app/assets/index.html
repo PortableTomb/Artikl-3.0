@@ -18,14 +18,10 @@
     <!-- <header ng-include=" 'views/nav.html' "></header> -->
 
     <!-- NAVIGATION -->
-    <div class="logo-above-nav"><a ui-sref="home" class="brand-logo center">Designer News</a></div>
+    <div class="logo-above-nav"><a ui-sref="home" class="brand-logo black-text center">Designeddit</a></div>
     <nav>
         <div class="nav-wrapper grey lighten-4">
-            <a href="#" class="button-collapse black-text" data-activates="nav-mobile" data-sidenav="left" data-menuwith="300px" data-closeonclick="false"><i class="material-icons md-24">menu</i></a>
-            <!-- <ul class="right" ng-controller="AuthCtrl as authCtrl">
-                <li><a ui-sref="home" ng-show="authCtrl.isSignedIn()" class="grey button-collapse btn" data-activates="sidebar" data-sidenav="right" data-menuwidth="350" data-closeonclick="true"><i class="material-icons md-24 black-text">account_circle</i></a></li>
-                <li><a class="active black-text" ui-sref="home" ng-show="authCtrl.isSignedIn()" ng-click="authCtrl.signOut()">Logout</a></li>
-            </ul> -->
+            <a href="#" class="button-collapse black-text" data-activates="nav-mobile" data-sidenav="left" data-menuwith="300px" data-closeonclick="false"><i class="material-icons black-text md-24">menu</i></a>
 
             <!-- Dropdown -->
             <ul class="left hide-on-med-and-down black-text">
@@ -34,7 +30,7 @@
                     <li><a class="modal-trigger" href="#modal1" modal>LOGIN</a></li>
                     <li><a class="modal-trigger" href="#modal2" modal>SIGN-UP</a></li>
                 </ul>
-                <li><a class="modal-trigger black-text" href="#new-post-modal" modal><i class="material-icons md-24">add</i></a></li>
+
             </ul>
 
             <!-- Mobile Nav -->
@@ -50,6 +46,7 @@
 
             <!-- Sidebar & Logout -->
             <ul class="right" ng-controller="AuthCtrl as authCtrl">
+                <li><a ng-show="authCtrl.isSignedIn()" class="modal-trigger black-text" href="#new-post-modal" modal><i class="material-icons black-text">add</i></a></li>
                 <li><a class="active black-text" ui-sref="home" ng-show="authCtrl.isSignedIn()" data-activates="sidebar" data-sidenav="right" data-menuwidth="350" data-closeonclick="true"><i class="material-icons md-24 black-text">account_circle</i></a></li>
                 <li><a class="active black-text" ui-sref="home" ng-show="authCtrl.isSignedIn()" ng-click="authCtrl.signOut()">Logout</a></li>
             </ul>

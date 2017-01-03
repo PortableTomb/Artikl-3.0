@@ -7,6 +7,10 @@ class AuthCtrl {
     return this.authService.isSignedIn();
   }
 
+  isSignedOut() {
+    return this.authService.isSignedOut();
+  }
+
   signIn(email, password) {
     return this.authService.signIn(email, password);
   }

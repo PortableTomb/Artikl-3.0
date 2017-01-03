@@ -24,11 +24,21 @@ class CommentsCtrl {
   }
 
   createComment(postId) {
+    Materialize.toast('Comment Sucessful!', 4000, 'rounded');
+
     return this.commentsService.createComment(postId, this.comment);
+  }
+
+  deleteComment(postId) {
+    return this.commentsService.deleteComment(postId);
   }
 
   getUsername() {
     return this.userService.getAllUsers();
+  }
+
+  removeComment(index) {
+    return this.commentsService.removeComment(index);
   }
 }
 

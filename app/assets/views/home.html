@@ -1,6 +1,6 @@
 <section class="container">
     <div>
-        <div ng-repeat="post in postCtrl.getAllPosts()">
+        <div ng-repeat="post in postCtrl.getAllPosts() | orderBy :'-votes' ">
 
             <!-- VOTES -->
             <div id="post-feed" class="row">
@@ -20,7 +20,7 @@
                         <div class="card-stacked">
                             <div class="card-content">
                                 <p>
-                                    <h6 class="header" ng-cloak>{{post.postTitle}}<a ng-href="{{post.postUrl}}" target="_blank" ng-cloak><i class="material-icons open-new ">open_in_new</i></a></h6>
+                                    <h6 class="header" ng-cloak>{{post.postTitle}}<a ng-href="{{post.postUrl}}" target="_blank" ng-cloak><i class="material-icons open-new">open_in_new</i></a></h6>
                                 </p>
                                 <p ng-cloak>{{post.postText | limitTo:255 }}</p>
                             </div>
@@ -40,6 +40,7 @@
                         <div ng-show="makeComment" class="collapsible-header">
                             <input ng-model="commentsCtrl.comment" type="text" name="comment" id="comment_content" class="col s11 m11 l11" placeholder="Make a comment.">
                             <a href="" type="submit" class="col s1 m1 l1 black-text comment" ng-click="commentsCtrl.createComment(post.id)"><i class="material-icons">check_circle</i></a>
+
                         </div>
 
                         <!-- Show Comments -->
@@ -51,7 +52,7 @@
                                             <div class="comment-list-box">
                                                 <ul class="comment-list">
                                                     <li class="comment-list-item">{{comment.commentContent}}
-                                                        <hr class="comment-box-hr"> </li>
+                                                        <a class="btn-flat right" ng-click="commentsCtrl.deleteComment(comment.postId)">x</a> </li>
                                                 </ul>
                                             </div>
                                         </div>

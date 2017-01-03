@@ -8,6 +8,7 @@ class UserService {
     this.users = [];
     this.token = $http;
     this.allusers = $http;
+    this.singleuser = $http;
 
     this.token.get('/token')
       .then((res) => {
@@ -33,6 +34,17 @@ class UserService {
   getUsername() {
     return this.users;
   }
+
+  loadUser(user) {
+    this.singleuser.get('/users/' + user.id)
+    .then((res) => {
+      this.user = res.data;
+    })
+    .catch((err) => {
+      return err;
+    });
+  }
+  
   // followUser() {
   //   const follow = this.userSearch.userId;
   //   return this.followUser(follow);

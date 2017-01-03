@@ -17,6 +17,10 @@ class AuthService {
     return this.signedIn;
   }
 
+  isSignedOut() {
+    return this.signedIn === !this.signedIn;
+  }
+
   signIn(email, password) {
     return this.$http.post('/token', { email, password })
       .then(() => {

@@ -47,5 +47,11 @@ angular.module('my-app', [angularMaterialize, uiRouter])
         templateUrl: 'views/singlepost.html',
         controller: 'PostCtrl',
         controllerAs: 'postCtrl'
+      })
+      .state('dash', {
+        url: '/dash',
+        templateUrl: 'home/dash.html',
+        controller: 'UserCtrl',
+        controllerAs: 'userCtrl'
       });
 }]);

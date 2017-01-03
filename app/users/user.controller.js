@@ -12,6 +12,10 @@ class UserCtrl {
   getAllUsers() {
     return this.userService.getAllUsers();
   }
+  
+  loadUser(user) {
+    return this.userService.loadPost(user);
+  }
 
 }
 
