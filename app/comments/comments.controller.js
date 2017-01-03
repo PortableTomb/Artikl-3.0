@@ -1,6 +1,7 @@
 class CommentsCtrl {
-  constructor(commentsService) {
+  constructor(commentsService, userService) {
     this.commentsService = commentsService;
+    this.userService = userService;
 
     // singlecomment
     this.comment = '';
@@ -23,10 +24,13 @@ class CommentsCtrl {
   }
 
   createComment(postId) {
-    console.log(postId);
     return this.commentsService.createComment(postId, this.comment);
+  }
+
+  getUsername() {
+    return this.userService.getAllUsers();
   }
 }
 
-CommentsCtrl.$inject = ['commentsService'];
+CommentsCtrl.$inject = ['commentsService', 'userService'];
 export default CommentsCtrl;

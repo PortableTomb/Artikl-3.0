@@ -5,8 +5,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Designeddit</title>
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
-    <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
     <link rel="stylesheet" href="/vendor.css">
     <link rel="stylesheet" href="/app.css">
@@ -17,10 +18,14 @@
     <!-- <header ng-include=" 'views/nav.html' "></header> -->
 
     <!-- NAVIGATION -->
-    <div class="logo-above-nav"><a ui-sref="home" class="brand-logo center">Designeddit</a></div>
+    <div class="logo-above-nav"><a ui-sref="home" class="brand-logo center">Designer News</a></div>
     <nav>
         <div class="nav-wrapper grey lighten-4">
             <a href="#" class="button-collapse black-text" data-activates="nav-mobile" data-sidenav="left" data-menuwith="300px" data-closeonclick="false"><i class="material-icons md-24">menu</i></a>
+            <!-- <ul class="right" ng-controller="AuthCtrl as authCtrl">
+                <li><a ui-sref="home" ng-show="authCtrl.isSignedIn()" class="grey button-collapse btn" data-activates="sidebar" data-sidenav="right" data-menuwidth="350" data-closeonclick="true"><i class="material-icons md-24 black-text">account_circle</i></a></li>
+                <li><a class="active black-text" ui-sref="home" ng-show="authCtrl.isSignedIn()" ng-click="authCtrl.signOut()">Logout</a></li>
+            </ul> -->
 
             <!-- Dropdown -->
             <ul class="left hide-on-med-and-down black-text">
@@ -34,23 +39,23 @@
 
             <!-- Mobile Nav -->
             <ul class="side-nav" id="nav-mobile">
-                <li><a class="modal-trigger" href="#new-post-modal" modal><i class="material-icons md-24">add</i>Post</a></li>
                 <ul id="dropdown2" class="dropdown-content">
                     <li><a class="modal-trigger" href="#modal1" modal>LOGIN</a></li>
                     <li><a class="modal-trigger" href="#modal2" modal>SIGN-UP</a></li>
                 </ul>
-                <li><a class="dropdown-button" data-activates="dropdown2" href="#!">Designereddit<i class="material-icons right">arrow_drop_down</i></a></li>
+                <li><a class="dropdown-button" data-activates="dropdown2" href="#!">Designer News<i class="material-icons right">arrow_drop_down</i></a></li>
+                <li><a class="modal-trigger" href="#new-post-modal" modal><i class="material-icons md-24">add</i>Post</a></li>
+                <li><a class="modal-trigger" href="#sidebar" modal><i class="material-icons md-24">account_circle</i>Followers</a></li>
             </ul>
 
-            <!-- Sidebar Button -->
+            <!-- Sidebar & Logout -->
             <ul class="right" ng-controller="AuthCtrl as authCtrl">
-                <li><a ui-sref="home" ng-show="authCtrl.isSignedIn()" class="grey button-collapse btn" data-activates="sidebar" data-sidenav="right" data-menuwidth="350" data-closeonclick="true"><i class="material-icons md-24 black-text">account_circle</i></a></li>
+                <li><a class="active black-text" ui-sref="home" ng-show="authCtrl.isSignedIn()" data-activates="sidebar" data-sidenav="right" data-menuwidth="350" data-closeonclick="true"><i class="material-icons md-24 black-text">account_circle</i></a></li>
                 <li><a class="active black-text" ui-sref="home" ng-show="authCtrl.isSignedIn()" ng-click="authCtrl.signOut()">Logout</a></li>
             </ul>
         </div>
     </nav>
     <!-- End Navigation -->
-
 
     <!-- CREATE POST MODAL -->
     <div id="new-post-modal" class="modal top-sheet">

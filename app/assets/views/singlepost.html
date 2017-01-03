@@ -3,6 +3,7 @@
         <div class="col s12 m12 l12">
             <div ng-repeat="post in postCtrl.getSinglePost()">
                 <div class="card singlepost">
+                    <p class="close"><a ui-sref="home" ng-cloak><i class="material-icons right">close</i></a></p>
                     <div class="card-image singlepost waves-effect waves-block waves-light">
                         <img ng-src="{{post.postImage}}">
                     </div>

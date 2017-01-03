@@ -30,6 +30,9 @@ class UserService {
     return this.users;
   }
 
+  getUsername() {
+    return this.users;
+  }
   // followUser() {
   //   const follow = this.userSearch.userId;
   //   return this.followUser(follow);

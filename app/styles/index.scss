@@ -15,7 +15,7 @@ div.logo-above-nav{
   padding-bottom: 30px;
   padding-left: 20px;
   text-align: left;
-  background-color: #ccc;
+  background-color: #b4f0e6;
   z-index: 9000;
   box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
 }
@@ -33,6 +33,10 @@ i.material-icons.settings {
   color: #ccc;
   width: 85px;
 }
+a.modal-trigger.ng-isolate-scope {
+    color: black;
+}
+
 /* SEARCH / SORT*/
 div.input-field.sort.container{
   margin: 20px;
@@ -100,6 +104,14 @@ i.material-icons.comment {
   font-size: 2rem;
   color: #ddd;
 }
+i.material-icons.view-comment {
+    margin: 0;
+    padding: 0;
+    width: 28px;
+}
+i.material-icons.open-new.right{
+  margin: 0;
+}
 div.card-image {
   top: 30px;
   background-color: #eee;
@@ -166,6 +178,14 @@ a.col.s1.m1.l1.black-text.comment {
     padding: 0;
     -webkit-appearance: initial !important;
 }
+// comments
+hr.comment-box-hr {
+  opacity: 0.25;
+  width: 75%;
+}
+li.comment-list-item {
+  // font-style: italic;
+}
 
 // singlepost
 div.card.singlepost{
@@ -205,4 +225,7 @@ a#follow-button {
 select.sorter.center {
   display: block;
   word-wrap: break-word;
+}
+a.modal-trigger.side {
+  text-align: left !important;
 }

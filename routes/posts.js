@@ -95,7 +95,7 @@ router.patch('/posts/:id', authorize, (req, res, next) => {
         throw boom.create(404, 'Not Found');
       }
 
-      const {topicId, votes, postTitle, postUrl, postImage, postText} = req.body;
+      const {topicId, votes, likes, postTitle, postUrl, postImage, postText} = req.body;
       const userId = req.token.userId;
       const updatePost = {};
 
@@ -112,6 +112,21 @@ router.patch('/posts/:id', authorize, (req, res, next) => {
 
       res.send(votes);
     })
+    // likes
+  //   if (likes) {
+  //     updatePost.likes = req.body.likes;
+  //   }
+  //
+  //   return knex('users_posts')
+  //     .update(decamelizeKeys(updatePost), '*')
+  //     .where('id', req.params.id);
+  // })
+  // .then((rows) => {
+  //   const likes = camelizeKeys(rows[0]);
+  //
+  //   res.send(likes);
+  // })
+    // likes
     .catch((err) => {
       next(err);
     });

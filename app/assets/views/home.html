@@ -21,14 +21,13 @@
                             <div class="card-content">
                                 <p>
                                     <h6 class="header" ng-cloak>{{post.postTitle}}<a ng-href="{{post.postUrl}}" target="_blank" ng-cloak><i class="material-icons open-new ">open_in_new</i></a></h6>
-
                                 </p>
                                 <p ng-cloak>{{post.postText | limitTo:255 }}</p>
                             </div>
                             <div class="card-action">
                                 <div class="presentation">
                                     <gs-favorite></gs-favorite>
-                                    <a ui-sref="singlepost" ng-click="postCtrl.loadPost(post)"><i class="material-icons open-new right">remove_red_eye</i></a></a>
+                                    <a ngModel="color" ui-sref="singlepost" ng-click="postCtrl.loadPost(post)"><i class="material-icons open-new right">remove_red_eye</i></a></a>
                                     <a href="#"><i class="material-icons view-comment" ng-click="showComments = !showComments">comments</i></a></a>
                                     <a href="#"><i class="material-icons comment" ng-click="makeComment = !makeComment">note_add</i></a>
                                 </div>
@@ -45,13 +44,16 @@
 
                         <!-- Show Comments -->
                         <div class="row">
-                            <div class="col s11 m11 l11">
+                            <div class="col s12 m12 l12">
                                 <div ng-show="showComments">
-                                    <div ng-repeat="comment in commentsCtrl.getPostComments() | filter:comment.postId">
-                                        <div class="comment-list-box">
-                                            <ul class="comment-list">
-                                                <li class="comment-list-item">{{comment.commentContent}}</li>
-                                            </ul>
+                                    <div class="card">
+                                        <div ng-repeat="comment in commentsCtrl.getPostComments() | filter: comment.postId ">
+                                            <div class="comment-list-box">
+                                                <ul class="comment-list">
+                                                    <li class="comment-list-item">{{comment.commentContent}}
+                                                        <hr class="comment-box-hr"> </li>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
