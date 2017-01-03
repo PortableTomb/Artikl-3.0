@@ -74,7 +74,7 @@ router.delete('/comments/:id', authorize, (req, res, next) => {
 
   knex('users_comments')
   .where('id', req.params.id)
-    .first()
+    // .first()
     .then((row) => {
       if (!row) {
         throw boom.create(404, 'Not Found');

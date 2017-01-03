@@ -72,9 +72,9 @@ class CommentsService {
   }
 
   deleteComment(postId) {
-    this.deletecomments.delete('/comments/' + this.comment.postId)
+    this.deletecomments.delete('/comments/' + postId)
     .then((res) => {
-      this.comments = res.data;
+      this.comments = [];
     })
     .catch((err) => {
       return err;

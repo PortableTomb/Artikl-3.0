@@ -98,8 +98,8 @@ div.post-image {
 .card.horizontal .card-image img {
   //  border-radius: 100%;
   //  padding: 5%;
-  width: 100px;
-  height: 100px;
+  width: 175px;
+  height: 175px;
 }
 
 a.post-title.ng-binding {
@@ -124,7 +124,7 @@ i.material-icons.arrow {
 .card, .card-action {
   position: relative;
   border-top: 1px solid rgba(160, 160, 160, 0.2);
-  padding: 12px !important;
+  padding: 16px !important;
 }
 
 i.material-icons {
@@ -148,6 +148,12 @@ i.material-icons {
   }
 }
 
+.card.horizontal .card-stacked .card-content {
+    min-height: 175px;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+}
 
 div {
   &.card-image {

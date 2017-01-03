@@ -28,7 +28,7 @@
                                 <div class="presentation">
                                     <gs-favorite></gs-favorite>
                                     <a ngModel="color" ui-sref="singlepost" ng-click="postCtrl.loadPost(post)"><i class="material-icons open-new right">remove_red_eye</i></a></a>
-                                    <a href="#"><i class="material-icons view-comment" ng-click="showComments = !showComments">comments</i></a></a>
+                                    <a href="#"><i class="material-icons view-comment" ng-click="showComments = !showComments; ">comments</i></a></a>
                                     <a href="#"><i class="material-icons comment" ng-click="makeComment = !makeComment">note_add</i></a>
                                 </div>
                             </div>
@@ -52,7 +52,7 @@
                                             <div class="comment-list-box">
                                                 <ul class="comment-list">
                                                     <li class="comment-list-item">{{comment.commentContent}}
-                                                        <a class="btn-flat right" ng-click="commentsCtrl.deleteComment(comment.postId)">x</a> </li>
+                                                        <a class="btn-flat right" ng-click="commentsCtrl.deleteComment(comment.id)">x</a> </li>
                                                 </ul>
                                             </div>
                                         </div>
