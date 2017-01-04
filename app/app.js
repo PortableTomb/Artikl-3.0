@@ -42,6 +42,12 @@ angular.module('my-app', [angularMaterialize, uiRouter])
         controller: 'PostCtrl',
         controllerAs: 'postCtrl'
       })
+      .state('home.inspiration', {
+        url: '/inspiration',
+        templateUrl: 'partial-home-inspiration.html',
+        controller: 'PostCtrl',
+        controllerAs: 'postCtrl'
+      })
       .state('singlepost', {
         url: '/singlepost',
         templateUrl: 'views/singlepost.html',
@@ -50,7 +56,7 @@ angular.module('my-app', [angularMaterialize, uiRouter])
       })
       .state('dash', {
         url: '/dash',
-        templateUrl: 'home/dash.html',
+        templateUrl: 'views/dash.html',
         controller: 'UserCtrl',
         controllerAs: 'userCtrl'
       });

@@ -34,14 +34,14 @@ router.get('/comments', authorize, (_req, res, next) => {
     });
 });
 
-router.get('/comments/:post_id', authorize, (req, res, next) => {
-  const id = req.params.id;
+router.get('/comments/:id', authorize, (req, res, next) => {
+  // const id = req.params.id;
   // const postId = req.params.post_id;
   knex('users_comments')
-    .select('post_id', 'comment_content')
+    .select('comment_content','post_id')
     .orderBy('post_id')
     .then((rows) => {
-      const comments = camelizeKeys(rows);
+      const comments = camelizeKeys(rows)
 
       res.send(comments);
     })
@@ -70,10 +70,10 @@ router.post('/comments', authorize, (req, res, next) => {
 });
 
 router.delete('/comments/:id', authorize, (req, res, next) => {
-  let post;
+  const id = req.params.id;
 
   knex('users_comments')
-  .where('id', req.params.id)
+  .where('id', id)
     // .first()
     .then((row) => {
       if (!row) {
@@ -83,7 +83,7 @@ router.delete('/comments/:id', authorize, (req, res, next) => {
       comment = camelizeKeys(row);
       return knex('users_comments')
         .del()
-        .where('id', req.params.id);
+        .where('id', comment.id);
     })
     .then(() => {
       delete comment.id;

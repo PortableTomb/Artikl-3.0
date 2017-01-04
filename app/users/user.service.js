@@ -3,12 +3,14 @@ class UserService {
   constructor($http, $state, authService) {
     this.authService = authService;
     this.signedIn = true;
-
+    this.$state = $state;
     this.user = [];
     this.users = [];
     this.token = $http;
     this.allusers = $http;
     this.singleuser = $http;
+
+    // const userId = window.QUERY_PARAMETERS.id;
 
     this.token.get('/token')
       .then((res) => {
@@ -44,7 +46,7 @@ class UserService {
       return err;
     });
   }
-  
+
   // followUser() {
   //   const follow = this.userSearch.userId;
   //   return this.followUser(follow);

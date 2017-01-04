@@ -204,6 +204,8 @@ h6 {
   font-size: 1.25rem;
   font-family: $header-font;
   margin: 0.5rem 0 0.4rem 0;
+  background-color: #d6f7f1;
+  padding: 5px 5px 10px 10px;
 }
 
 .collapsible-header {
@@ -298,7 +300,19 @@ a.modal-trigger.side {
   text-align: left !important;
 }
 
-
+// USERDASH
+div {
+  &#dash-posts, #dash-comments, #dash-likes {
+    min-height: 200px;
+  }
+}
+a.btn-flat.topic {
+    background-color: #cfcfcf;
+    margin-bottom: 20px;
+}
+div#home-topics-menu {
+    margin-left: 75px;
+}
 
 
 // *, *:before, *:after {

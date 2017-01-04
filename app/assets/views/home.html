@@ -1,16 +1,23 @@
 <section class="container">
+
+    <div id="home-topics-menu">
+        <a ui-sref=".inspiration" class="btn-flat topic">Inspiration</a>
+        <a ui-sref=".showandtell" class="btn-flat topic">Show & Tell</a>
+        <a ui-sref=".resources" class="btn-flat topic">Resources</a>
+    </div>
+
     <div>
         <div ng-repeat="post in postCtrl.getAllPosts() | orderBy :'-votes' ">
 
             <!-- VOTES -->
             <div id="post-feed" class="row">
-                <div class="col s2 m2 l1">
+                <div class="col s2 m1 l1 left">
                     <a href="#"><i ng-click="postCtrl.upvotePost(post)" class="material-icons arrow right">arrow_drop_up</i></a>
                     <p class="post-votes" ng-cloak>{{post.votes}}</p>
                     <a href="#"><i ng-click="postCtrl.downvotePost(post)" class="material-icons arrow right">arrow_drop_down</i></a>
                 </div>
                 <!-- CARD -->
-                <div class="col s10 m10 l11">
+                <div class="col s8 m10 l10">
                     <div class="card horizontal">
                         <div class="card-image">
                             <div class="post-image">
@@ -34,39 +41,66 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="row">
+                    <table class="col s2 m1 l1 right">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <i class="fa fa-google-plus" aria-hidden="true"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <i class="fa fa-facebook-official" aria-hidden="true"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <i class="fa fa-pinterest" aria-hidden="true"></i>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
 
-                    <!-- Make Comment INPUT -->
+                <!-- Make Comment INPUT -->
+                <div class="row show-comments col s8 m10 l10 push-s2 push-m1 push-l1">
                     <div ng-controller="CommentsCtrl as commentsCtrl">
                         <div ng-show="makeComment" class="collapsible-header">
-                            <input ng-model="commentsCtrl.comment" type="text" name="comment" id="comment_content" class="col s11 m11 l11" placeholder="Make a comment.">
-                            <a href="" type="submit" class="col s1 m1 l1 black-text comment" ng-click="commentsCtrl.createComment(post.id)"><i class="material-icons">check_circle</i></a>
-
+                            <input ng-model="commentsCtrl.comment" type="text" name="comment" id="comment_content" placeholder="Make a comment.">
+                            <a href="" type="submit" class="black-text comment" ng-click="commentsCtrl.createComment(post.id)"><i class="material-icons">check_circle</i></a>
                         </div>
 
+
+
                         <!-- Show Comments -->
-                        <div class="row">
-                            <div class="col s12 m12 l12">
-                                <div ng-show="showComments">
-                                    <div class="card">
-                                        <div ng-repeat="comment in commentsCtrl.getPostComments() | filter: comment.postId ">
-                                            <div class="comment-list-box">
-                                                <ul class="comment-list">
-                                                    <li class="comment-list-item">{{comment.commentContent}}
-                                                        <a class="btn-flat right" ng-click="commentsCtrl.deleteComment(comment.id)">x</a> </li>
-                                                </ul>
-                                            </div>
+                        <!-- <div class="row show-comments col s8 m10 l10 push-s2 push-m1 push-l1"> -->
+                        <div ng-show="showComments">
+                            <div class="card show-comments">
+                                <div class=" card-content">
+                                    <div ng-repeat="comment in commentsCtrl.getPostComments() | filter: comment.postId ">
+                                        <div class="comment-list-box">
+                                            <ul class="comment-list">
+                                                <li class="comment-list-item">{{comment.commentContent}}
+                                                    <a class="btn-flat right" ng-click="commentsCtrl.deleteComment(comment.id)">x</a> </li>
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
-                            <!-- </div>
-                    </div> -->
-
                         </div>
+
                     </div>
                 </div>
             </div>
+
+        </div>
 
 
 </section>

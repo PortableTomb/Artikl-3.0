@@ -18,7 +18,13 @@
     <!-- <header ng-include=" 'views/nav.html' "></header> -->
 
     <!-- NAVIGATION -->
-    <div class="logo-above-nav"><a ui-sref="home" class="brand-logo black-text center">Designeddit</a></div>
+    <div class="logo-above-nav">
+        <!-- <a ui-sref=".inspiration" class="btn-flat topic">Inspiration</a>
+        <a ui-sref=".showandtell" class="btn-flat topic">Show & Tell</a>
+        <a ui-sref=".resources" class="btn-flat topic">Resources</a> -->
+        <a ui-sref="home" class="brand-logo black-text center">Designeddit</a>
+    </div>
+
     <nav>
         <div class="nav-wrapper grey lighten-4">
             <a href="#" class="button-collapse black-text" data-activates="nav-mobile" data-sidenav="left" data-menuwith="300px" data-closeonclick="false"><i class="material-icons black-text md-24">menu</i></a>
@@ -46,9 +52,11 @@
 
             <!-- Sidebar & Logout -->
             <ul class="right" ng-controller="AuthCtrl as authCtrl">
+                <li><a class="grey black-text" ui-sref="dash"><i class="material-icons md-24">account_circle</i></a></li>
                 <li><a ng-show="authCtrl.isSignedIn()" class="modal-trigger black-text" href="#new-post-modal" modal><i class="material-icons black-text">add</i></a></li>
-                <li><a class="active black-text" ui-sref="home" ng-show="authCtrl.isSignedIn()" data-activates="sidebar" data-sidenav="right" data-menuwidth="350" data-closeonclick="true"><i class="material-icons md-24 black-text">account_circle</i></a></li>
+                <!-- <li><a class="active black-text" ui-sref="home" ng-show="authCtrl.isSignedIn()" data-activates="sidebar" data-sidenav="right" data-menuwidth="350" data-closeonclick="true"><i class="material-icons md-24 black-text">account_circle</i></a></li> -->
                 <li><a class="active black-text" ui-sref="home" ng-show="authCtrl.isSignedIn()" ng-click="authCtrl.signOut()">Logout</a></li>
+
             </ul>
         </div>
     </nav>
@@ -96,6 +104,8 @@
 
     <!-- POSTS FEED -->
     <main ui-view class="all-post-feed"></main>
+
+
 
     <!-- SIDEBAR -->
     <section>
@@ -206,6 +216,7 @@
 
 
     <!-- SCRIPTS -->
+    <script src="https://use.fontawesome.com/8c1d7cbec5.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js "></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.js "></script>
     <script src="/vendor.js "></script>
