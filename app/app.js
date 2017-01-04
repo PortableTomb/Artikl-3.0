@@ -48,6 +48,18 @@ angular.module('my-app', [angularMaterialize, uiRouter])
         controller: 'PostCtrl',
         controllerAs: 'postCtrl'
       })
+      .state('home.showandtell', {
+        url: '/showandtell',
+        templateUrl: 'partial-home-showandtell.html',
+        controller: 'PostCtrl',
+        controllerAs: 'postCtrl'
+      })
+      .state('home.resources', {
+        url: '/resources',
+        templateUrl: 'partial-home-resources.html',
+        controller: 'PostCtrl',
+        controllerAs: 'postCtrl'
+      })
       .state('singlepost', {
         url: '/singlepost',
         templateUrl: 'views/singlepost.html',
