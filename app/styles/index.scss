@@ -1,4 +1,4 @@
-$header-color: #b4f0e6;
+$header-color: #26bca4;
 $background-color: #f7fdfc;
 $icon-color: #999;
 $header-font: 'Space Mono', monospace;
@@ -312,6 +312,15 @@ a.btn-flat.topic {
 }
 div#home-topics-menu {
     margin-left: 75px;
+}
+a.black-text.btn-flat.comment.right {
+   background-color: #74e3d1 !important;
+   display: inline;
+   position: relative;
+   z-index: 1000;
+   right: 0;
+   bottom: 56px;
+   width: 30px;
 }
 
 

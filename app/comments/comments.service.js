@@ -37,23 +37,10 @@ class CommentsService {
       .catch((err) => {
         return err;
       });
-
-    this.postcomments.get('/comments/' + this.post_id)
-      .then((res) => {
-        this.comments = res.data;
-      })
-      .catch((err) => {
-        return err;
-      });
-
   }
 
-  getPostComments() {
-    if (this.post_id !== this.postId) {
-      return;
-    }
-
-    return this.comments;
+  getPostComments(postId) {
+    return this.comments.filter((comm) => comm.postId === postId);
   }
 
   setComments(currentComment) {
@@ -71,10 +58,10 @@ class CommentsService {
     });
   }
 
-  deleteComment(postId) {
-    this.deletecomments.delete('/comments/' + postId)
+  deleteComment(id) {
+    this.deletecomments.delete('/comments/' + id)
     .then((res) => {
-      this.comments = [];
+      this.comments = this.comments.filter((comm) => comm.id !== id);
     })
     .catch((err) => {
       return err;

@@ -1,16 +1,14 @@
 <section>
-
     <div class="container">
         <div class="row">
             <div class="col s6 m4 l4">
-                <!-- <ul id="searchbar"> -->
                 <div class="user-list-box" ng-controller="UserCtrl as userCtrl"></div>
 
                 <!-- SEARCH -->
                 <form>
                     <!-- Search Username: -->
                     <div class="searchbar-wrap">
-                        <input ng-model="searchText" id="user-searchinput" placeholder="Search Users" type="text" autofocus>
+                        <input ng-model="searchText" id="user-searchinput" placeholder="Search for friends" type="text" autofocus>
                     </div>
                     <div class="card">
                         <div class="card-content">
@@ -29,11 +27,10 @@
                 <!-- ALL USERS CARD -->
                 <div ng-controller="UserCtrl as userCtrl">
                     <div class="card">
-                        <h6 class="following card-title">Following</h6>
+                        <h6 class="following card-title">Friends</h6>
                         <div class="card-content">
                             <div ng-repeat="user in userCtrl.getAllUsers()">
                                 <span class="dash-username card-title">{{user.username}}</span>
-                                <!-- <p><a href="#">{{user.username}}</a></p> -->
                                 <p><a href="#">{{user.email}}</a></p>
                             </div>
                         </div>
@@ -43,14 +40,14 @@
             </div>
 
             <!-- Dash Sections -->
+
             <div id="dash-posts" class="card-panel col s6 m8 l8">
                 <div class="header">
                     <h6 class="topic card-title">Posts</h6>
+                    <p></p>
                 </div>
-                <div class="card-content">
-                    <span class="black-text">I am a very simple card. I am good at containing small bits of information.
-          I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
-          </span>
+                <div ng-repeat="posts in postCtrl.getAllPosts()" class="card-content">
+                    <span class="black-text">{{ posts.title }} </span>
                 </div>
             </div>
 
@@ -59,8 +56,7 @@
                     <h6 class="topic card-title">Comments</h6>
                 </div>
                 <div class="card-content">
-                    <span class="black-text">I am a very simple card. I am good at containing small bits of information.
-          I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                    <span class="black-text">
           </span>
                 </div>
             </div>
@@ -70,8 +66,7 @@
                     <h6 class="topic card-title">Likes</h6>
                 </div>
                 <div class="card-content">
-                    <span class="black-text">I am a very simple card. I am good at containing small bits of information.
-          I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                    <span class="black-text">
           </span>
                 </div>
             </div>

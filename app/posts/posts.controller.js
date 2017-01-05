@@ -28,15 +28,18 @@ class PostCtrl {
     return this.postService.createPost(this.postTitle, this.postImage, this.postUrl, this.postText);
   }
 
-  // getPostComments() {
-  //   return this.postService;
-  // }
+  deletePost(postId) {
+    return this.postService.deletePost(postId);
+  }
+
+  getPostTopics() {
+    return this.postService;
+  }
+
   // getPostsAndComments() {
   //   return this.postService;
   // }
-  // removePost() {
-  //   return this.postService;
-  // }
+
 }
 
 PostCtrl.$inject = ['PostService'];

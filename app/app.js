@@ -6,6 +6,7 @@ import uiRouter from 'angular-ui-router';
 // controllers
 import AuthCtrl from './auth/auth.controller';
 import CommentsCtrl from './comments/comments.controller';
+import DashCtrl from './dash/dash.controller';
 import FavoriteCtrl from './favorites/favorite.controller';
 import PostCtrl from './posts/posts.controller';
 import SignUpCtrl from './signup/signup.controller';
@@ -24,6 +25,7 @@ import favorite from './favorites/favorite.directive';
 angular.module('my-app', [angularMaterialize, uiRouter])
 .controller('AuthCtrl', AuthCtrl)
 .controller('CommentsCtrl', CommentsCtrl)
+.controller('DashCtrl', DashCtrl)
 .controller('FavoriteCtrl', FavoriteCtrl)
 .controller('UserCtrl', UserCtrl)
 .controller('PostCtrl', PostCtrl)

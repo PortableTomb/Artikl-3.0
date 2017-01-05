@@ -26,11 +26,18 @@ class PostService {
     this.allposts = $http;
     this.singlepost = $http;
     this.createpost = $http;
+    this.deleteposts = $http;
 
     // voting
     this.downvote = $http;
     this.upvote = $http;
     this.votes = 0;
+
+    //topics
+    this.selectedTopic = '';
+    this.setTopic = function(topic) {
+      this.selectedTopic = topic;
+    }
 
     this.token.get('/token')
       .then((res) => {
@@ -55,6 +62,13 @@ class PostService {
 
   getSinglePost() {
     return this.post;
+  }
+
+  getPostByTopics() {
+    if(post.topicId === 1){
+      this.posts = this.posts.filter((pos) => pos.topicId === 1);
+        return this.posts;
+    }
   }
 
   loadPost(post) {
@@ -100,6 +114,17 @@ class PostService {
     this.createpost.post('/posts', { postTitle: postTitle, postUrl: postUrl, postImage: postImage, postText: postText })
     .then((res) => {
       this.post = res.data;
+    })
+    .catch((err) => {
+      return err;
+    });
+  }
+
+  deletePost(id) {
+    this.deleteposts.delete('/posts/' + id)
+    .then((res) => {
+      this.posts = this.posts.filter((pos) => pos.id !== id);
+      res = this.posts;
     })
     .catch((err) => {
       return err;

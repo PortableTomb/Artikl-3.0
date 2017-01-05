@@ -11,8 +11,8 @@ class CommentsCtrl {
     const userId = this.userId;
   }
 
-  getPostComments() {
-    return this.commentsService.getPostComments();
+  getPostComments(postId) {
+    return this.commentsService.getPostComments(postId);
   }
 
   setComments(currentComment) {
@@ -29,8 +29,8 @@ class CommentsCtrl {
     return this.commentsService.createComment(postId, this.comment);
   }
 
-  deleteComment(postId) {
-    return this.commentsService.deleteComment(postId);
+  deleteComment(commentId) {
+    return this.commentsService.deleteComment(commentId);
   }
 
   getUsername() {

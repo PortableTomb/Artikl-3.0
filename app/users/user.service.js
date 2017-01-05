@@ -10,8 +10,7 @@ class UserService {
     this.allusers = $http;
     this.singleuser = $http;
 
-    // const userId = window.QUERY_PARAMETERS.id;
-
+    // TOKEN
     this.token.get('/token')
       .then((res) => {
         this.signedIn = res.data;
@@ -20,6 +19,7 @@ class UserService {
         return err;
       });
 
+    // AllUsers
     this.allusers.get('/users')
       .then((res) => {
         this.users = res.data;
@@ -37,8 +37,9 @@ class UserService {
     return this.users;
   }
 
-  loadUser(user) {
+  loadUser(id) {
     this.singleuser.get('/users/' + user.id)
+    console.log(user.id)
     .then((res) => {
       this.user = res.data;
     })

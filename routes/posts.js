@@ -144,14 +144,12 @@ router.delete('/posts/:id', authorize, (req, res, next) => {
       }
 
       post = camelizeKeys(row);
-
       return knex('users_posts')
         .del()
         .where('id', req.params.id);
     })
     .then(() => {
       delete post.id;
-
       res.send(post);
     })
     .catch((err) => {

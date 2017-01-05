@@ -12,9 +12,9 @@ class UserCtrl {
   getAllUsers() {
     return this.userService.getAllUsers();
   }
-  
-  loadUser(user) {
-    return this.userService.loadPost(user);
+
+  loadUser(id) {
+    return this.userService.loadUser(id);
   }
 
 }

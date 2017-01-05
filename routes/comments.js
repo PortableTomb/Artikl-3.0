@@ -71,6 +71,7 @@ router.post('/comments', authorize, (req, res, next) => {
 
 router.delete('/comments/:id', authorize, (req, res, next) => {
   const id = req.params.id;
+  let comment;
 
   knex('users_comments')
   .where('id', id)
@@ -83,7 +84,7 @@ router.delete('/comments/:id', authorize, (req, res, next) => {
       comment = camelizeKeys(row);
       return knex('users_comments')
         .del()
-        .where('id', comment.id);
+        .where('id', id);
     })
     .then(() => {
       delete comment.id;
