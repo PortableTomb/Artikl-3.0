@@ -10,60 +10,60 @@
         <div ng-model="topic0" ng-repeat="post in postCtrl.getAllPosts() | orderBy :'-votes' | filter: { topicId: postCtrl.topicId}">
 
             <!-- VOTES -->
-            <div id="post-feed " class="row ">
-                <div class="col s2 m1 l1 left ">
-                    <a href="# "><i ng-click="postCtrl.upvotePost(post) " class="material-icons arrow right ">arrow_drop_up</i></a>
-                    <p class="post-votes " ng-cloak>{{post.votes}}</p>
-                    <a href="# "><i ng-click="postCtrl.downvotePost(post) " class="material-icons arrow right ">arrow_drop_down</i></a>
+            <div id="post-feed" class="row">
+                <div class="col s2 m1 l1 left">
+                    <a href="#"><i ng-click="postCtrl.upvotePost(post)" class="material-icons arrow right ">arrow_drop_up</i></a>
+                    <p class="post-votes" ng-cloak>{{post.votes}}</p>
+                    <a href="# "><i ng-click="postCtrl.downvotePost(post)" class="material-icons arrow right ">arrow_drop_down</i></a>
                 </div>
                 <!-- CARD -->
-                <div class="col s8 m10 l10 ">
-                    <div class="card horizontal ">
-                        <div class="card-image ">
-                            <div class="post-image ">
-                                <img ng-src="{{post.postImage}} " ng-cloak>
+                <div class="col s8 m10 l10">
+                    <div class="card horizontal">
+                        <div class="card-image">
+                            <div class="post-image">
+                                <img ng-src="{{post.postImage}}" ng-cloak>
                             </div>
                         </div>
-                        <div class="card-stacked ">
-                            <div class="card-content ">
+                        <div class="card-stacked">
+                            <div class="card-content">
                                 <p>
-                                    <h6 class="header " ng-cloak>{{post.postTitle}}<a ng-href="{{post.postUrl}} " target="_blank " ng-cloak><i class="material-icons open-new ">open_in_new</i></a></h6>
+                                    <h6 class="header" ng-cloak>{{post.postTitle}}<a ng-href="{{post.postUrl}}" target="_blank" ng-cloak><i class="material-icons open-new ">open_in_new</i></a></h6>
                                 </p>
                                 <p ng-cloak>{{post.postText | limitTo:255 }}</p>
                             </div>
-                            <div class="card-action ">
-                                <div class="presentation ">
+                            <div class="card-action">
+                                <div class="presentation">
                                     <gs-favorite></gs-favorite>
-                                    <a ngModel="color " ui-sref="singlepost " ng-click="postCtrl.loadPost(post) "><i class="material-icons open-new right ">remove_red_eye</i></a></a>
-                                    <a href="# "><i class="material-icons view-comment " ng-click="showComments=! showComments; ">comments</i></a></a>
-                                    <a href="# "><i class="material-icons comment " ng-click="makeComment=! makeComment ">note_add</i></a>
+                                    <a ngModel="color" ui-sref="singlepost" ng-click="postCtrl.loadPost(post)"><i class="material-icons open-new right">remove_red_eye</i></a></a>
+                                    <a href="# "><i class="material-icons view-comment" ng-click="showComments=! showComments;">comments</i></a></a>
+                                    <a href="# "><i class="material-icons comment" ng-click="makeComment=! makeComment">note_add</i></a>
                                 </div>
                             </div>
                         </div>
-                        <a class="btn-flat right " ng-click="postCtrl.deletePost(post.id) ">x</a>
+                        <a class="btn-flat right" ng-click="postCtrl.deletePost(post.id)">x</a>
                     </div>
                 </div>
-                <div class="row ">
-                    <table class="col s2 m1 l1 right ">
+                <div class="row">
+                    <table class="col s2 m1 l1 right">
                         <tbody>
                             <tr>
-                                <td class="td-social-icon ">
-                                    <i class="fa fa-twitter " aria-hidden="true "></i>
+                                <td class="td-social-icon">
+                                    <i class="fa fa-twitter" aria-hidden="false"></i>
                                 </td>
                             </tr>
                             <tr>
-                                <td class="td-social-icon ">
-                                    <i class="fa fa-google-plus " aria-hidden="true "></i>
+                                <td class="td-social-icon">
+                                    <i class="fa fa-google-plus" aria-hidden="true"></i>
                                 </td>
                             </tr>
                             <tr>
-                                <td class="td-social-icon ">
-                                    <i class="fa fa-facebook-official " aria-hidden="true "></i>
+                                <td class="td-social-icon">
+                                    <i class="fa fa-facebook-official" aria-hidden="true"></i>
                                 </td>
                             </tr>
                             <tr>
-                                <td class="td-social-icon ">
-                                    <i class="fa fa-pinterest " aria-hidden="true "></i>
+                                <td class="td-social-icon">
+                                    <i class="fa fa-pinterest" aria-hidden="true"></i>
                                 </td>
                             </tr>
                         </tbody>
@@ -75,7 +75,7 @@
                     <div ng-controller="CommentsCtrl as commentsCtrl">
                         <div ng-show="makeComment" class="collapsible-header">
                             <form>
-                                <input ng-model="commentsCtrl.comment" type="text" name="comment" id="comment_content " placeholder="Make a comment. ">
+                                <input ng-model="commentsCtrl.comment" type="text" name="comment" id="comment_content" placeholder="Make a comment. ">
                                 <a href=" " type="submit " class="black-text btn-flat comment right" ng-click="commentsCtrl.createComment(post.id)"></a>
                             </form>
                         </div>
@@ -98,24 +98,11 @@
 
                     </div>
                 </div>
+                <!-- End Make/Show Comments -->
             </div>
+            <!-- End Post Feed -->
 
         </div>
-
-
-</section>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-</div>
-</div>
-</div>
-
-</div>
-
-
+        <!-- End ng-repeat votes -->
+    </div>
 </section>

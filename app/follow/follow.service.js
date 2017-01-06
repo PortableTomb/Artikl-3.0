@@ -16,6 +16,7 @@ class FollowService {
     this.singleuser = $http;
     this.allfollows = $http;
     this.createfollow = $http;
+    this.deletefollow = $http;
 
     // TOKEN
     this.token.get('/token')
@@ -56,9 +57,9 @@ class FollowService {
   }
 
   deleteFollow(id) {
-    this.deleteposts.delete('/follows/' + id)
+    this.deletefollow.delete('/follows/' + id)
     .then((res) => {
-      this.posts = this.follows.filter((follow) => follow.id !== id);
+      this.follows = this.follows.filter((follow) => follow.id !== id);
       res = this.follows;
     })
     .catch((err) => {

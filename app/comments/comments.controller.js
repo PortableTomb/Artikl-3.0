@@ -43,7 +43,6 @@ class CommentsCtrl {
   }
 
   getAllCommentsFromFollowees() {
-    
     const allComments = this.commentsService.getAllComments();
     const allFollows = this.followService.getAllFollows().map((follow) => follow.followId);
     return allComments.filter((comment) => allFollows.indexOf(comment.userId) >= 0).map(comment =>

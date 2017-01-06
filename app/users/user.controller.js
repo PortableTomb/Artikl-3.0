@@ -26,6 +26,11 @@ class UserCtrl {
   createFollow(followId) {
     return this.followService.createFollow(followId);
   }
+
+  deleteFollow(followId) {
+    console.log(followId);
+    return this.followService.deleteFollow(followId);
+  }
 }
 
 UserCtrl.$inject = ['userService', 'followService'];

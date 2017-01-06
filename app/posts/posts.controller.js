@@ -41,7 +41,9 @@ class PostCtrl {
     const allPosts = this.postService.getAllPosts();
     const allFollows = this.followService.getAllFollows().map((follow) => follow.followId);
 
-    return allPosts.filter((post) => allFollows.indexOf(post.userId) >= 0)
+    return allPosts.filter((post) => allFollows.indexOf(post.userId) >= 0).map(post => Object.assign(post, {
+      username: this.followService.getAllFollows().filter((follow) => follow.followId === post.userId)[0].username
+    }));
   }
 
 }
