@@ -48,15 +48,18 @@ class FollowService {
     }
     this.createfollow.post('/follows', { followId })
     .then((res) => {
-      this.follows.push(res.data);
-      this.follow = res.data;
+      return this.allfollows.get('/follows');
     })
+    .then((res) => {
+      this.follows = res.data;
+    })  
     .catch((err) => {
       return err;
     });
   }
 
   deleteFollow(id) {
+    console.log(id);
     this.deletefollow.delete('/follows/' + id)
     .then((res) => {
       this.follows = this.follows.filter((follow) => follow.id !== id);

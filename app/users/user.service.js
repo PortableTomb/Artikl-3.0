@@ -39,7 +39,6 @@ class UserService {
 
   loadUser(id) {
     this.singleuser.get('/users/' + user.id)
-    console.log(user.id)
     .then((res) => {
       this.user = res.data;
     })

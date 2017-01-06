@@ -47,22 +47,22 @@ router.post('/follows', authorize, (req, res, next) => {
   const newFollow = { userId: userId, followId: req.body.followId}
 
   knex('users_follows')
-  .insert(decamelizeKeys(newFollow))
+  .insert(decamelizeKeys(newFollow), '*')
   .then((row) => {
     if (!row) {
       return next(boom.create(404, 'User not found.'));
     }
 
-    res.send(true);
+    res.send(camelizeKeys(row));
   })
   .catch((err) => {
     next(err);
   });
 });
 
-router.delete('/follows', authorize, (req, res, next) => {
+router.delete('/follows/:followId', authorize, (req, res, next) => {
   const { userId } = req.token;
-  const followId = req.body.followId;
+  const followId = req.params.followId;
   const follow = {};
 
   knex('users_follows')
