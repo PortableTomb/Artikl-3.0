@@ -1,6 +1,7 @@
 class UserCtrl {
-  constructor(userService) {
+  constructor(userService, followService) {
     this.userService = userService;
+    this.followService = followService;
     this.searchtext = '';
     this.users = [];
 
@@ -17,7 +18,15 @@ class UserCtrl {
     return this.userService.loadUser(id);
   }
 
+// FOLLOWS
+  getAllFollows() {
+    return this.followService.getAllFollows();
+  }
+
+  createFollow(followId) {
+    return this.followService.createFollow(followId);
+  }
 }
 
-UserCtrl.$inject = ['userService'];
+UserCtrl.$inject = ['userService', 'followService'];
 export default UserCtrl;

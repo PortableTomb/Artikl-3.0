@@ -50,6 +50,18 @@ exports.seed = function(knex, Promise) {
       post_text:"Dribbble Meetups are fun! Getting designers together is a guaranteed good time. You’ll be able to mingle and meet other designers.",
       created_at: new Date('2016-06-29 14:26:16 UTC'),
       updated_at: new Date('2016-06-29 14:26:16 UTC')
+      },  {
+      id: 6,
+      user_id: 1,
+      topic_id: 3,
+      votes: 0,
+      likes: false,
+      post_title:"Han has a big...",
+      post_url:"https://dribbble.com/meetups",
+      post_image:"https://d13yacurqjgara.cloudfront.net/users/6019/screenshots/1723912/seattle_dribbble_meetup-_091214.png",
+      post_text:"Dribbble Meetups are fun! Getting designers together is a guaranteed good time. You’ll be able to mingle and meet other designers.",
+      created_at: new Date('2016-06-29 14:26:16 UTC'),
+      updated_at: new Date('2016-06-29 14:26:16 UTC')
       }, {
       id: 5,
       user_id: 1,

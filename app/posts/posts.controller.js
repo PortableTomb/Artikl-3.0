@@ -1,6 +1,7 @@
 class PostCtrl {
-  constructor(postService) {
+  constructor(postService, followService) {
     this.postService = postService;
+    this.followService = followService;
     this.searchText = '';
     this.postTitle = '';
     this.postImage = '';
@@ -36,12 +37,15 @@ class PostCtrl {
     return this.postService;
   }
 
-  // getPostsAndComments() {
-  //   return this.postService;
-  // }
+  getAllPostsFromFollowees() {
+    const allPosts = this.postService.getAllPosts();
+    const allFollows = this.followService.getAllFollows().map((follow) => follow.followId);
+
+    return allPosts.filter((post) => allFollows.indexOf(post.userId) >= 0)
+  }
 
 }
 
-PostCtrl.$inject = ['PostService'];
+PostCtrl.$inject = ['PostService', 'followService'];
 
 export default PostCtrl;

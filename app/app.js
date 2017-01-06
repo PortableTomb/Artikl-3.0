@@ -15,6 +15,7 @@ import UserCtrl from './users/user.controller';
 // services
 import AuthService from './auth/auth.service';
 import CommentsService from './comments/comments.service';
+import FollowService from './follow/follow.service';
 import PostService from './posts/posts.service';
 import SignUpService from './signup/signup.service';
 import UserService from './users/user.service';
@@ -32,6 +33,7 @@ angular.module('my-app', [angularMaterialize, uiRouter])
 .controller('SignUpCtrl', SignUpCtrl)
 .service('authService', AuthService)
 .service('commentsService', CommentsService)
+.service('followService', FollowService)
 .service('PostService', PostService)
 .service('SignUpService', SignUpService)
 .service('userService', UserService)

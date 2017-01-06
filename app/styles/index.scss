@@ -308,7 +308,7 @@ div {
 }
 a.btn-flat.topic {
     background-color: #cfcfcf;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 div#home-topics-menu {
     margin-left: 75px;
@@ -321,6 +321,10 @@ a.black-text.btn-flat.comment.right {
    right: 0;
    bottom: 56px;
    width: 30px;
+}
+a.btn-flat.right {
+    margin: 0;
+    padding: 0;
 }
 
 

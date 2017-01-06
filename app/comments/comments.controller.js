@@ -1,5 +1,6 @@
 class CommentsCtrl {
-  constructor(commentsService, userService) {
+  constructor(commentsService, userService, followService) {
+    this.followService = followService;
     this.commentsService = commentsService;
     this.userService = userService;
 
@@ -40,7 +41,18 @@ class CommentsCtrl {
   removeComment(index) {
     return this.commentsService.removeComment(index);
   }
+
+  getAllCommentsFromFollowees() {
+    
+    const allComments = this.commentsService.getAllComments();
+    const allFollows = this.followService.getAllFollows().map((follow) => follow.followId);
+    return allComments.filter((comment) => allFollows.indexOf(comment.userId) >= 0).map(comment =>
+      Object.assign(comment, {
+        username: this.followService.getAllFollows().filter((follow) => follow.followId === comment.userId)[0].username
+      }));
+  }
+
 }
 
-CommentsCtrl.$inject = ['commentsService', 'userService'];
+CommentsCtrl.$inject = ['commentsService', 'userService', 'followService'];
 export default CommentsCtrl;

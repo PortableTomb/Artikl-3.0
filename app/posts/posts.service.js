@@ -64,12 +64,6 @@ class PostService {
     return this.post;
   }
 
-  getPostByTopics() {
-    if(post.topicId === 1){
-      this.posts = this.posts.filter((pos) => pos.topicId === 1);
-        return this.posts;
-    }
-  }
 
   loadPost(post) {
     this.singlepost.get('/posts/' + post.id)
@@ -113,6 +107,7 @@ class PostService {
     // console.log(postTitle, postUrl, postImage, postText);
     this.createpost.post('/posts', { postTitle: postTitle, postUrl: postUrl, postImage: postImage, postText: postText })
     .then((res) => {
+      this.posts.push(res.data);
       this.post = res.data;
     })
     .catch((err) => {

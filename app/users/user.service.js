@@ -48,10 +48,10 @@ class UserService {
     });
   }
 
-  // followUser() {
-  //   const follow = this.userSearch.userId;
-  //   return this.followUser(follow);
-  // }
+  followUser() {
+    const follow = this.userSearch.userId;
+    return this.followUser(follow);
+  }
 
 }
 
