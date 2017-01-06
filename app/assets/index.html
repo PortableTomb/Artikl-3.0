@@ -19,9 +19,6 @@
 
     <!-- NAVIGATION -->
     <div class="logo-above-nav">
-        <!-- <a ui-sref=".inspiration" class="btn-flat topic">Inspiration</a>
-        <a ui-sref=".showandtell" class="btn-flat topic">Show & Tell</a>
-        <a ui-sref=".resources" class="btn-flat topic">Resources</a> -->
         <a ui-sref="home" class="brand-logo black-text center">Designeddit</a>
     </div>
 
@@ -36,7 +33,6 @@
                     <li><a class="modal-trigger" href="#modal1" modal>LOGIN</a></li>
                     <li><a class="modal-trigger" href="#modal2" modal>SIGN-UP</a></li>
                 </ul>
-
             </ul>
 
             <!-- Mobile Nav -->
@@ -45,9 +41,9 @@
                     <li><a class="modal-trigger" href="#modal1" modal>LOGIN</a></li>
                     <li><a class="modal-trigger" href="#modal2" modal>SIGN-UP</a></li>
                 </ul>
-                <li><a class="dropdown-button" data-activates="dropdown2" href="#!">Designer News<i class="material-icons right">arrow_drop_down</i></a></li>
+                <li><a class="dropdown-button" data-activates="dropdown2" href="#!"><i class="material-icons right">arrow_drop_down</i>Designereddit</a></li>
                 <li><a class="modal-trigger" href="#new-post-modal" modal><i class="material-icons md-24">add</i>Post</a></li>
-                <li><a class="modal-trigger" href="#sidebar" modal><i class="material-icons md-24">account_circle</i>Followers</a></li>
+                <li><a class="modal-trigger" href="#sidebar" modal><i class="material-icons md-24">account_circle</i>Dashboard</a></li>
             </ul>
 
             <!-- Sidebar & Logout -->
@@ -74,11 +70,11 @@
                                 <label for="post_title">Post Title</label>
                             </div>
                             <div class="input-field col s12 m12">
-                                <input id="post_image" type="text" ng-model="postCtrl.postImage">
+                                <input id="post_image" type="text" ng-model="postCtrl.postUrl">
                                 <label for="post_image">Image URL</label>
                             </div>
                             <div class="input-field col s12 m12">
-                                <input id="post_url" type="text" ng-model="postCtrl.postUrl">
+                                <input id="post_url" type="text" ng-model="postCtrl.postImage">
                                 <label for="post_url">Link URL</label>
                             </div>
                             <div class="input-field col s12 m12">

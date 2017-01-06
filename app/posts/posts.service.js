@@ -103,9 +103,9 @@ class PostService {
     });
   }
 
-  createPost(postTitle, postUrl, postImage, postText ) {
+  createPost(postTitle, postUrl, postImage, postText, topicId ) {
     // console.log(postTitle, postUrl, postImage, postText);
-    this.createpost.post('/posts', { postTitle: postTitle, postUrl: postUrl, postImage: postImage, postText: postText })
+    this.createpost.post('/posts', { postTitle: postTitle, postUrl: postUrl, postImage: postImage, postText: postText, topicId: topicId })
     .then((res) => {
       this.posts.push(res.data);
       this.post = res.data;

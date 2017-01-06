@@ -26,7 +26,7 @@ class PostCtrl {
   }
   createPost() {
     Materialize.toast('Post Successful!', 4000, 'rounded');
-    return this.postService.createPost(this.postTitle, this.postImage, this.postUrl, this.postText);
+    return this.postService.createPost(this.postTitle, this.postImage, this.postUrl, this.postText, this.topicId);
   }
 
   deletePost(postId) {

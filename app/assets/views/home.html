@@ -2,10 +2,15 @@
 
     <!-- TOPICS MENU -->
     <div id="home-topics-menu">
-        <a class="btn-flat topic" ng-click="postCtrl.topicId = undefined">All</a>
-        <a class="btn-flat topic" ng-click="postCtrl.topicId = 1">Inspire</a>
-        <a class="btn-flat topic" ng-click="postCtrl.topicId = 2">Show Off</a>
-        <a class="btn-flat topic" ng-click="postCtrl.topicId = 3">Share</a>
+        <div class="row">
+            <div class="col s8 m10 l10 push-m1 push-l1">
+                <a class="btn-flat topic" ng-click="postCtrl.topicId = undefined">All</a>
+                <a class="btn-flat topic" ng-click="postCtrl.topicId = 1">Inspire</a>
+                <a class="btn-flat topic" ng-click="postCtrl.topicId = 2">Show Off</a>
+                <a class="btn-flat topic" ng-click="postCtrl.topicId = 3">Share</a>
+            </div>
+        </div>
+
 
         <div ng-model="topic0" ng-repeat="post in postCtrl.getAllPosts() | orderBy :'-votes' | filter: { topicId: postCtrl.topicId}">
 
@@ -32,7 +37,7 @@
                                 <p ng-cloak>{{post.postText | limitTo:255 }}</p>
                             </div>
                             <div class="card-action">
-                                <div class="presentation">
+                                <div class="presentation white-text">
                                     <gs-favorite></gs-favorite>
                                     <a ngModel="color" ui-sref="singlepost" ng-click="postCtrl.loadPost(post)"><i class="material-icons open-new right">remove_red_eye</i></a></a>
                                     <a href="# "><i class="material-icons view-comment" ng-click="showComments=! showComments;">comments</i></a></a>
@@ -75,7 +80,7 @@
                     <div ng-controller="CommentsCtrl as commentsCtrl">
                         <div ng-show="makeComment" class="collapsible-header">
                             <form>
-                                <input ng-model="commentsCtrl.comment" type="text" name="comment" id="comment_content" placeholder="Make a comment. ">
+                                <input ng-model="commentsCtrl.comment" type="text" name="comment" id="comment_content" placeholder="Make a comment.">
                                 <a href=" " type="submit " class="black-text btn-flat comment right" ng-click="commentsCtrl.createComment(post.id)"></a>
                             </form>
                         </div>
