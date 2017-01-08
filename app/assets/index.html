@@ -42,17 +42,17 @@
                     <li><a class="modal-trigger" href="#modal2" modal>SIGN-UP</a></li>
                 </ul>
                 <li><a class="dropdown-button" data-activates="dropdown2" href="#!"><i class="material-icons right">arrow_drop_down</i>Designereddit</a></li>
-                <li><a class="modal-trigger" href="#new-post-modal" modal><i class="material-icons md-24">add</i>Post</a></li>
-                <li><a class="modal-trigger" href="#sidebar" modal><i class="material-icons md-24">account_circle</i>Dashboard</a></li>
+                <!-- <li><a class="modal-trigger" href="#new-post-modal" modal>Menu -->
+                <li><a class="modal-trigger center" href="#new-post-modal" modal><i class="material-icons md-24">add</i>Create Post</a></li>
+                <li><a class="modal-trigger center"><i class="material-icons md-24">account_circle</i>Dashboard</a></li>
+                <!-- </li> -->
             </ul>
 
             <!-- Sidebar & Logout -->
             <ul class="right" ng-controller="AuthCtrl as authCtrl">
-                <li><a class="grey black-text" ui-sref="dash"><i class="material-icons md-24">account_circle</i></a></li>
-                <li><a ng-show="authCtrl.isSignedIn()" class="modal-trigger black-text" href="#new-post-modal" modal><i class="material-icons black-text">add</i></a></li>
-                <!-- <li><a class="active black-text" ui-sref="home" ng-show="authCtrl.isSignedIn()" data-activates="sidebar" data-sidenav="right" data-menuwidth="350" data-closeonclick="true"><i class="material-icons md-24 black-text">account_circle</i></a></li> -->
+                <li><a ng-show="authCtrl.isSignedIn()" class="black-text tooltipped" ui-sref="dash" data-position="top" data-delay="100" data-tooltip="Dashboard"><i class="material-icons nav md-24">account_circle</i></a></li>
+                <li><a ng-show="authCtrl.isSignedIn()" class="modal-trigger black-text tooltipped" href="#new-post-modal" data-position="top" data-delay="100" data-tooltip="Post" modal><i class="material-icons nav">add</i></a></li>
                 <li><a class="active black-text" ui-sref="home" ng-show="authCtrl.isSignedIn()" ng-click="authCtrl.signOut()">Logout</a></li>
-
             </ul>
         </div>
     </nav>

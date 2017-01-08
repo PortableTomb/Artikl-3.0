@@ -53,61 +53,69 @@
                         <tbody>
                             <tr>
                                 <td class="td-social-icon">
-                                    <i class="fa fa-twitter" aria-hidden="false"></i>
+                                    <div class="icon-circle">
+                                        <i class="fa fa-twitter" aria-hidden="false"></i>
+                                    </div>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="td-social-icon">
-                                    <i class="fa fa-google-plus" aria-hidden="true"></i>
+                                    <div class="icon-circle">
+                                        <i class="fa fa-google-plus" aria-hidden="true"></i>
+                                        <div>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="td-social-icon">
-                                    <i class="fa fa-facebook-official" aria-hidden="true"></i>
+                                    <div class="icon-circle">
+                                        <i class="fa fa-facebook" aria-hidden="true"></i>
+                                    </div>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="td-social-icon">
-                                    <i class="fa fa-pinterest" aria-hidden="true"></i>
+                                    <div class="icon-circle">
+                                        <i class="fa fa-pinterest" aria-hidden="true"></i>
+                                    </div>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
-                </div>
+                    </div>
 
-                <!-- Make Comment INPUT -->
-                <div class="row show-comments col s8 m10 l10 push-s2 push-m1 push-l1">
-                    <div ng-controller="CommentsCtrl as commentsCtrl">
-                        <div ng-show="makeComment" class="collapsible-header">
-                            <form>
-                                <input ng-model="commentsCtrl.comment" type="text" name="comment" id="comment_content" placeholder="Make a comment.">
-                                <a href=" " type="submit " class="black-text btn-flat comment right" ng-click="commentsCtrl.createComment(post.id)"></a>
-                            </form>
-                        </div>
+                    <!-- Make Comment INPUT -->
+                    <div class="row show-comments col s8 m10 l10 push-s2 push-m1 push-l1">
+                        <div ng-controller="CommentsCtrl as commentsCtrl">
+                            <div ng-show="makeComment" class="collapsible-header">
+                                <form>
+                                    <input ng-model="commentsCtrl.comment" type="text" name="comment" id="comment_content" placeholder="Make a comment.">
+                                    <a href=" " type="submit " class="black-text btn-flat comment right" ng-click="commentsCtrl.createComment(post.id)"></a>
+                                </form>
+                            </div>
 
-                        <!-- Show Comments -->
-                        <div ng-show="showComments">
-                            <div class="card show-comments">
-                                <div class=" card-content">
-                                    <div ng-repeat="comment in commentsCtrl.getPostComments(post.id)">
-                                        <div class="comment-list-box">
-                                            <ul class="comment-list">
-                                                <li class="comment-list-item">{{comment.commentContent}}
-                                                    <a class="btn-flat right" ng-click="commentsCtrl.deleteComment(comment.id)">x</a> </li>
-                                            </ul>
+                            <!-- Show Comments -->
+                            <div ng-show="showComments">
+                                <div class="card show-comments">
+                                    <div class=" card-content">
+                                        <div ng-repeat="comment in commentsCtrl.getPostComments(post.id)">
+                                            <div class="comment-list-box">
+                                                <ul class="comment-list">
+                                                    <li class="comment-list-item">{{comment.commentContent}}
+                                                        <a class="btn-flat right" ng-click="commentsCtrl.deleteComment(comment.id)">x</a> </li>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
                         </div>
-
                     </div>
-                </div>
-                <!-- End Make/Show Comments -->
-            </div>
-            <!-- End Post Feed -->
+                    <!-- End Make/Show Comments -->
+                    </div>
+                    <!-- End Post Feed -->
 
-        </div>
-        <!-- End ng-repeat votes -->
-    </div>
+                </div>
+                <!-- End ng-repeat votes -->
+            </div>
 </section>
