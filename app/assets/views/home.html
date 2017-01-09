@@ -52,6 +52,7 @@
                         <a class="btn-flat right" ng-click="postCtrl.deletePost(post.id)">x</a>
                     </div>
                 </div>
+                <!-- SOCIAL MEDIA ICON LINKS -->
                 <div class="row">
                     <table class="col s2 m1 l1 right">
                         <tbody>
@@ -107,10 +108,6 @@
                                     <div class=" card-content comments">
                                         <div ng-repeat="comment in commentsCtrl.getPostComments(post.id)">
                                             <div class="comment-list-box">
-                                                <!-- <ul class="comment-list">
-                                                    <li class="comment-list-item">{{comment.commentContent}}
-                                                        <a class="btn-flat right" ng-click="commentsCtrl.deleteComment(comment.id)">x</a></li>
-                                                </ul> -->
                                                 <table>
                                                     <tbody class="comment-list">
                                                         <tr>
