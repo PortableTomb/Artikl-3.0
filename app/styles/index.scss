@@ -43,8 +43,8 @@ div.logo-above-nav {
 }
 
 a.brand-logo.center {
-  letter-spacing: 2.5px;
-  font-size: 1.5em;
+  letter-spacing: 10.5px;
+  font-size: 1.75em;
   font-family: $header-font;
 }
 
@@ -96,7 +96,7 @@ label#searchbarlabel {
 // POSTS
 
 main.all-post-feed.ng-scope {
-  margin-top: 50px;
+  margin-top: 100px;
 }
 
 div.post-image {
@@ -175,13 +175,16 @@ i.material-icons {
 
 i.material-icons {
   &.comment:hover {
-   color: #74e3d1;
+   color: #959587;
   }
   &.view-comment:hover {
-    color: #74e3d1;
+    color: #959587;
   }
   &.open-new.right:hover {
-    color: #74e3d1;
+    color: #959587;
+  }
+  &.favorite:hover {
+    color: #959587;
   }
 }
 
