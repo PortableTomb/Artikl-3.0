@@ -13,7 +13,7 @@
     "brunch": "brunch",
     "knex": "knex",
     "start": "brunch watch --server",
-    "heroku-postbuild": "brunch build --production; knex migrate:latest"
+    "heroku-postbuild": "brunch build; knex migrate:latest"
   },
   "dependencies": {
     "angular": "^1.5.8",
