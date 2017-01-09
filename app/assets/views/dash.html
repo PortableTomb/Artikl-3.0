@@ -16,7 +16,7 @@
                                 <tbody ng-show='searchText'>
                                     <tr ng-repeat="users in userCtrl.getAllUsers() | filter: searchText | orderBy: 'users.username'  ">
                                         <td>{{users.username}}</td>
-                                        <td>{{users.email}} </td>
+                                        <!-- <td>{{users.email}} </td> -->
                                         <td></td>
                                     </tr>
                                 </tbody>
@@ -80,7 +80,7 @@
                         <h6 class="topic card-title dash">{{ posts.userId }} New Activity </h6>
                         <div ng-repeat="posts in postCtrl.getAllPosts() | filter: postsCtrl.userId" class="card-content">
                             <ul class="new-posts-followers">
-                                <span class="black-text">{{ posts.postTitle }} </span>
+                                <a ng-href="PostCtrl.posts.Url" class="black-text dash">{{ posts.postTitle }} </span>
                             </ul>
                         </div>
                     </div>
