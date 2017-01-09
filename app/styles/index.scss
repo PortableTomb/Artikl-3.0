@@ -166,6 +166,10 @@ i.material-icons {
     color: #afafaf;
     margin: 0;
   }
+  &.add {
+    color: #898279;
+    margin: 0;
+  }
 }
 
 i.material-icons {
@@ -375,7 +379,7 @@ div#home-topics-menu {
     margin-left: 75px;
 }
 a.black-text.btn-flat.comment.right {
-   background-color: #74e3d1 !important;
+  //  background-color: #74e3d1 !important;
    display: inline;
    position: relative;
    z-index: 1000;
@@ -388,11 +392,13 @@ a.btn-flat.right {
     padding: 0;
 }
 td.td-social-icon {
-  color: #fff !important;
+    color: #fff !important;
 }
 h6.following.card-title {
+    background-color: #d1cecb;
     font-size: 1.1rem;
     font-weight: 600;
+    text-align: center;
 }
 .container {
     margin: 0 auto;
@@ -434,6 +440,9 @@ i.fa.fa-twitter::before, i.fa.fa-facebook::before, i.fa.fa-google-plus::before, 
     color: #fff;
 }
 
+.card-content.friends {
+    padding: 0;
+}
 
 // *, *:before, *:after {
 //     // box-sizing: border-box;
