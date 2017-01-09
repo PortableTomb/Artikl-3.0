@@ -11,7 +11,8 @@
   "scripts": {
     "lint": "eslint --ext .js --ignore-pattern public",
     "knex": "knex",
-    "start": "brunch watch --server"
+    "start": "brunch watch --server",
+    "heroku-postbuild": "brunch build --production; knex migrate:latest"
   },
   "dependencies": {
     "angular": "^1.5.8",
