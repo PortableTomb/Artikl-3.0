@@ -54,28 +54,32 @@
                             <tr>
                                 <td class="td-social-icon">
                                     <div class="icon-circle">
-                                        <i class="fa fa-twitter" aria-hidden="false"></i>
+                                        <a ng-href="http://www.twitter.com" class="social-link" target="_blank">
+                                            <i class="fa fa-twitter" aria-hidden="false"></i></a>
                                     </div>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="td-social-icon">
                                     <div class="icon-circle">
-                                        <i class="fa fa-google-plus" aria-hidden="true"></i>
+                                        <a ng-href="https://plus.google.com/" class="social-link" target="_blank">
+                                            <i class="fa fa-google-plus" aria-hidden="true"></i></a>
                                         <div>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="td-social-icon">
                                     <div class="icon-circle">
-                                        <i class="fa fa-facebook" aria-hidden="true"></i>
+                                        <a ng-href="https://www.facebook.com/" class="social-link" target="_blank">
+                                            <i class="fa fa-facebook" aria-hidden="true"></i></a>
                                     </div>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="td-social-icon">
                                     <div class="icon-circle">
-                                        <i class="fa fa-pinterest" aria-hidden="true"></i>
+                                        <a ng-href="https://www.pinterest.com/" class="social-link" target="_blank">
+                                            <i class="fa fa-pinterest" aria-hidden="true"></i>
                                     </div>
                                 </td>
                             </tr>
@@ -89,14 +93,14 @@
                             <div ng-show="makeComment" class="collapsible-header">
                                 <form>
                                     <input ng-model="commentsCtrl.comment" type="text" name="comment" id="comment_content" placeholder="Make a comment.">
-                                    <a href=" " type="submit " class="black-text btn-flat comment right" ng-click="commentsCtrl.createComment(post.id)"></a>
+                                    <a type="submit" class="black-text btn-flat comment right" ng-click="commentsCtrl.createComment(post.id); commentsCtrl.clearSearch()"></a>
                                 </form>
                             </div>
 
                             <!-- Show Comments -->
                             <div ng-show="showComments">
                                 <div class="card show-comments">
-                                    <div class=" card-content">
+                                    <div class=" card-content comments">
                                         <div ng-repeat="comment in commentsCtrl.getPostComments(post.id)">
                                             <div class="comment-list-box">
                                                 <ul class="comment-list">

@@ -38,6 +38,10 @@ class CommentsCtrl {
     return this.userService.getAllUsers();
   }
 
+  clearSearch() {
+    this.comment = null;
+  }
+
   removeComment(index) {
     return this.commentsService.removeComment(index);
   }

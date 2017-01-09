@@ -51,10 +51,10 @@
             <section ng-controller="CommentsCtrl as commentsCtrl">
                 <div id="dash-comments" class="card-panel col s6 m8 l8">
                     <div class="header">
-                        <h6 class="topic card-title">New Comments from Friends</h6>
+                        <h6 class="topic card-title dash"><b>Recent Comments </b></h6>
                         <div ng-repeat="comment in commentsCtrl.getAllCommentsFromFollowees()" class="card-content">
                             <ul class="new-comments-followers">
-                                <span class="black-text">{{comment.commentContent}} by {{comment.username}} </span>
+                                <span class="black-text"><em>{{comment.commentContent}}</em> by {{comment.username}} </span>
                             </ul>
                         </div>
                     </div>
@@ -64,7 +64,7 @@
             <section ng-controller="PostCtrl as postCtrl">
                 <div id="dash-posts" class="card-panel col s6 m8 l8">
                     <div class="header">
-                        <h6 class="topic card-title">New Posts from Friends</h6>
+                        <h6 class="topic card-title dash">Recent Posts</h6>
                         <div ng-repeat="posts in postCtrl.getAllPostsFromFollowees()" class="card-content">
                             <ul class="new-posts-followers">
                                 <span class="black-text">{{ posts.postTitle }} by {{posts.username}} </span>
@@ -77,7 +77,7 @@
             <section ng-controller="PostCtrl as postCtrl">
                 <div id="dash-posts" class="card-panel col s6 m8 l8">
                     <div class="header">
-                        <h6 class="topic card-title">{{ posts.userId }} New Activity </h6>
+                        <h6 class="topic card-title dash">{{ posts.userId }} New Activity </h6>
                         <div ng-repeat="posts in postCtrl.getAllPosts() | filter: postsCtrl.userId" class="card-content">
                             <ul class="new-posts-followers">
                                 <span class="black-text">{{ posts.postTitle }} </span>
@@ -89,6 +89,6 @@
         </div>
 
     </div>
-    </div>
+    <!-- </div> -->
 
 </section>

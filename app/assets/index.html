@@ -18,12 +18,13 @@
     <!-- <header ng-include=" 'views/nav.html' "></header> -->
 
     <!-- NAVIGATION -->
-    <div class="logo-above-nav">
+    <!-- <div class="logo-above-nav">
         <a ui-sref="home" class="brand-logo black-text center">Designeddit</a>
-    </div>
+    </div> -->
 
     <nav>
         <div class="nav-wrapper grey lighten-4">
+            <a ui-sref="home" class="brand-logo black-text center">Designeddit</a>
             <a href="#" class="button-collapse black-text" data-activates="nav-mobile" data-sidenav="left" data-menuwith="300px" data-closeonclick="false"><i class="material-icons black-text md-24">menu</i></a>
 
             <!-- Dropdown -->
@@ -50,9 +51,9 @@
 
             <!-- Sidebar & Logout -->
             <ul class="right" ng-controller="AuthCtrl as authCtrl">
-                <li><a ng-show="authCtrl.isSignedIn()" class="black-text tooltipped" ui-sref="dash" data-position="top" data-delay="100" data-tooltip="Dashboard"><i class="material-icons nav md-24">account_circle</i></a></li>
-                <li><a ng-show="authCtrl.isSignedIn()" class="modal-trigger black-text tooltipped" href="#new-post-modal" data-position="top" data-delay="100" data-tooltip="Post" modal><i class="material-icons nav">add</i></a></li>
-                <li><a class="active black-text" ui-sref="home" ng-show="authCtrl.isSignedIn()" ng-click="authCtrl.signOut()">Logout</a></li>
+                <li><a ng-show="authCtrl.isSignedIn()" class="modal-trigger black-text tooltipped" href="#new-post-modal" data-position="left" data-delay="100" data-tooltip="Post" modal><i class="material-icons nav">add</i></a></li>
+                <li><a ng-show="authCtrl.isSignedIn()" class="black-text tooltipped" ui-sref="dash" data-position="left" data-delay="100" data-tooltip="Dashboard"><i class="material-icons nav">account_circle</i></a></li>
+                <li><a class="active black-text tooltipped" data-position="left" data-delay="100" data-tooltip="Logout" ui-sref="home" ng-show="authCtrl.isSignedIn()" ng-click="authCtrl.signOut()"><i class="material-icons nav  close">close</i></a></li>
             </ul>
         </div>
     </nav>
