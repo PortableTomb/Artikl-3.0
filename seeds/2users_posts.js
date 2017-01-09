@@ -5,7 +5,7 @@ exports.seed = function(knex, Promise) {
       return knex('users_posts').insert([{
         id: 1,
         user_id: 1,
-        topic_id: 2,
+        topic_id: 1,
         votes: 0,
         likes: false,
         post_title:"Dancing Meets Creative Coders",
@@ -50,10 +50,46 @@ exports.seed = function(knex, Promise) {
       post_text:"Dribbble Meetups are fun! Getting designers together is a guaranteed good time. You’ll be able to mingle and meet other designers.",
       created_at: new Date('2016-06-29 14:26:16 UTC'),
       updated_at: new Date('2016-06-29 14:26:16 UTC')
-      },  {
-      id: 6,
+      }, {
+      id: 7,
+      user_id: 4,
+      topic_id: 2,
+      votes: 0,
+      likes: false,
+      post_title:"Taiwanese animator Min Liu",
+      post_url:"http://www.min-liu.com/",
+      post_image:"https://upload-assets.vice.com/files/2017/01/04/1483557810052615.gif",
+      post_text:"A series of 100 clever, mesmerizing, and occasionally fucked up GIFs by Taiwanese animator Min Liu. A 100-day Instagram challenge to make a GIF every 24 hours.",
+      created_at: new Date('2016-06-29 14:26:16 UTC'),
+      updated_at: new Date('2016-06-29 14:26:16 UTC')
+      }, {
+      id: 8,
       user_id: 1,
       topic_id: 3,
+      votes: 0,
+      likes: false,
+      post_title:"PonyFoo",
+      post_url:"https://ponyfoo.com/",
+      post_image:"https://ponyfoo.com/img/mjavascript/practical-es6.b2b35ad8.png",
+      post_text:"Pony Foo Weekly – a newsletter about the open web by Nicolás Bevacqua.",
+      created_at: new Date('2016-06-29 14:26:16 UTC'),
+      updated_at: new Date('2016-06-29 14:26:16 UTC')
+      }, {
+      id: 9,
+      user_id: 4,
+      topic_id: 1,
+      votes: 0,
+      likes: false,
+      post_title:"Codrops Digest",
+      post_url:"https://tympanus.net/codrops/",
+      post_image:"https://codropspz-tympanus.netdna-ssl.com/codrops/wp-content/uploads/2016/12/RevealerEffect_800x600.png",
+      post_text:"Codrops is a web design and development blog that publishes articles and tutorials about the latest web trends, techniques and new possibilities.",
+      created_at: new Date('2016-06-29 14:26:16 UTC'),
+      updated_at: new Date('2016-06-29 14:26:16 UTC')
+      }, {
+      id: 6,
+      user_id: 2,
+      topic_id: 1,
       votes: 0,
       likes: false,
       post_title:"Norgram",
@@ -64,14 +100,14 @@ exports.seed = function(knex, Promise) {
       updated_at: new Date('2016-06-29 14:26:16 UTC')
       }, {
       id: 5,
-      user_id: 1,
-      topic_id: 1,
+      user_id: 3,
+      topic_id: 3,
       votes: 0,
       likes: false,
-      post_title:"British Fashion",
-      post_url:"https://www.google.com/culturalinstitute/beta/u/0/project/british-fashion",
-      post_image:"https://i.ytimg.com/vi/zegkHODNVvY/hqdefault.jpg",
-      post_text:"Mathematical formulas are used to place the artworks in a 3D environment, where you can choose to visualise what a cultural big bang might look like, or travel through the sea of artworks decade by decade.",
+      post_title:"Duo layout with CSS3 and Transitions",
+      post_url:"http://webdesignerwall.com/tutorials/tutorial-duo-layout-css3-animations-transitions-pt-2",
+      post_image:"http://webdesignerwall.com/wp-content/uploads/2017/01/splitscreen-overlay-1.jpg",
+      post_text:"How to build a split-screen website layout using CSS flexbox and viewport units. Clicking on one side or the other navigates further into the site without a page load.",
       created_at: new Date('2016-06-29 14:26:16 UTC'),
       updated_at: new Date('2016-06-29 14:26:16 UTC')
       }]);

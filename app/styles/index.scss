@@ -5,7 +5,7 @@ $nav-color:  #29292b;
 // $background-color: #f7fdfc;
 $background-color: #f4f4f4;
 // $social-icon-color: #dae8e1;
-$social-icon-color: #b9b5b0;
+$social-icon-color: #dae1e1;
 
 $header-font: 'Space Mono', monospace;
 
@@ -439,6 +439,16 @@ td.comment-list-item {
 td, th {
     padding: 5px 5px;
 }
+
+input#loginemail, input#password {
+    background-color: #F4F4F4 !important;
+    background-image: none;
+    color: rgb(0, 0, 0);
+}
+.reg-box {
+    margin-top: 5%;
+}
+
 // MEDIA QUERIES
 // Home
 @media (min-width: 990px) and (max-width: 1120px) {
