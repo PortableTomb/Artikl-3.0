@@ -322,7 +322,10 @@ p.card-title.singlepost {
   font-weight: 900;
   padding-top: 4%;
 }
-
+img.single-image {
+  max-width: 100%;
+  max-height: 500px;
+}
 // sidebar
 
 button.grey.btn-flat {
