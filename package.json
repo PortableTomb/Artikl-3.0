@@ -24,6 +24,7 @@
     "angular-socialshare": "^2.3.3",
     "angular-ui-router": "^0.3.2",
     "babel-brunch": "^6.0.6",
+    "auto-reload-brunch": "^2.7.1",
     "babel-preset-es2015": "^6.14.0",
     "bcrypt-as-promised": "^1.1.0",
     "body-parser": "^1.15.2",
@@ -48,7 +49,6 @@
     "uglify-js-brunch": "^2.0.1"
   },
   "devDependencies": {
-    "auto-reload-brunch": "^2.7.1",
     "eslint": "^3.4.0",
     "eslint-config-ryansobol": "^9.1.1",
     "foreman": "^2.0.0"
