@@ -158,6 +158,10 @@ i.material-icons {
   }
 }
 
+i.material-icons.black-text.check {
+    margin-top: 15px;
+}
+
 i.material-icons {
   &.comment:hover {
    color: $submenu-icon-hover;

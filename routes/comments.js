@@ -21,7 +21,7 @@ const authorize = function(req, res, next) {
 };
 
 
-router.get('/comments', authorize, (_req, res, next) => {
+router.get('/comments', (_req, res, next) => {
   knex('users_comments')
     .orderBy('id')
     .then((rows) => {
@@ -34,7 +34,7 @@ router.get('/comments', authorize, (_req, res, next) => {
     });
 });
 
-router.get('/comments/:id', authorize, (req, res, next) => {
+router.get('/comments/:id', (req, res, next) => {
   // const id = req.params.id;
   // const postId = req.params.post_id;
   knex('users_comments')
