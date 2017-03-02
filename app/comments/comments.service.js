@@ -72,10 +72,6 @@ class CommentsService {
     return this.comments;
   }
 
-  // removeComment(index) {
-  //   this.comments.splice(index, 1);
-  // }
-
 }
 
 CommentsService.$inject = ['$http', '$state', 'authService'];

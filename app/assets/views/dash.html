@@ -1,81 +1,11 @@
 <section>
     <div class="container">
         <div class="row">
-            <div class="col s6 m4 l4">
-                <div class="user-list-box" ng-controller="UserCtrl as userCtrl"></div>
-
-                <!-- SEARCH -->
-                <form>
-                    <!-- Search Username: -->
-                    <div class="searchbar-wrap">
-                        <input ng-model="searchText" id="user-searchinput" placeholder="Search for friends" type="text" autofocus>
-                    </div>
-                    <div class="card">
-                        <div class="card-content">
-                            <table id="searchTextResults">
-                                <tbody ng-show='searchText'>
-                                    <tr ng-repeat="users in userCtrl.getAllUsers() | filter: searchText | orderBy: 'users.username'  ">
-                                        <td>{{users.username}}</td>
-                                        <!-- <td>{{users.email}} </td> -->
-                                        <td></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </form>
-
-                <!-- ALL USERS CARD -->
-                <div ng-controller="UserCtrl as userCtrl">
-                    <div class="card">
-                        <h6 class="following card-title">Following</h6>
-                        <div class="card-content friends">
-                            <div ng-repeat="user in userCtrl.getAllFollows()">
-                                <span class="dash-username card-title">{{user.username}}<a class="btn-flat right" ng-show="!followId" ng-click="userCtrl.deleteFollow(user.followId)"><i class="material-icons">close</i></a></span>
-                            </div>
-                        </div>
-                        <h6 class="following card-title">Add Users</h6>
-                        <div class="card-content users">
-                            <div ng-repeat="user in userCtrl.getAllUsers()">
-                                <span class="dash-username card-title">{{user.username}}<a class="btn-flat right" ng-show="!followId" ng-click="userCtrl.createFollow(user.id)"><i class="material-icons add">add_circle</i></a></span>
-                                <p class="users-email">{{user.email}}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
 
             <!-- Dash Sections -->
-            <!-- COMMENTS -->
-            <section ng-controller="CommentsCtrl as commentsCtrl">
-                <div id="dash-comments" class="card-panel col s6 m8 l8">
-                    <div class="header">
-                        <h6 class="topic card-title dash"><b>Recent Comments </b></h6>
-                        <div ng-repeat="comment in commentsCtrl.getAllCommentsFromFollowees()" class="card-content">
-                            <ul class="new-comments-followers">
-                                <span class="black-text"><em>{{comment.commentContent}}</em> by {{comment.username}} </span>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- FRIEND POSTS -->
-            <section ng-controller="PostCtrl as postCtrl">
-                <div id="dash-posts" class="card-panel col s6 m8 l8">
-                    <div class="header">
-                        <h6 class="topic card-title dash"><b>Recent Posts</b></h6>
-                        <div ng-repeat="posts in postCtrl.getAllPostsFromFollowees()" class="card-content">
-                            <ul class="new-posts-followers">
-                                <span class="black-text"><em>{{ posts.postTitle }}</em> by {{posts.username}} </span>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
             <!-- YOUR POSTS -->
             <section ng-controller="PostCtrl as postCtrl">
-                <div id="dash-posts" class="card-panel col s6 m8 l8">
+                <div id="dash-comments" class="card-panel col s12 m12 l12">
                     <div class="header">
                         <h6 class="topic card-title dash">{{ posts.userId }} New Activity </h6>
                         <div ng-repeat="posts in postCtrl.getAllPosts() | filter: postsCtrl.userId" class="card-content">
@@ -86,9 +16,88 @@
                     </div>
                 </div>
             </section>
+            <!-- COMMENTS -->
+            <section ng-controller="CommentsCtrl as commentsCtrl">
+                <div id="dash-posts" class="card-panel col s12 m12 l12">
+                    <div class="header">
+                        <h6 class="topic card-title dash"><b>Recent Comments </b></h6>
+                    </div>
+                    <div ng-repeat="comment in commentsCtrl.getAllCommentsFromFollowees()" class="card-content">
+                        <ul class="new-comments-followers">
+                            <span class="black-text"><em>{{comment.commentContent}}</em> by {{comment.username}} </span>
+                        </ul>
+                    </div>
+
+                </div>
+            </section>
+            <!-- FRIEND POSTS -->
+            <section ng-controller="PostCtrl as postCtrl">
+                <div id="dash-posts" class="card-panel col s12 m12 l12">
+                    <div class="header">
+                      <h6 class="topic card-title dash"><b>Recent Posts</b></h6>
+                        <div ng-repeat="posts in postCtrl.getAllPostsFromFollowees()" class="card-content">
+                            <ul class="new-posts-followers">
+                                <span class="black-text"><em>{{ posts.postTitle }}</em> by {{posts.username}} </span>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        <!-- </div> -->
+
+
+    <!-- </div> -->
+    <!-- <div class="row"> -->
+
+
+    <div id="follow" class="col s12 m12 l12">
+      <div class="user-list-box" ng-controller="UserCtrl as userCtrl"></div>
+
+        <!-- SEARCH -->
+        <form>
+            <!-- Search Username: -->
+            <div class="searchbar-wrap">
+                <input ng-model="searchText" id="user-searchinput" placeholder="Search for friends" type="text" autofocus>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <table id="searchTextResults">
+                        <tbody ng-show='searchText'>
+                            <tr ng-repeat="users in userCtrl.getAllUsers() | filter: searchText | orderBy: 'users.username'  ">
+                                <td>{{users.username}}</td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </form>
+        <!-- End Form -->
+        <!-- ALL USERS CARD -->
+        <div id="follow" class="col s12 m12 l12">
+            <div ng-controller="UserCtrl as userCtrl">
+                <div class="card">
+                    <h6 class="following card-title">Following</h6>
+                    <div class="card-content friends">
+                        <div ng-repeat="user in userCtrl.getAllFollows()">
+                            <span class="dash-username card-title">{{user.username}}<a class="btn-flat right" ng-show="!followId" ng-click="userCtrl.deleteFollow(user.followId)"><i class="material-icons">close</i></a></span>
+                        </div>
+                    </div>
+                    <h6 class="following card-title">Add Users</h6>
+                    <div class="card-content users">
+                        <div ng-repeat="user in userCtrl.getAllUsers()">
+                            <span class="dash-username card-title">{{user.username}} ( {{user.email}} )<a class="btn-flat right" ng-show="!followId" ng-click="userCtrl.createFollow(user.id)"><i class="material-icons add">add_circle</i></a></span>
+                            <!-- <p class="users-email">{{user.email}}</p> -->
+                        </div>
+                    </div>
+                </div>
         </div>
+    </div>
+    <!-- End Card -->
 
     </div>
-    <!-- </div> -->
-
-</section>
+    <!-- End Row -->
+    </div>
+    <!-- End Container -->
+    </section>
