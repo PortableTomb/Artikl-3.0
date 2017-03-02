@@ -44,12 +44,6 @@
                 </div>
             </section>
 
-        <!-- </div> -->
-
-
-    <!-- </div> -->
-    <!-- <div class="row"> -->
-
 
     <div id="follow" class="col s12 m12 l12">
       <div class="user-list-box" ng-controller="UserCtrl as userCtrl"></div>
@@ -87,8 +81,8 @@
                     <h6 class="following card-title">Add Users</h6>
                     <div class="card-content users">
                         <div ng-repeat="user in userCtrl.getAllUsers()">
-                            <span class="dash-username card-title">{{user.username}} ( {{user.email}} )<a class="btn-flat right" ng-show="!followId" ng-click="userCtrl.createFollow(user.id)"><i class="material-icons add">add_circle</i></a></span>
-                            <!-- <p class="users-email">{{user.email}}</p> -->
+                            <span class="dash-username card-title">{{user.username}} ( {{user.email}} )<a class="btn-flat right" ng-show="!followId" ng-click="userCtrl.createFollow(user.id)"><i class="material-icons add">add_circle</i></a>
+                            </span>
                         </div>
                     </div>
                 </div>
